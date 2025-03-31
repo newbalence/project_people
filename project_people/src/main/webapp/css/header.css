@@ -21,7 +21,7 @@ li {
 
 a {
 	text-decoration: none;
-	color: #5e6361;
+	color: #fff;
 	font-size: 19px;
     font-weight: 600;
     cursor: pointer;
@@ -29,12 +29,12 @@ a {
 }
 a:hover {
 	text-decoration: underline;
-	color: #073a26;
+	color: #070707;
 }
 
 .wrap {
 	width: 100%;
-	background-color: #b2f3dd;
+	background-color: #0676dd;
 	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 .icon-img {
@@ -52,11 +52,11 @@ a:hover {
 }
 .hea {
 	text-decoration: none;
-	color: #12faadf5;
+	color: #0676dd;
 	font-size: 19px;
     font-weight: 600;
     cursor: pointer;
-    width: 510px;
+    width: 50%;
     
 }
 .none:hover {
@@ -66,15 +66,18 @@ a:hover {
 }
 .hd {
 	max-width: 100%;
-	background-color: #f0de91;
+	background-color: #fff;
+	padding: 5px 0;
 	display: flex;
 	height: 35px;
+	align-items: center;
 }
 #name {
 	font-size: 12px;
+	color : black;
 }
 #shop {
-	color: #070707;
+	color: #0676dd;
     font-size: inherit;
     font-weight: inherit
 }
@@ -96,13 +99,44 @@ ul{
 }
 #second {
 	text-align: center;
-    width: 50%;
+    width: 100%;
     padding: 0px;
     display: inline-block;
 	margin-right: 5%;
     align-content: center;
 }
 #icon {
+	width:30%;
 	margin-left: 20px;
 	align-content: center;
+}
+#thrd {
+	text-align: center;
+    padding: 0px;
+	margin-right: 5%;
+    align-content: center;
+    height: 100%;
+    display: flex;
+    justify-content: right;
+    width: 25%;
+}
+#login{
+	align-items: center;
+    display: flex;
+    margin-right: 20px;
+}
+
+#login a{
+	text-decoration: none;
+	color: #5e6361;
+	font-size: 12px;
+	margin-left: 5px; 
+}
+.chat {
+	width: 60px;
+    margin-left: 356px;
+    padding: 0;
+    background-size: 34px auto;
+    background-position: top 11px center;
+    color: transparent;
 }

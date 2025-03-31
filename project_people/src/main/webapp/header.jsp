@@ -14,13 +14,13 @@
 	<div class="wrap">
 		<div class="header">
 			<ul class="nav">
-				<li><img src="./img/bi_seoul.svg" alt="아이콘 사진" class="icon-img"><a href="https://www.seoul.go.kr" title="새창알림" class="seoul">서울특별시</a></li>
+				<li><img src="./img/bi_seoul.svg" alt="아이콘 사진" class="icon-img"><a href="https://www.seoul.go.kr" title="새창알림" class="seoul">서울특별시</li>
 			</ul>
 			<div class="hea">
-				<li><a onclick="location.href='gonggo.jsp'">서울소식</a></li>
-				<li><a onclick="location.href='board.jsp?boardType=0'">응답소</a></li>
-				<li><a onclick="alert('개인회원 전용 게시판입니다.')">정보공개</a></li>
-				<li><a onclick="alert('나도 몰라')">분야별정보</a>
+				<li><a onclick="location.href='https://www.seoul.go.kr/realmnews/in/list.do'">서울소식</a></li>
+				<li><a onclick="location.href='https://eungdapso.seoul.go.kr/main.do'">응답소</a></li>
+				<li><a onclick="location.href='https://opengov.seoul.go.kr/'">정보공개</a></li>
+				<li><a>분야별정보</a>
 				<div id="information">
 					<div>안녕</div>
 					<div>클래오</div>
@@ -40,7 +40,15 @@
 			<li class="onner"><a class="inner">나는 사장</a></li>
 			<li class="onner_soon"><a class="inner">나도 곧 사장?!</a></li>
 			<li class="state"><a class="inner">지역·상권별 현황</a></li>
-			<li class="step"><a class="inner">이용안내</a></li>
+			<li class="step"><a onclick="location.href='use_info.jsp'" class="inner">이용안내</a></li>
+		</div>
+		<div id="thrd">
+			<div id="login">
+				<img src="./img/log.svg">
+			    <a href="#">로그인</a>
+		    </div>
+		    <img src="./img/chat.svg">
+		    <a href="#" class="chatbot" ></a>
 		</div>
 	</div>
 </body>

@@ -4,8 +4,8 @@
   "settings": {
     "width": 2000,
     "height": 2000,
-    "scrollTop": 0,
-    "scrollLeft": -497.7962,
+    "scrollTop": -200,
+    "scrollLeft": -269.7483,
     "zoomLevel": 1,
     "show": 431,
     "database": 4,
@@ -53,8 +53,6 @@
         "comment": "D_gu",
         "columnIds": [
           "xOmZrCCnJ5TxchdE1hOGb",
-          "o2PuXXNBiAZotaP6uTu7J",
-          "yeIHDClPwHqyH6p68Jryu",
           "iBsP8DeXhqgllHIqMFhIm",
           "q3xifo6AK_Ycu97zet24C"
         ],
@@ -62,6 +60,8 @@
           "xOmZrCCnJ5TxchdE1hOGb",
           "o2PuXXNBiAZotaP6uTu7J",
           "yeIHDClPwHqyH6p68Jryu",
+          "3H5U4_aha_b8J0ssv51Jk",
+          "VcJVuxgkIrBA1yys4WYFn",
           "iBsP8DeXhqgllHIqMFhIm",
           "q3xifo6AK_Ycu97zet24C"
         ],
@@ -74,7 +74,7 @@
           "color": ""
         },
         "meta": {
-          "updateAt": 1742881762313,
+          "updateAt": 1743144643756,
           "createAt": 1742878846653
         }
       },
@@ -84,9 +84,8 @@
         "comment": "income",
         "columnIds": [
           "MSJvOJFamCZYBD06cEgbv",
-          "y2g-AkjTr6DOm8lEKFGPA",
-          "1iiVaZUmrwMFXhG3SrSuU",
-          "q3pdGov_hQUnsKLVPvj2r",
+          "kWzib0M9FulOAwfotVQp2",
+          "Me6ZHSmgBYibz93B7SnHD",
           "Y8nxghkNNbuyNSKuEyc0V",
           "y6Mk-EmqJ0BMv-zJnnXbI",
           "m7jJq0ZzTlEdW6IfwZJK1",
@@ -102,9 +101,11 @@
         ],
         "seqColumnIds": [
           "MSJvOJFamCZYBD06cEgbv",
+          "kWzib0M9FulOAwfotVQp2",
           "y2g-AkjTr6DOm8lEKFGPA",
           "1iiVaZUmrwMFXhG3SrSuU",
           "q3pdGov_hQUnsKLVPvj2r",
+          "Me6ZHSmgBYibz93B7SnHD",
           "Y8nxghkNNbuyNSKuEyc0V",
           "y6Mk-EmqJ0BMv-zJnnXbI",
           "m7jJq0ZzTlEdW6IfwZJK1",
@@ -127,7 +128,7 @@
           "color": ""
         },
         "meta": {
-          "updateAt": 1742884503623,
+          "updateAt": 1743144118041,
           "createAt": 1742879158681
         }
       },
@@ -362,15 +363,15 @@
           "vVA4_hNA6lL7qI17tGnXK"
         ],
         "ui": {
-          "x": 760.9025,
-          "y": 795,
+          "x": 761.9025,
+          "y": 796,
           "zIndex": 433,
           "widthName": 60,
           "widthComment": 60,
           "color": ""
         },
         "meta": {
-          "updateAt": 1742881746013,
+          "updateAt": 1743144503487,
           "createAt": 1742880272616
         }
       },
@@ -468,15 +469,15 @@
           "ugeIpByug4S7OUC0bYSrs"
         ],
         "ui": {
-          "x": 766.9025,
-          "y": 1456,
+          "x": 768.9025,
+          "y": 1457,
           "zIndex": 578,
           "widthName": 60,
           "widthComment": 60,
           "color": ""
         },
         "meta": {
-          "updateAt": 1742882825952,
+          "updateAt": 1743144536178,
           "createAt": 1742880653720
         }
       },
@@ -521,7 +522,7 @@
           "color": ""
         },
         "meta": {
-          "updateAt": 1742884556966,
+          "updateAt": 1743144221916,
           "createAt": 1742880971168
         }
       },
@@ -693,15 +694,15 @@
           "4EAq-vda19rNE7WEdc07x"
         ],
         "ui": {
-          "x": 1510,
-          "y": 13,
+          "x": 1333,
+          "y": 0,
           "zIndex": 696,
           "widthName": 60,
           "widthComment": 60,
           "color": ""
         },
         "meta": {
-          "updateAt": 1742888459365,
+          "updateAt": 1743144576390,
           "createAt": 1742881121400
         }
       }
@@ -710,8 +711,8 @@
       "xOmZrCCnJ5TxchdE1hOGb": {
         "id": "xOmZrCCnJ5TxchdE1hOGb",
         "tableId": "GCK7WLsNaUTjKxwsgCM1i",
-        "name": "행정기구",
-        "comment": "Gu",
+        "name": "자치구",
+        "comment": "Jachigu",
         "dataType": "str",
         "default": "",
         "options": 0,
@@ -723,7 +724,7 @@
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1742882482441,
+          "updateAt": 1743144692344,
           "createAt": 1742878973362
         }
       },
@@ -1150,40 +1151,40 @@
       "gJnvCJE84ycMUHBauSM0A": {
         "id": "gJnvCJE84ycMUHBauSM0A",
         "tableId": "6HUxQyFEnF6fXZp1rcelK",
-        "name": "행정동 코드",
-        "comment": "D_code_num",
+        "name": "자치구코드",
+        "comment": "gu_code",
         "dataType": "int",
         "default": "",
         "options": 0,
         "ui": {
           "keys": 0,
-          "widthName": 65,
-          "widthComment": 70,
+          "widthName": 62,
+          "widthComment": 60,
           "widthDataType": 60,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1742884361150,
+          "updateAt": 1743144471089,
           "createAt": 1742879521585
         }
       },
       "I-I97eEgEI5e2a9lq4ayj": {
         "id": "I-I97eEgEI5e2a9lq4ayj",
         "tableId": "6HUxQyFEnF6fXZp1rcelK",
-        "name": "행정동 코드명",
-        "comment": "D_code_name",
+        "name": "자치구코드명",
+        "comment": "gu_code_name",
         "dataType": "str",
         "default": "",
         "options": 0,
         "ui": {
           "keys": 0,
-          "widthName": 77,
-          "widthComment": 76,
+          "widthName": 74,
+          "widthComment": 81,
           "widthDataType": 60,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1742882706122,
+          "updateAt": 1743144480944,
           "createAt": 1742879521905
         }
       },
@@ -2230,40 +2231,40 @@
       "bqW8TUKLSFI0gZFI8S5X1": {
         "id": "bqW8TUKLSFI0gZFI8S5X1",
         "tableId": "xpdv0I1-m7An1-N0ccz5R",
-        "name": "행정동 코드",
-        "comment": "D_code_num",
+        "name": "자치구코드",
+        "comment": "gu_code",
         "dataType": "int",
         "default": "",
         "options": 0,
         "ui": {
           "keys": 0,
-          "widthName": 65,
-          "widthComment": 70,
+          "widthName": 62,
+          "widthComment": 60,
           "widthDataType": 60,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1742884120711,
+          "updateAt": 1743144381984,
           "createAt": 1742880046088
         }
       },
       "YWVrWl8TSzaW1mHF6Aagq": {
         "id": "YWVrWl8TSzaW1mHF6Aagq",
         "tableId": "xpdv0I1-m7An1-N0ccz5R",
-        "name": "행정동 코드명",
-        "comment": "D_code_name",
+        "name": "자치구코드명",
+        "comment": "gu_code_name",
         "dataType": "str",
         "default": "",
         "options": 0,
         "ui": {
           "keys": 0,
-          "widthName": 77,
-          "widthComment": 76,
+          "widthName": 74,
+          "widthComment": 81,
           "widthDataType": 60,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1742882584348,
+          "updateAt": 1743144391448,
           "createAt": 1742880046088
         }
       },
@@ -2730,40 +2731,40 @@
       "pf8mK69HIP18pKFndgXNO": {
         "id": "pf8mK69HIP18pKFndgXNO",
         "tableId": "t19e7JQ3fbK3uHMEOydDL",
-        "name": "행정동 코드",
-        "comment": "D_code_num",
+        "name": "자치구코드",
+        "comment": "gu_code",
         "dataType": "int",
         "default": "",
         "options": 0,
         "ui": {
           "keys": 0,
-          "widthName": 65,
-          "widthComment": 70,
+          "widthName": 62,
+          "widthComment": 60,
           "widthDataType": 60,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1742884656381,
+          "updateAt": 1743144501736,
           "createAt": 1742880314038
         }
       },
       "1HmbheTvm32Ev0LizhXZh": {
         "id": "1HmbheTvm32Ev0LizhXZh",
         "tableId": "t19e7JQ3fbK3uHMEOydDL",
-        "name": "행정동 코드명",
-        "comment": "D_code_name",
+        "name": "자치구코드명",
+        "comment": "gu_code_name",
         "dataType": "str",
         "default": "",
         "options": 0,
         "ui": {
           "keys": 0,
-          "widthName": 77,
-          "widthComment": 76,
+          "widthName": 74,
+          "widthComment": 81,
           "widthDataType": 60,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1742882752386,
+          "updateAt": 1743144509464,
           "createAt": 1742880314038
         }
       },
@@ -3210,40 +3211,40 @@
       "t_Pm_Won7QYBljKTwkkIC": {
         "id": "t_Pm_Won7QYBljKTwkkIC",
         "tableId": "RV81cXIY07XMy8_9XBj0L",
-        "name": "행정동 코드",
-        "comment": "D_code_num",
+        "name": "자치구코드",
+        "comment": "gu_code",
         "dataType": "int",
         "default": "",
         "options": 0,
         "ui": {
           "keys": 0,
-          "widthName": 65,
-          "widthComment": 70,
+          "widthName": 62,
+          "widthComment": 60,
           "widthDataType": 60,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1742884260499,
+          "updateAt": 1743144422769,
           "createAt": 1742880527936
         }
       },
       "VxnMLzELIU1_qqrPGMMJp": {
         "id": "VxnMLzELIU1_qqrPGMMJp",
         "tableId": "RV81cXIY07XMy8_9XBj0L",
-        "name": "행정동 코드명",
-        "comment": "D_code_name",
+        "name": "자치구코드명",
+        "comment": "gu_code_name",
         "dataType": "str",
         "default": "",
         "options": 0,
         "ui": {
           "keys": 0,
-          "widthName": 77,
-          "widthComment": 76,
+          "widthName": 74,
+          "widthComment": 81,
           "widthDataType": 60,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1742882649970,
+          "updateAt": 1743144434562,
           "createAt": 1742880527936
         }
       },
@@ -3390,40 +3391,40 @@
       "hFX_F5aznPRvzhx2fu1Op": {
         "id": "hFX_F5aznPRvzhx2fu1Op",
         "tableId": "L9fPjLHKlx0AimdDATDHc",
-        "name": "행정동 코드",
-        "comment": "D_code_num",
+        "name": "자치구코드",
+        "comment": "gu_code",
         "dataType": "int",
         "default": "",
         "options": 0,
         "ui": {
           "keys": 0,
-          "widthName": 65,
-          "widthComment": 70,
+          "widthName": 62,
+          "widthComment": 60,
           "widthDataType": 60,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1742884743544,
+          "updateAt": 1743144534437,
           "createAt": 1742880734550
         }
       },
       "T5AtqxPvfcAW6IeKMRGdz": {
         "id": "T5AtqxPvfcAW6IeKMRGdz",
         "tableId": "L9fPjLHKlx0AimdDATDHc",
-        "name": "행정동 코드명",
-        "comment": "D_code_name",
+        "name": "자치구코드명",
+        "comment": "gu_code_name",
         "dataType": "str",
         "default": "",
         "options": 0,
         "ui": {
           "keys": 0,
-          "widthName": 77,
-          "widthComment": 76,
+          "widthName": 74,
+          "widthComment": 81,
           "widthDataType": 60,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1742882791057,
+          "updateAt": 1743144541317,
           "createAt": 1742880734550
         }
       },
@@ -3850,40 +3851,40 @@
       "iujrV_qi17bWrxr1IGCJQ": {
         "id": "iujrV_qi17bWrxr1IGCJQ",
         "tableId": "3WqPXU7GkcuNCxNyRVz-c",
-        "name": "행정동 코드",
-        "comment": "D_code_num",
+        "name": "자치구코드",
+        "comment": "gu_code",
         "dataType": "int",
         "default": "",
         "options": 0,
         "ui": {
           "keys": 0,
-          "widthName": 65,
-          "widthComment": 70,
+          "widthName": 62,
+          "widthComment": 60,
           "widthDataType": 60,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1742884567337,
+          "updateAt": 1743144447588,
           "createAt": 1742880984965
         }
       },
       "lSOvPKhrkiwVaD6gE7xZw": {
         "id": "lSOvPKhrkiwVaD6gE7xZw",
         "tableId": "3WqPXU7GkcuNCxNyRVz-c",
-        "name": "행정동 코드명",
-        "comment": "D_code_name",
+        "name": "자치구코드명",
+        "comment": "gu_code_name",
         "dataType": "str",
         "default": "",
         "options": 0,
         "ui": {
           "keys": 0,
-          "widthName": 77,
-          "widthComment": 76,
+          "widthName": 74,
+          "widthComment": 81,
           "widthDataType": 60,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1742882669146,
+          "updateAt": 1743144246985,
           "createAt": 1742880984965
         }
       },
@@ -5150,40 +5151,40 @@
       "6ipncbSMhdL7OMs7D_i3a": {
         "id": "6ipncbSMhdL7OMs7D_i3a",
         "tableId": "yPuILLJT8lZbeHCyYUoYR",
-        "name": "행정동 코드",
-        "comment": "D_code_num",
+        "name": "자치구코드",
+        "comment": "gu_code",
         "dataType": "int",
         "default": "",
         "options": 0,
         "ui": {
           "keys": 0,
-          "widthName": 65,
-          "widthComment": 70,
+          "widthName": 62,
+          "widthComment": 60,
           "widthDataType": 60,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1742884843150,
+          "updateAt": 1743144581792,
           "createAt": 1742881201678
         }
       },
       "4RTncb11P6qwhwN-RCqQU": {
         "id": "4RTncb11P6qwhwN-RCqQU",
         "tableId": "yPuILLJT8lZbeHCyYUoYR",
-        "name": "행정동 코드명",
-        "comment": "D_code_name",
+        "name": "자치구코드명",
+        "comment": "gu_code_name",
         "dataType": "str",
         "default": "",
         "options": 0,
         "ui": {
           "keys": 0,
-          "widthName": 77,
-          "widthComment": 76,
+          "widthName": 74,
+          "widthComment": 81,
           "widthDataType": 60,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1742882838113,
+          "updateAt": 1743144589489,
           "createAt": 1742881201679
         }
       },
@@ -6206,6 +6207,86 @@
           "updateAt": 1742884131327,
           "createAt": 1742881774647
         }
+      },
+      "kWzib0M9FulOAwfotVQp2": {
+        "id": "kWzib0M9FulOAwfotVQp2",
+        "tableId": "WYQUwejKw-BGjXvCrh2kI",
+        "name": "자치구코드",
+        "comment": "gu_code",
+        "dataType": "",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 62,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1743144159751,
+          "createAt": 1743144111758
+        }
+      },
+      "Me6ZHSmgBYibz93B7SnHD": {
+        "id": "Me6ZHSmgBYibz93B7SnHD",
+        "tableId": "WYQUwejKw-BGjXvCrh2kI",
+        "name": "자치구코드명",
+        "comment": "gu_code_name",
+        "dataType": "",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 74,
+          "widthComment": 81,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1743144255993,
+          "createAt": 1743144112477
+        }
+      },
+      "3H5U4_aha_b8J0ssv51Jk": {
+        "id": "3H5U4_aha_b8J0ssv51Jk",
+        "tableId": "GCK7WLsNaUTjKxwsgCM1i",
+        "name": "",
+        "comment": "",
+        "dataType": "",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1743144631969,
+          "createAt": 1743144631969
+        }
+      },
+      "VcJVuxgkIrBA1yys4WYFn": {
+        "id": "VcJVuxgkIrBA1yys4WYFn",
+        "tableId": "GCK7WLsNaUTjKxwsgCM1i",
+        "name": "",
+        "comment": "",
+        "dataType": "",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1743144632412,
+          "createAt": 1743144632412
+        }
       }
     },
     "relationshipEntities": {},
@@ -6228,15 +6309,15 @@
       1742878973361,
       -1,
       {
-        "name": 1742879001188,
-        "comment": 1742879155188,
+        "name": 1743144660843,
+        "comment": 1743144692343,
         "dataType": 1742882482440
       }
     ],
     "o2PuXXNBiAZotaP6uTu7J": [
       "tableColumnEntities",
       1742879003217,
-      -1,
+      1743143941804,
       {
         "name": 1742879010758,
         "comment": 1742879094703,
@@ -6246,7 +6327,7 @@
     "yeIHDClPwHqyH6p68Jryu": [
       "tableColumnEntities",
       1742879003569,
-      -1,
+      1743143942932,
       {
         "name": 1742879026911,
         "comment": 1742879115461,
@@ -6298,7 +6379,7 @@
     "y2g-AkjTr6DOm8lEKFGPA": [
       "tableColumnEntities",
       1742879218200,
-      -1,
+      1743143954828,
       {
         "name": 1742882525624,
         "dataType": 1742884475886,
@@ -6310,7 +6391,7 @@
     "1iiVaZUmrwMFXhG3SrSuU": [
       "tableColumnEntities",
       1742879218440,
-      -1,
+      1743143955596,
       {
         "name": 1742879240079,
         "dataType": 1742882535681,
@@ -6322,7 +6403,7 @@
     "q3pdGov_hQUnsKLVPvj2r": [
       "tableColumnEntities",
       1742879218664,
-      -1,
+      1743143955636,
       {
         "name": 1742879240079,
         "dataType": 1742884505311,
@@ -6501,11 +6582,11 @@
       1742879521584,
       -1,
       {
-        "name": 1742879592757,
+        "name": 1743144459821,
         "dataType": 1742884361149,
         "options(notNull)": 1742879592757,
         "default": 1742879592757,
-        "comment": 1742879653053
+        "comment": 1743144471087
       }
     ],
     "I-I97eEgEI5e2a9lq4ayj": [
@@ -6513,11 +6594,11 @@
       1742879521904,
       -1,
       {
-        "name": 1742879592757,
+        "name": 1743144465924,
         "dataType": 1742882706120,
         "options(notNull)": 1742879592757,
         "default": 1742879592757,
-        "comment": 1742879659396
+        "comment": 1743144480943
       }
     ],
     "9FyHroLrIi470tbUQDfqb": [
@@ -7212,11 +7293,11 @@
       1742880046063,
       -1,
       {
-        "name": 1742880046063,
+        "name": 1743144366848,
         "dataType": 1742884120710,
         "options(notNull)": 1742880046063,
         "default": 1742880046063,
-        "comment": 1742880069723
+        "comment": 1743144381983
       }
     ],
     "YWVrWl8TSzaW1mHF6Aagq": [
@@ -7224,11 +7305,11 @@
       1742880046063,
       -1,
       {
-        "name": 1742880046063,
+        "name": 1743144373396,
         "dataType": 1742882584346,
         "options(notNull)": 1742880046063,
         "default": 1742880046063,
-        "comment": 1742880077131
+        "comment": 1743144391447
       }
     ],
     "Kl3IOOjzVZV5GCbnpb9w3": [
@@ -7521,11 +7602,11 @@
       1742880314014,
       -1,
       {
-        "name": 1742880314014,
+        "name": 1743144491373,
         "dataType": 1742884656380,
         "options(notNull)": 1742880314014,
         "default": 1742880314014,
-        "comment": 1742880323325
+        "comment": 1743144501735
       }
     ],
     "1HmbheTvm32Ev0LizhXZh": [
@@ -7533,11 +7614,11 @@
       1742880314014,
       -1,
       {
-        "name": 1742880314014,
+        "name": 1743144497037,
         "dataType": 1742882752385,
         "options(notNull)": 1742880314014,
         "default": 1742880314014,
-        "comment": 1742880328442
+        "comment": 1743144509463
       }
     ],
     "WjVjwfOYzSf3nEso7zBsr": [
@@ -7818,11 +7899,11 @@
       1742880527922,
       -1,
       {
-        "name": 1742880527922,
+        "name": 1743144403538,
         "dataType": 1742884260498,
         "options(notNull)": 1742880527922,
         "default": 1742880527922,
-        "comment": 1742880543284
+        "comment": 1743144422767
       }
     ],
     "VxnMLzELIU1_qqrPGMMJp": [
@@ -7830,11 +7911,11 @@
       1742880527922,
       -1,
       {
-        "name": 1742880527922,
+        "name": 1743144410284,
         "dataType": 1742882649970,
         "options(notNull)": 1742880527922,
         "default": 1742880527922,
-        "comment": 1742880548436
+        "comment": 1743144434561
       }
     ],
     "LRMFIwH4E7q3MGjflWY9s": [
@@ -7935,11 +8016,11 @@
       1742880734510,
       -1,
       {
-        "name": 1742880734510,
+        "name": 1743144518814,
         "dataType": 1742884743541,
         "options(notNull)": 1742880734510,
         "default": 1742880734510,
-        "comment": 1742880742739
+        "comment": 1743144534437
       }
     ],
     "T5AtqxPvfcAW6IeKMRGdz": [
@@ -7947,11 +8028,11 @@
       1742880734510,
       -1,
       {
-        "name": 1742880734510,
+        "name": 1743144523360,
         "dataType": 1742882791056,
         "options(notNull)": 1742880734510,
         "default": 1742880734510,
-        "comment": 1742880746924
+        "comment": 1743144541316
       }
     ],
     "_DTP_6DzEC2xeDRSURo0q": [
@@ -8220,11 +8301,11 @@
       1742880984947,
       -1,
       {
-        "name": 1742880984947,
+        "name": 1743144447587,
         "dataType": 1742884567336,
         "options(notNull)": 1742880984947,
         "default": 1742880984947,
-        "comment": 1742881012675
+        "comment": 1743144219680
       }
     ],
     "lSOvPKhrkiwVaD6gE7xZw": [
@@ -8232,11 +8313,11 @@
       1742880984947,
       -1,
       {
-        "name": 1742880984947,
+        "name": 1743144205432,
         "dataType": 1742882669144,
         "options(notNull)": 1742880984947,
         "default": 1742880984947,
-        "comment": 1742881016203
+        "comment": 1743144246983
       }
     ],
     "h-ShYT-aKYY4W-osk-It9": [
@@ -9009,11 +9090,11 @@
       1742881201633,
       -1,
       {
-        "name": 1742881201633,
+        "name": 1743144558077,
         "dataType": 1742884843143,
         "options(notNull)": 1742881201633,
         "default": 1742881201633,
-        "comment": 1742881216579
+        "comment": 1743144581791
       }
     ],
     "4RTncb11P6qwhwN-RCqQU": [
@@ -9021,11 +9102,11 @@
       1742881201633,
       -1,
       {
-        "name": 1742881201633,
+        "name": 1743144563671,
         "dataType": 1742882838112,
         "options(notNull)": 1742881201633,
         "default": 1742881201633,
-        "comment": 1742881234907
+        "comment": 1743144589487
       }
     ],
     "Mms-bd98O13gxbjnB7JPQ": [
@@ -9637,6 +9718,36 @@
         "comment": 1742881801850,
         "dataType": 1742884131326
       }
+    ],
+    "kWzib0M9FulOAwfotVQp2": [
+      "tableColumnEntities",
+      1743144111756,
+      -1,
+      {
+        "name": 1743144138487,
+        "comment": 1743144159750
+      }
+    ],
+    "Me6ZHSmgBYibz93B7SnHD": [
+      "tableColumnEntities",
+      1743144112476,
+      -1,
+      {
+        "name": 1743144146143,
+        "comment": 1743144255992
+      }
+    ],
+    "3H5U4_aha_b8J0ssv51Jk": [
+      "tableColumnEntities",
+      1743144631968,
+      1743144643755,
+      {}
+    ],
+    "VcJVuxgkIrBA1yys4WYFn": [
+      "tableColumnEntities",
+      1743144632411,
+      1743144642644,
+      {}
     ]
   }
 }
