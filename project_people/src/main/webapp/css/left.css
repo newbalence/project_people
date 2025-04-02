@@ -45,11 +45,7 @@
 }
 .recentAddr {
 	border-radius: 5px;
-	position: absolute;
-    left: 550px;
-    top: 140px;
-    width: 130px;
-    height: 35px;
+	width: 130px;
     background: #fff;
     text-align: center;
 }
@@ -60,11 +56,7 @@
 }
 .all {
 	border-radius: 5px;
-	position: absolute;
-    left: 110px;
-    top: -1px;
-    width: 130px;
-    height: 35px;
+	width: 130px;
     background: #fff;
     text-align: center;
 }
@@ -75,11 +67,7 @@
 }
 .All {
 	border-radius: 5px;
-	position: absolute;
-    left: 240px;
-    top: -1px;
-    width: 130px;
-    height: 35px;
+	width: 130px;
     background: #fff;
     text-align: center;
 }
@@ -149,7 +137,15 @@ button{
 }
 .bong {
 	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4);
-	
 	display:flex;
 	margin-left: 30px;
+}
+.seoul{
+	z-index: 9;
+    width: 100%;
+    display: flex;
+    height: 40px;
+    position: absolute;
+    justify-content: center;
+    margin-top: 50px;
 }

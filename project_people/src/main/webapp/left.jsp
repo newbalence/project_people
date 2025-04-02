@@ -14,9 +14,11 @@
 	  </div>
 	  <button onclick="toggle_view" class="bigToggle"><img src="./img/arrow_bottom_blue.svg"></button>
 	</nav>
-	<div class="recentAddr" style="z-index:9;">
+	<div class="seoul">
+	<div class="recentAddr">
 		<img src="./img/i_address.svg">
 	  	<span class="seo">서울특별시</span>
+	</div>
 		<div class="all">
 	      <span class="che">전체</span>
 	      <img src="./img/arrow_bottom_blue.svg">
@@ -26,6 +28,7 @@
 	      <img src="./img/arrow_bottom_blue.svg">
 		</div>
 	</div>
+
 	<div>
 		<div class="mapBtn">
 		  <div id="now" class="now">
