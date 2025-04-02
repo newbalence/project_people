@@ -36,11 +36,11 @@
 		  <a href="https://golmok.seoul.go.kr/main.do" id="name">서울시 <spnan id="shop">상권분석</spnan> 서비스 </a>
 		 </div>
 		<div id="second">
-			<li class="commercial"><a class="inner">떠오르는 상권</a></li>
+			<li class="commercial"><a onclick="location.href='test.jsp'" class="inner">떠오르는 상권</a></li>
 			<li class="onner"><a class="inner">나는 사장</a></li>
 			<li class="onner_soon"><a class="inner">나도 곧 사장?!</a></li>
 			<li class="state"><a class="inner">지역·상권별 현황</a></li>
-			<li class="step"><a onclick="location.href='use_info.jsp'" class="inner">이용안내</a></li>
+			<li class="step"><a onclick="location.href='guide.jsp'" class="inner">이용안내</a></li>
 		</div>
 		<div id="thrd">
 			<div id="login">

@@ -53,7 +53,7 @@
 			    <button><img src="./img/i_erase.svg"></button>
 			  </div>
 		  </div>
-		  <div class="zoom">
+		  <div class="bong">
 		  	  <div class="zmin">
 			    <button><img src="./img/i_zoomin.svg"></button>
 			  </div>
