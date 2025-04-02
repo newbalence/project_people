@@ -10,11 +10,10 @@ li {
 	display: inline-block;
 	margin-right: 5%;
 }
-
 .main {
 	text-decoration: none;
 	color: #fff;
-	font-size: 19px;
+	font-size: 27px;
     font-weight: 600;
     cursor: pointer;
     vertical-align: middle;
@@ -41,6 +40,7 @@ li {
 	display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 75px;
 }
 .hea {
 	text-decoration: none;
@@ -64,10 +64,12 @@ li {
 	height: 35px;
 	align-items: center;
 	border-bottom: 1px solid #eee;
+	height: 50px;
 }
 #name {
-	font-size: 12px;
+	font-size: 20px;
 	color : black;
+	font-weight: 700;
 }
 #shop {
 	color: #0676dd;
@@ -77,7 +79,7 @@ li {
 .inner {
 	text-decoration: none;
 	color: #5e6361;
-	font-size: 12px;
+	font-size: 16px;
     font-weight: 600;
     cursor: pointer;
     vertical-align: middle;
@@ -122,7 +124,7 @@ ul{
 #login a{
 	text-decoration: none;
 	color: #5e6361;
-	font-size: 12px;
+	font-size: 17px;
 }
 .chat {
 	width: 60px;

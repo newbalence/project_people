@@ -9,14 +9,16 @@
 </head>
 <body>
 	<nav id="sideMenu">
+	<div class="me">
 	  <div class="toggle_view bigArea"">
 	    <dt>나도 곧 사장</dt>
 	  </div>
 	  <button onclick="toggle_view" class="bigToggle"><img src="./img/arrow_bottom_blue.svg"></button>
+	</div>
 	</nav>
 	<div class="seoul">
 	<div class="recentAddr">
-		<img src="./img/i_address.svg">
+		<img src="./img/i_address.svg" style="height: 25px;">
 	  	<span class="seo">서울특별시</span>
 	</div>
 		<div class="all">

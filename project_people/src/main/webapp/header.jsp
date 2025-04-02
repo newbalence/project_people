@@ -14,7 +14,7 @@
 	<div class="wrap">
 		<div class="header">
 			<ul class="nav">
-				<li><img src="./img/bi_seoul.svg" alt="아이콘 사진" class="icon-img"><a onclick="location.href='https://www.seoul.go.kr/main/index.jsp'" title="새창알림" class="seoul">서울특별시</a></li>
+				<li><img src="./img/bi_seoul.svg" alt="아이콘 사진" class="icon-img"><a onclick="location.href='https://www.seoul.go.kr/main/index.jsp'" title="새창알림" class="main">서울특별시</a></li>
 			</ul>
 			<div class="hea">
 				<li><a class="main" onclick="location.href='https://www.seoul.go.kr/realmnews/in/list.do'">서울소식</a></li>

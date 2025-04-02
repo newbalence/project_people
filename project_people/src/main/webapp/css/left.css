@@ -7,6 +7,12 @@
     width: 330px;
     
 }
+.me{
+	display: flex;
+	width: 100%;
+	position: absolute;
+	margin-top: 50px;
+}
 #sideMenu .bigArea {
 	border-radius: 5px;
 	position: absolute;
@@ -39,37 +45,40 @@
     background: #fff;
     border: 2px solid black;
 }
-.recentAddr > * {
+/* .recentAddr > * {
     display: inline-block;
     vertical-align: middle;
-}
+} */
 .recentAddr {
 	border-radius: 5px;
-	width: 130px;
+	width: 200px;
     background: #fff;
     text-align: center;
+    place-content: center;
 }
 .seo {
-	font-size: 14px;
+	font-size: 20px;
     line-height: 36px;
     font-weight: bolder;
 }
 .all {
 	border-radius: 5px;
-	width: 130px;
+	width: 200px;
     background: #fff;
     text-align: center;
+    place-content: center;
 }
 .che {
-	font-size: 14px;
+	font-size: 20px;
     line-height: 36px;
     font-weight: bolder;
 }
 .All {
 	border-radius: 5px;
-	width: 130px;
+	width: 200px;
     background: #fff;
     text-align: center;
+    place-content: center;
 }
 .rightMenu {
 	position: absolute;
