@@ -8,35 +8,60 @@
 <link rel="stylesheet" href="./css/left.css"></link>
 </head>
 <body>
-	<nav id="sideMenu" style="height: 80px;">
+	<nav id="sideMenu">
 	  <div class="toggle_view bigArea"">
 	    <dt>나도 곧 사장</dt>
 	  </div>
 	  <button onclick="toggle_view" class="bigToggle"><img src="./img/arrow_bottom_blue.svg"></button>
 	</nav>
 	<div class="recentAddr" style="z-index:9;">
-	  <img src="./img/i_address.svg">
-	  <span class="seo">서울특별시</span>
-	<div class="all">
-      <span class="che">전체</span>
-      <img src="./img/arrow_bottom_blue.svg">
+		<img src="./img/i_address.svg">
+	  	<span class="seo">서울특별시</span>
+		<div class="all">
+	      <span class="che">전체</span>
+	      <img src="./img/arrow_bottom_blue.svg">
+		</div>
+		<div class="All">
+	      <span class="che">전체</span>
+	      <img src="./img/arrow_bottom_blue.svg">
+		</div>
 	</div>
-	<div class="All">
-      <span class="che">전체</span>
-      <img src="./img/arrow_bottom_blue.svg">
-	</div>
-	</div>
-	<div class="mapBtn">
-	  <span id="now" class="now">
-	    <button><img src="./img/i_currentSpot.svg" style="width: 25px; height:25px;"></button>
-	  </span>
-	  <ul class="maptype">
-	    <li id="btnContour" class="btnContour">
-	      <button>
-	        <span>지형도</span>
-	      </button>
-	    </li>
-	  </ul>
+	<div>
+		<div class="mapBtn">
+		  <div id="now" class="now">
+		    <button><img src="./img/i_currentSpot.svg"f></button>
+		  </div>
+		  <div class="bong">
+			  <div class="maptype">
+			    <button><img src="./img/i_contour.svg"></button>
+			  </div>
+			  <div class="btnSat">
+			    <button><img src="./img/i_satellite.svg"></button>
+			  </div>
+			  <div class="btnRv">
+			    <button><img src="./img/i_road.svg"></button>
+			  </div>
+		  </div>
+		  <div class="bong">
+		  	  <div class="distance">
+			    <button><img src="./img/i_distance.svg"></button>
+			  </div>
+			  <div class="Area">
+			    <button><img src="./img/i_area.svg"></button>
+			  </div>
+			  <div class="clear">
+			    <button><img src="./img/i_erase.svg"></button>
+			  </div>
+		  </div>
+		  <div class="zoom">
+		  	  <div class="zmin">
+			    <button><img src="./img/i_zoomin.svg"></button>
+			  </div>
+			  <div class="zmout">
+			    <button><img src="./img/i_zoomout.svg"></button>
+			  </div>
+		</div>
+		</div>
 	</div>
 </body>
 </html>

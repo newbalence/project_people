@@ -120,13 +120,16 @@
 .mapBtn {
 	position: absolute;
     border-radius: 5px;
-    background-color: red;
-    right: 64.5%;
-    bottom: 18%;
+    background-color: ghostwhite;
+    justify-self: anchor-center;
+    bottom: 10%;
     z-index: 30;
-    width: 55px;
+    width: 430px;
     height: 45px;
-    place-content: center;
+    display: flex;
+    justify-content: center;
+    place-items: center;
+    
 }
 .mapBtn button {
     display: block;
@@ -136,9 +139,17 @@
     border-radius: 5px;
 }
 button{
-	margin: 0;
-    padding: 0;
-    border: 0;
     background: transparent;
     cursor: pointer;
+}
+.maptype {
+	display: block;
+    border-radius: 5px;
+    
+}
+.bong {
+	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4);
+	
+	display:flex;
+	margin-left: 30px;
 }

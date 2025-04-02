@@ -1,0 +1,368 @@
+@charset "UTF-8";
+
+h3.subtitle {
+    margin: 50px 0 30px;
+    color: #000;
+    font-size: 32px;
+    font-weight: 500;
+}
+.use {
+	border-color: #0676dd;
+    background: #0676dd;
+    color: #fff;
+    font-weight: 700;
+    width: 265px;
+    height: 50px;
+    font-size: 20px;
+    box-sizing: border-box;
+    border: 1px solid #999;
+    margin-left: 148px;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+.positive p {
+	margin: 20px 0 20px;
+    color: #0676dd;
+    font-size: 24px;
+    font-weight: 700;
+}
+.positive a {
+	text-decoration: none;
+    color: #808080;
+    font-size: 16px;
+    font-weight: 500;
+}
+.btnPdf {
+	position: absolute;
+    top: 350px;
+    right: 50px;
+}
+.gu {
+	margin: 20px 0 20px;
+    color: #0676dd;
+    font-size: 24px;
+    font-weight: 700;
+}
+.t {
+	display: flex;
+}
+.list {
+	margin-left: 30%;
+    width: 260px;
+    background: #0676dd;
+    position: absolute;
+    top: -24px;
+    height: 55px;
+    border-radius: 25px;
+    text-align: center;
+}
+.list a {
+	color: #fff;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 50px;
+}
+.con {
+	width: 50%;
+    position: relative;
+    margin-top: 24px;
+    padding-top: 26px;
+    border-radius: 10px;
+    background: rgba(249, 249, 249, 0.7);
+    box-shadow: 4px 4px 4px 0 rgba(0, 0, 0, .1);
+    margin-left: 25px;
+    height: 195px;
+}
+.list span {
+	color: #fff;
+	font-size: 12px;
+	font-weight: 600;
+}
+.Img {
+	margin-left: 70px;
+    padding-top: 45px;
+    display: flex;
+}
+.I {
+	width: 20%;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: center;
+    margin-right: 70px;
+}
+.m {
+	width: 20%;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: center;
+    margin-right: 70px;
+}
+.g {
+	width: 20%;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: center;
+}
+.arrow {
+    margin: 7% 6%;
+}
+.end {
+	width: 50%;
+    position: relative;
+    margin-top: 24px;
+    padding-top: 26px;
+    border-radius: 10px;
+    background: rgba(249, 249, 249, 0.7);
+    box-shadow: 4px 4px 4px 0 rgba(0, 0, 0, .1);
+    height: 195px;
+    right: 25px;
+}
+.choose {
+	margin-left: 30%;
+    width: 260px;
+    background: #0676dd;
+    position: absolute;
+    top: -24px;
+    height: 55px;
+    border-radius: 25px;
+    text-align: center;
+    align-content: center;
+}
+.choose p {
+	color: #fff;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 50px;
+}
+.choose span {
+	color: #fff;
+	font-size: 12px;
+	font-weight: 600;
+}
+.san {
+	width: 320px;
+    border: 1px solid #ddd;
+    margin-right: 70px;
+    height: 95px;
+    margin-left: 24px;
+    text-align: center;
+    line-height: 1.6;
+    letter-spacing: -0.05rem;
+    box-sizing: border-box;
+    border-radius: 5px;
+    }
+.san p{
+	color: grey;
+}
+.sa {
+	border: 1px solid #ddd;
+    text-align: center;
+    margin-right: 55px;
+    height: 95px;
+    border-radius: 5px;
+    }
+.sa p {
+	color: grey;
+}
+
+.ga {
+	border: 1px solid #ddd;
+    text-align: center;
+    border-radius: 5px;
+    height: 95px;
+}
+.ga p {
+	color: grey;
+}
+.bl {
+	margin-left: 5px;
+	margin-right: 55px;
+    padding-top: 45px;
+    display: flex;
+    height: 95px;
+    letter-spacing: -0.05rem;
+    align-items: center;
+}
+.ch {
+	display: flex;
+	margin-top: 50px;
+	height: 260px;
+	background-color: rgba(249, 249, 249, 0.7);
+    border-radius: 20px;
+    width: 170vh;
+}
+.food {
+	margin-left: 3%;
+    width: 260px;
+    background: black;
+    position: absolute;
+    height: 50px;
+    border-radius: 25px;
+    text-align: center;
+    align-content: center;
+}
+.font{
+	position: relative;
+	text-decoration: none;
+	color: #fff;
+	font-size: 19px;
+    font-weight: 600;
+    cursor: pointer;
+    vertical-align: middle;
+}
+.shop{
+	display:flex;
+	text-align: center;
+	flex-wrap: wrap;
+}
+.kor {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+
+}
+.h_list{
+	align-content: center;
+	place-items: center;
+    width: 100%;
+}
+.kor p {
+	color: grey;
+}
+.chiness {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+
+}
+.s_list div{
+	margin-top: 60px;
+}
+.shop div{
+    align-content: center;
+	margin-left: 30px;
+	width: 120px;
+	border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-top: 50px;
+    height: 120px;
+}
+.chiness p {
+	color: grey;
+}
+.japan {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+
+}
+.japan p {
+	color: grey;
+}
+.western {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+
+}
+.western p{
+	color: grey;
+}
+.bakery{
+    border: 1px solid #ddd;
+    border-radius: 5px;
+
+}
+.bakery p {
+	color: grey;
+}
+.fastfood {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+ 
+}
+.fastfood p {
+	color: grey;
+}
+.chicken {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+
+}
+.chicken p {
+	color: grey
+}
+.flour {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+
+}
+.flour p {
+	color: grey
+}
+.hof {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+
+}
+.hof p {
+	color: grey
+}
+.coffee {
+
+    border: 1px solid #ddd;
+    border-radius: 5px;
+
+}
+.coffee p {
+	color: grey;
+}
+.sc{
+	display: flex;
+    margin-top: 50px;
+    height: 260px;
+    background-color: rgba(249, 249, 249, 0.7);
+    border-radius: 20px;
+    width: 170vh;
+    height: 1000px;
+}
+.ser {
+	margin-left: 3%;
+    width: 260px;
+    background: black;
+    position: absolute;
+    height: 50px;
+    border-radius: 25px;
+    text-align: center;
+    align-content: center;
+}
+.s_list{
+	align-content: center;
+	place-items: center;
+    width: 100%;
+}
+.so{
+	display: flex;
+    margin-top: 50px;
+    height: 260px;
+    background-color: rgba(249, 249, 249, 0.7);
+    border-radius: 20px;
+	height:1000px; 
+    width: 170vh;
+}
+.somae{
+	margin-left: 3%;
+    width: 260px;
+    background: black;
+    position: absolute;
+    height: 50px;
+    border-radius: 25px;
+    text-align: center;
+    align-content: center;
+}
+.so_list{
+	margin-top: 60px;
+}
+.cl{
+	place-items: center;
+}

@@ -8,5 +8,12 @@ app.config["JSON_AS_ASCII"] = False
 def main():
     return render_template("map.html")
 
+@app.route("introduce")
+def intro():
+    return render_template("guide")
+
+
+
+
 
 app.run(debug=True)

@@ -11,7 +11,7 @@ li {
 	margin-right: 5%;
 }
 
-a {
+.main {
 	text-decoration: none;
 	color: #fff;
 	font-size: 19px;
@@ -19,7 +19,7 @@ a {
     cursor: pointer;
     vertical-align: middle;
 }
-a:hover {
+.main a:hover {
 	text-decoration: underline;
 	color: #070707;
 }
@@ -63,6 +63,7 @@ a:hover {
 	display: flex;
 	height: 35px;
 	align-items: center;
+	border-bottom: 1px solid #eee;
 }
 #name {
 	font-size: 12px;
