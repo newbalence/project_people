@@ -30,7 +30,7 @@ public class DBManager {
 	//2. 데이터베이스 연결
 	public void DBConnect() {
 		String url = "jdbc:mysql://192.168.0.60:3306/project02";
-		String user = "root";
+		String user = "wb";
 		String pw = "ezen";
 		try {
 			conn = DriverManager.getConnection(url, user, pw);

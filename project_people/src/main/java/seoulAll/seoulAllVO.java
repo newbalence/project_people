@@ -1,6 +1,17 @@
 package seoulAll;
 
 public class seoulAllVO {
+	private String score;
+
+	public String getScore() {
+		return score;
+	}
+
+
+	public void setScore(String score) {
+		this.score = score;
+	}
+	
 	/* year_code */ 
 	private String yearCode;
 
