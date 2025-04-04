@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="./css/left.css"></link>
+<link rel="stylesheet" href="./css/top.css"></link>
 </head>
 <body>
 	<nav id="sideMenu">
