@@ -33,223 +33,223 @@ public class shopSalesVO {
 
 
 	/* store */ 
-	private double store;
+	private String store;
 
 
 	/* similar_store */ 
-	private double similarStore;
+	private String similarStore;
 
 
 	/* open */ 
-	private double open;
+	private String open;
 
 
 	/* open_store */ 
-	private double openStore;
+	private String openStore;
 
 
 	/* close */ 
-	private double close;
+	private String close;
 
 
 	/* close_store */ 
-	private double closeStore;
+	private String closeStore;
 
 
 	/* Franchise_store */ 
-	private double franchiseStore;
+	private String franchiseStore;
 
 
 	/* Month_sales_pay */ 
-	private double monthSalesPay;
+	private String monthSalesPay;
 
 
 	/* Month_sales_num */ 
-	private double monthSalesNum;
+	private String monthSalesNum;
 
 
 	/* week_days_pay */ 
-	private double weekDaysPay;
+	private String weekDaysPay;
 
 
 	/* weekend_pay */ 
-	private double weekendPay;
+	private String weekendPay;
 
 
 	/* Mon_sales_pay */ 
-	private double monSalesPay;
+	private String monSalesPay;
 
 
 	/* Tue_sales_pay */ 
-	private double tueSalesPay;
+	private String tueSalesPay;
 
 
 	/* Wed_sales_pay */ 
-	private double wedSalesPay;
+	private String wedSalesPay;
 
 
 	/* Thur_sales_pay */ 
-	private double thurSalesPay;
+	private String thurSalesPay;
 
 
 	/* Fri_sales_pay */ 
-	private double friSalesPay;
+	private String friSalesPay;
 
 
 	/* Sat_sales_pay */ 
-	private double satSalesPay;
+	private String satSalesPay;
 
 
 	/* Sun_sales_pay */ 
-	private double sunSalesPay;
+	private String sunSalesPay;
 
 
 	/* time_00_06_pay */ 
-	private double time0006Pay;
+	private String time0006Pay;
 
 
 	/* time_06_11_pay */ 
-	private double time0611Pay;
+	private String time0611Pay;
 
 
 	/* time_11_14_pay */ 
-	private double time1114Pay;
+	private String time1114Pay;
 
 
 	/* time_14_17_pay */ 
-	private double time1417Pay;
+	private String time1417Pay;
 
 
 	/* time_17_21_pay */ 
-	private double time1721Pay;
+	private String time1721Pay;
 
 
 	/* time_21_24_pay */ 
-	private double time2124Pay;
+	private String time2124Pay;
 
 
 	/* M_sales_pay */ 
-	private double mSalesPay;
+	private String mSalesPay;
 
 
 	/* F_sales_pay */ 
-	private double fSalesPay;
+	private String fSalesPay;
 
 
 	/* age_10_pay */ 
-	private double age10Pay;
+	private String age10Pay;
 
 
 	/* age_20_pay */ 
-	private double age20Pay;
+	private String age20Pay;
 
 
 	/* age_30_pay */ 
-	private double age30Pay;
+	private String age30Pay;
 
 
 	/* age_40_pay */ 
-	private double age40Pay;
+	private String age40Pay;
 
 
 	/* age_50_pay */ 
-	private double age50Pay;
+	private String age50Pay;
 
 
 	/* age_60_pay */ 
-	private double age60Pay;
+	private String age60Pay;
 
 
 	/* week_days_num */ 
-	private double weekDaysNum;
+	private String weekDaysNum;
 
 
 	/* weekend_num */ 
-	private double weekendNum;
+	private String weekendNum;
 
 
 	/* Mon_sales_num */ 
-	private double monSalesNum;
+	private String monSalesNum;
 
 
 	/* Tue_sales_num */ 
-	private double tueSalesNum;
+	private String tueSalesNum;
 
 
 	/* Wed_sales_num */ 
-	private double wedSalesNum;
+	private String wedSalesNum;
 
 
 	/* Thur_sales_num */ 
-	private double thurSalesNum;
+	private String thurSalesNum;
 
 
 	/* Fri_sales_num */ 
-	private double friSalesNum;
+	private String friSalesNum;
 
 
 	/* Sat_sales_num */ 
-	private double satSalesNum;
+	private String satSalesNum;
 
 
 	/* Sun_sales_num */ 
-	private double sunSalesNum;
+	private String sunSalesNum;
 
 
 	/* time_06_num */ 
-	private double time06Num;
+	private String time06Num;
 
 
 	/* time_11_num */ 
-	private double time11Num;
+	private String time11Num;
 
 
 	/* time_14_num */ 
-	private double time14Num;
+	private String time14Num;
 
 
 	/* time_17_num */ 
-	private double time17Num;
+	private String time17Num;
 
 
 	/* time_21_num */ 
-	private double time21Num;
+	private String time21Num;
 
 
 	/* time_24_num */ 
-	private double time24Num;
+	private String time24Num;
 
 
 	/* M_sales_num */ 
-	private double mSalesNum;
+	private String mSalesNum;
 
 
 	/* F_sales_num */ 
-	private double fSalesNum;
+	private String fSalesNum;
 
 
 	/* age_10_num */ 
-	private double age10Num;
+	private String age10Num;
 
 
 	/* age_20_num */ 
-	private double age20Num;
+	private String age20Num;
 
 
 	/* age_30_num */ 
-	private double age30Num;
+	private String age30Num;
 
 
 	/* age_40_num */ 
-	private double age40Num;
+	private String age40Num;
 
 
 	/* age_50_num */ 
-	private double age50Num;
+	private String age50Num;
 
 
 	/* age_60_num */ 
-	private double age60Num;
+	private String age60Num;
 
 
 	public String getYearCode() {
@@ -302,552 +302,552 @@ public class shopSalesVO {
 	}
 
 
-	public double getStore() {
+	public String getStore() {
 		return store;
 	}
 
 
-	public void setStore(double store) {
+	public void setStore(String store) {
 		this.store = store;
 	}
 
 
-	public double getSimilarStore() {
+	public String getSimilarStore() {
 		return similarStore;
 	}
 
 
-	public void setSimilarStore(double similarStore) {
+	public void setSimilarStore(String similarStore) {
 		this.similarStore = similarStore;
 	}
 
 
-	public double getOpen() {
+	public String getOpen() {
 		return open;
 	}
 
 
-	public void setOpen(double open) {
+	public void setOpen(String open) {
 		this.open = open;
 	}
 
 
-	public double getOpenStore() {
+	public String getOpenStore() {
 		return openStore;
 	}
 
 
-	public void setOpenStore(double openStore) {
+	public void setOpenStore(String openStore) {
 		this.openStore = openStore;
 	}
 
 
-	public double getClose() {
+	public String getClose() {
 		return close;
 	}
 
 
-	public void setClose(double close) {
+	public void setClose(String close) {
 		this.close = close;
 	}
 
 
-	public double getCloseStore() {
+	public String getCloseStore() {
 		return closeStore;
 	}
 
 
-	public void setCloseStore(double closeStore) {
+	public void setCloseStore(String closeStore) {
 		this.closeStore = closeStore;
 	}
 
 
-	public double getFranchiseStore() {
+	public String getFranchiseStore() {
 		return franchiseStore;
 	}
 
 
-	public void setFranchiseStore(double franchiseStore) {
+	public void setFranchiseStore(String franchiseStore) {
 		this.franchiseStore = franchiseStore;
 	}
 
 
-	public double getMonthSalesPay() {
+	public String getMonthSalesPay() {
 		return monthSalesPay;
 	}
 
 
-	public void setMonthSalesPay(double monthSalesPay) {
+	public void setMonthSalesPay(String monthSalesPay) {
 		this.monthSalesPay = monthSalesPay;
 	}
 
 
-	public double getMonthSalesNum() {
+	public String getMonthSalesNum() {
 		return monthSalesNum;
 	}
 
 
-	public void setMonthSalesNum(double monthSalesNum) {
+	public void setMonthSalesNum(String monthSalesNum) {
 		this.monthSalesNum = monthSalesNum;
 	}
 
 
-	public double getWeekDaysPay() {
+	public String getWeekDaysPay() {
 		return weekDaysPay;
 	}
 
 
-	public void setWeekDaysPay(double weekDaysPay) {
+	public void setWeekDaysPay(String weekDaysPay) {
 		this.weekDaysPay = weekDaysPay;
 	}
 
 
-	public double getWeekendPay() {
+	public String getWeekendPay() {
 		return weekendPay;
 	}
 
 
-	public void setWeekendPay(double weekendPay) {
+	public void setWeekendPay(String weekendPay) {
 		this.weekendPay = weekendPay;
 	}
 
 
-	public double getMonSalesPay() {
+	public String getMonSalesPay() {
 		return monSalesPay;
 	}
 
 
-	public void setMonSalesPay(double monSalesPay) {
+	public void setMonSalesPay(String monSalesPay) {
 		this.monSalesPay = monSalesPay;
 	}
 
 
-	public double getTueSalesPay() {
+	public String getTueSalesPay() {
 		return tueSalesPay;
 	}
 
 
-	public void setTueSalesPay(double tueSalesPay) {
+	public void setTueSalesPay(String tueSalesPay) {
 		this.tueSalesPay = tueSalesPay;
 	}
 
 
-	public double getWedSalesPay() {
+	public String getWedSalesPay() {
 		return wedSalesPay;
 	}
 
 
-	public void setWedSalesPay(double wedSalesPay) {
+	public void setWedSalesPay(String wedSalesPay) {
 		this.wedSalesPay = wedSalesPay;
 	}
 
 
-	public double getThurSalesPay() {
+	public String getThurSalesPay() {
 		return thurSalesPay;
 	}
 
 
-	public void setThurSalesPay(double thurSalesPay) {
+	public void setThurSalesPay(String thurSalesPay) {
 		this.thurSalesPay = thurSalesPay;
 	}
 
 
-	public double getFriSalesPay() {
+	public String getFriSalesPay() {
 		return friSalesPay;
 	}
 
 
-	public void setFriSalesPay(double friSalesPay) {
+	public void setFriSalesPay(String friSalesPay) {
 		this.friSalesPay = friSalesPay;
 	}
 
 
-	public double getSatSalesPay() {
+	public String getSatSalesPay() {
 		return satSalesPay;
 	}
 
 
-	public void setSatSalesPay(double satSalesPay) {
+	public void setSatSalesPay(String satSalesPay) {
 		this.satSalesPay = satSalesPay;
 	}
 
 
-	public double getSunSalesPay() {
+	public String getSunSalesPay() {
 		return sunSalesPay;
 	}
 
 
-	public void setSunSalesPay(double sunSalesPay) {
+	public void setSunSalesPay(String sunSalesPay) {
 		this.sunSalesPay = sunSalesPay;
 	}
 
 
-	public double getTime0006Pay() {
+	public String getTime0006Pay() {
 		return time0006Pay;
 	}
 
 
-	public void setTime0006Pay(double time0006Pay) {
+	public void setTime0006Pay(String time0006Pay) {
 		this.time0006Pay = time0006Pay;
 	}
 
 
-	public double getTime0611Pay() {
+	public String getTime0611Pay() {
 		return time0611Pay;
 	}
 
 
-	public void setTime0611Pay(double time0611Pay) {
+	public void setTime0611Pay(String time0611Pay) {
 		this.time0611Pay = time0611Pay;
 	}
 
 
-	public double getTime1114Pay() {
+	public String getTime1114Pay() {
 		return time1114Pay;
 	}
 
 
-	public void setTime1114Pay(double time1114Pay) {
+	public void setTime1114Pay(String time1114Pay) {
 		this.time1114Pay = time1114Pay;
 	}
 
 
-	public double getTime1417Pay() {
+	public String getTime1417Pay() {
 		return time1417Pay;
 	}
 
 
-	public void setTime1417Pay(double time1417Pay) {
+	public void setTime1417Pay(String time1417Pay) {
 		this.time1417Pay = time1417Pay;
 	}
 
 
-	public double getTime1721Pay() {
+	public String getTime1721Pay() {
 		return time1721Pay;
 	}
 
 
-	public void setTime1721Pay(double time1721Pay) {
+	public void setTime1721Pay(String time1721Pay) {
 		this.time1721Pay = time1721Pay;
 	}
 
 
-	public double getTime2124Pay() {
+	public String getTime2124Pay() {
 		return time2124Pay;
 	}
 
 
-	public void setTime2124Pay(double time2124Pay) {
+	public void setTime2124Pay(String time2124Pay) {
 		this.time2124Pay = time2124Pay;
 	}
 
 
-	public double getmSalesPay() {
+	public String getmSalesPay() {
 		return mSalesPay;
 	}
 
 
-	public void setmSalesPay(double mSalesPay) {
+	public void setmSalesPay(String mSalesPay) {
 		this.mSalesPay = mSalesPay;
 	}
 
 
-	public double getfSalesPay() {
+	public String getfSalesPay() {
 		return fSalesPay;
 	}
 
 
-	public void setfSalesPay(double fSalesPay) {
+	public void setfSalesPay(String fSalesPay) {
 		this.fSalesPay = fSalesPay;
 	}
 
 
-	public double getAge10Pay() {
+	public String getAge10Pay() {
 		return age10Pay;
 	}
 
 
-	public void setAge10Pay(double age10Pay) {
+	public void setAge10Pay(String age10Pay) {
 		this.age10Pay = age10Pay;
 	}
 
 
-	public double getAge20Pay() {
+	public String getAge20Pay() {
 		return age20Pay;
 	}
 
 
-	public void setAge20Pay(double age20Pay) {
+	public void setAge20Pay(String age20Pay) {
 		this.age20Pay = age20Pay;
 	}
 
 
-	public double getAge30Pay() {
+	public String getAge30Pay() {
 		return age30Pay;
 	}
 
 
-	public void setAge30Pay(double age30Pay) {
+	public void setAge30Pay(String age30Pay) {
 		this.age30Pay = age30Pay;
 	}
 
 
-	public double getAge40Pay() {
+	public String getAge40Pay() {
 		return age40Pay;
 	}
 
 
-	public void setAge40Pay(double age40Pay) {
+	public void setAge40Pay(String age40Pay) {
 		this.age40Pay = age40Pay;
 	}
 
 
-	public double getAge50Pay() {
+	public String getAge50Pay() {
 		return age50Pay;
 	}
 
 
-	public void setAge50Pay(double age50Pay) {
+	public void setAge50Pay(String age50Pay) {
 		this.age50Pay = age50Pay;
 	}
 
 
-	public double getAge60Pay() {
+	public String getAge60Pay() {
 		return age60Pay;
 	}
 
 
-	public void setAge60Pay(double age60Pay) {
+	public void setAge60Pay(String age60Pay) {
 		this.age60Pay = age60Pay;
 	}
 
 
-	public double getWeekDaysNum() {
+	public String getWeekDaysNum() {
 		return weekDaysNum;
 	}
 
 
-	public void setWeekDaysNum(double weekDaysNum) {
+	public void setWeekDaysNum(String weekDaysNum) {
 		this.weekDaysNum = weekDaysNum;
 	}
 
 
-	public double getWeekendNum() {
+	public String getWeekendNum() {
 		return weekendNum;
 	}
 
 
-	public void setWeekendNum(double weekendNum) {
+	public void setWeekendNum(String weekendNum) {
 		this.weekendNum = weekendNum;
 	}
 
 
-	public double getMonSalesNum() {
+	public String getMonSalesNum() {
 		return monSalesNum;
 	}
 
 
-	public void setMonSalesNum(double monSalesNum) {
+	public void setMonSalesNum(String monSalesNum) {
 		this.monSalesNum = monSalesNum;
 	}
 
 
-	public double getTueSalesNum() {
+	public String getTueSalesNum() {
 		return tueSalesNum;
 	}
 
 
-	public void setTueSalesNum(double tueSalesNum) {
+	public void setTueSalesNum(String tueSalesNum) {
 		this.tueSalesNum = tueSalesNum;
 	}
 
 
-	public double getWedSalesNum() {
+	public String getWedSalesNum() {
 		return wedSalesNum;
 	}
 
 
-	public void setWedSalesNum(double wedSalesNum) {
+	public void setWedSalesNum(String wedSalesNum) {
 		this.wedSalesNum = wedSalesNum;
 	}
 
 
-	public double getThurSalesNum() {
+	public String getThurSalesNum() {
 		return thurSalesNum;
 	}
 
 
-	public void setThurSalesNum(double thurSalesNum) {
+	public void setThurSalesNum(String thurSalesNum) {
 		this.thurSalesNum = thurSalesNum;
 	}
 
 
-	public double getFriSalesNum() {
+	public String getFriSalesNum() {
 		return friSalesNum;
 	}
 
 
-	public void setFriSalesNum(double friSalesNum) {
+	public void setFriSalesNum(String friSalesNum) {
 		this.friSalesNum = friSalesNum;
 	}
 
 
-	public double getSatSalesNum() {
+	public String getSatSalesNum() {
 		return satSalesNum;
 	}
 
 
-	public void setSatSalesNum(double satSalesNum) {
+	public void setSatSalesNum(String satSalesNum) {
 		this.satSalesNum = satSalesNum;
 	}
 
 
-	public double getSunSalesNum() {
+	public String getSunSalesNum() {
 		return sunSalesNum;
 	}
 
 
-	public void setSunSalesNum(double sunSalesNum) {
+	public void setSunSalesNum(String sunSalesNum) {
 		this.sunSalesNum = sunSalesNum;
 	}
 
 
-	public double getTime06Num() {
+	public String getTime06Num() {
 		return time06Num;
 	}
 
 
-	public void setTime06Num(double time06Num) {
+	public void setTime06Num(String time06Num) {
 		this.time06Num = time06Num;
 	}
 
 
-	public double getTime11Num() {
+	public String getTime11Num() {
 		return time11Num;
 	}
 
 
-	public void setTime11Num(double time11Num) {
+	public void setTime11Num(String time11Num) {
 		this.time11Num = time11Num;
 	}
 
 
-	public double getTime14Num() {
+	public String getTime14Num() {
 		return time14Num;
 	}
 
 
-	public void setTime14Num(double time14Num) {
+	public void setTime14Num(String time14Num) {
 		this.time14Num = time14Num;
 	}
 
 
-	public double getTime17Num() {
+	public String getTime17Num() {
 		return time17Num;
 	}
 
 
-	public void setTime17Num(double time17Num) {
+	public void setTime17Num(String time17Num) {
 		this.time17Num = time17Num;
 	}
 
 
-	public double getTime21Num() {
+	public String getTime21Num() {
 		return time21Num;
 	}
 
 
-	public void setTime21Num(double time21Num) {
+	public void setTime21Num(String time21Num) {
 		this.time21Num = time21Num;
 	}
 
 
-	public double getTime24Num() {
+	public String getTime24Num() {
 		return time24Num;
 	}
 
 
-	public void setTime24Num(double time24Num) {
+	public void setTime24Num(String time24Num) {
 		this.time24Num = time24Num;
 	}
 
 
-	public double getmSalesNum() {
+	public String getmSalesNum() {
 		return mSalesNum;
 	}
 
 
-	public void setmSalesNum(double mSalesNum) {
+	public void setmSalesNum(String mSalesNum) {
 		this.mSalesNum = mSalesNum;
 	}
 
 
-	public double getfSalesNum() {
+	public String getfSalesNum() {
 		return fSalesNum;
 	}
 
 
-	public void setfSalesNum(double fSalesNum) {
+	public void setfSalesNum(String fSalesNum) {
 		this.fSalesNum = fSalesNum;
 	}
 
 
-	public double getAge10Num() {
+	public String getAge10Num() {
 		return age10Num;
 	}
 
 
-	public void setAge10Num(double age10Num) {
+	public void setAge10Num(String age10Num) {
 		this.age10Num = age10Num;
 	}
 
 
-	public double getAge20Num() {
+	public String getAge20Num() {
 		return age20Num;
 	}
 
 
-	public void setAge20Num(double age20Num) {
+	public void setAge20Num(String age20Num) {
 		this.age20Num = age20Num;
 	}
 
 
-	public double getAge30Num() {
+	public String getAge30Num() {
 		return age30Num;
 	}
 
 
-	public void setAge30Num(double age30Num) {
+	public void setAge30Num(String age30Num) {
 		this.age30Num = age30Num;
 	}
 
 
-	public double getAge40Num() {
+	public String getAge40Num() {
 		return age40Num;
 	}
 
 
-	public void setAge40Num(double age40Num) {
+	public void setAge40Num(String age40Num) {
 		this.age40Num = age40Num;
 	}
 
 
-	public double getAge50Num() {
+	public String getAge50Num() {
 		return age50Num;
 	}
 
 
-	public void setAge50Num(double age50Num) {
+	public void setAge50Num(String age50Num) {
 		this.age50Num = age50Num;
 	}
 
 
-	public double getAge60Num() {
+	public String getAge60Num() {
 		return age60Num;
 	}
 
 
-	public void setAge60Num(double age60Num) {
+	public void setAge60Num(String age60Num) {
 		this.age60Num = age60Num;
 	}
 

@@ -113,7 +113,7 @@ public class seoulAllVO {
 
 
 	/* general_hospital */ 
-	private double generalHospital;
+	private String generalHospital;
 
 
 	/* hospital */ 
@@ -181,11 +181,11 @@ public class seoulAllVO {
 
 
 	/* total_live */ 
-	private double totalLive;
+	private String totalLive;
 
 
 	/* local */ 
-	private double local;
+	private String local;
 
 
 	/* long_foreigner */ 
@@ -742,12 +742,12 @@ public class seoulAllVO {
 	}
 
 
-	public double getGeneralHospital() {
+	public String getGeneralHospital() {
 		return generalHospital;
 	}
 
 
-	public void setGeneralHospital(double generalHospital) {
+	public void setGeneralHospital(String generalHospital) {
 		this.generalHospital = generalHospital;
 	}
 
@@ -912,22 +912,22 @@ public class seoulAllVO {
 	}
 
 
-	public double getTotalLive() {
+	public String getTotalLive() {
 		return totalLive;
 	}
 
 
-	public void setTotalLive(double totalLive) {
+	public void setTotalLive(String totalLive) {
 		this.totalLive = totalLive;
 	}
 
 
-	public double getLocal() {
+	public String getLocal() {
 		return local;
 	}
 
 
-	public void setLocal(double local) {
+	public void setLocal(String local) {
 		this.local = local;
 	}
 

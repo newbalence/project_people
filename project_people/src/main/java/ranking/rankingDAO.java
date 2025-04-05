@@ -19,12 +19,12 @@ public class rankingDAO extends DBManager {
 		
 		executeQuery(sql);
 		
+		shopSalesVO vo = new shopSalesVO();
 		if(next()) {
 			String guCode = getString("Gu_code");
 			String guCodeName = getString("Gu_code_name");
 			String score = getString("score");
 			
-			shopSalesVO vo = new shopSalesVO();
 			vo.setGuCode(guCode);
 			vo.setGuCodeName(guCodeName);
 			vo.setScore(score);
@@ -50,12 +50,12 @@ public class rankingDAO extends DBManager {
 		
 		executeQuery(sql);
 		
+		shopSalesVO vo = new shopSalesVO();
 		if(next()) {
 			String guCode = getString("Gu_code");
 			String guCodeName = getString("Gu_code_name");
 			String score = getString("score");
 			
-			shopSalesVO vo = new shopSalesVO();
 			vo.setGuCode(guCode);
 			vo.setGuCodeName(guCodeName);
 			vo.setScore(score);
@@ -80,13 +80,13 @@ public class rankingDAO extends DBManager {
 		sql += "t where Gu_code = '" + code + "';";
 		
 		executeQuery(sql);
-		
+
+		seoulAllVO vo = new seoulAllVO();
 		if(next()) {
 			String guCode = getString("Gu_code");
 			String guCodeName = getString("Gu_code_name");
 			String score = getString("score");
 			
-			seoulAllVO vo = new seoulAllVO();
 			vo.setGuCode(guCode);
 			vo.setGuCodeName(guCodeName);
 			vo.setScore(score);
