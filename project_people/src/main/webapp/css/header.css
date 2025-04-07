@@ -45,10 +45,10 @@ li {
 .hea {
 	text-decoration: none;
 	color: #0676dd;
-	font-size: 19px;
+	font-size: 15px;
     font-weight: 600;
     cursor: pointer;
-    width: 50%;
+    width: 40%;
     
 }
 .none:hover {

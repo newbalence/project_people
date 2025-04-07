@@ -3,17 +3,13 @@
 	height:85vh;
     position: absolute;
     z-index: 100;
-    width: 50%;
-    text-align: -webkit-right;
 }
 .rightBtn{
 	display: block;
     position: absolute;
     align-self: anchor-center;
-    right: 0;
-    width: 65px;
+    width: 60px;
     height: 100px;
-    margin: -7px 0 0 -10px;
     background-color: #fff;
     border: 0px;
     border-radius: 5px;
@@ -23,7 +19,7 @@
     padding: 0 20px;
     background: #0676dd;
     font-size: 15px;
-    width: 915px;
+    width: 810px;
     color: #fff;
     align-content: center;
     
@@ -59,7 +55,7 @@ div > strong{
     padding: 0 20px;
     background: #fff;
     font-size: 0;
-    width: 915px;
+    width: 810px;
     align-items: center;
 }
 .tab_report{
@@ -96,7 +92,6 @@ div > strong{
 	margin-left: 10px;
 }
 .explain{
-	margin-top: 10px;
 	height: 330px;
     padding: 0 20px;
     background: #fff;
@@ -136,14 +131,11 @@ div > strong{
     background: #f9f9f9;
 }
 .tabWrapLy{
-	padding: 0 20px;
+	padding: 1px 20px;
     background: #fff;
     width: 900px;
     text-align: left;
-    height: 330px;
-    height: 400px;
-    margin-top: -17px;
-}
+ }
 .totalOpi{
 	margin-bottom: 16px;
     font-size: 22px;
@@ -160,6 +152,9 @@ div > strong{
 	color: #0676dd;
     font-size: inherit;
  }
+ .totalJumpo{
+ 	margin-top: -95px;
+ }
  .jumpo{
     padding: 20px;
     border-radius: 5px;
@@ -168,7 +163,7 @@ div > strong{
     box-sizing: border-box;
     width: calc(33.33% - 10px);
     display: inline-block;
-    margin-top: -75px;
+    margin-top: 0px;
 }
 .relative{
 	padding: 0 0 10px;
@@ -188,11 +183,11 @@ div > strong{
     font-size: 23px;
     margin-top: 3px;
     text-align: center;
+    margin: 0px;
 }
 .jeonBun{
 	color: #fff;
     font-size: 17px;
-    margin-top: -20px;
     text-align: center;
 	}
 .yearBun{
@@ -207,7 +202,6 @@ div > strong{
 .yearBun01{
 	font-size: 20px;
     font-weight: 500;
-    margin-top: 0px;
 }
 .yearBun02{
 	font-size: 20px;
@@ -225,18 +219,16 @@ div > strong{
 	font-weight: 600;
 	padding-right: 50px;
 }
-.reportDetail{
-	box-sizing: border-box;
-}
 .textTit01{
-	font-size: 20px;
-    font-weight: 500;
+	font-size: 23px;
+    font-weight: 600;
     color: #000;
     letter-spacing: -1px;
-    height: 95px;
-}
+    height: 25px;
+    margin: 0px;
+  }
 .reportContentRow{
-	
+	margin-top: 15px;
 }
 .reportContentCell{
 	width: calc(25% - 10px);
@@ -246,14 +238,12 @@ div > strong{
     border: 1px solid #ddd;
     box-sizing: border-box;
     display: inline-block;
-    margin-top: -75px;
+    justify-items: center;
 }
 .reportTit02{
-	font-size: 24px;
+	font-size: 13px;
 	text-align: center;
-	margin-bottom: 20px;
-    font-weight: 500;
-    border-radius: 30px;
+	border-radius: 30px;
     border: 1px solid #ddd;
     color: #666;
     line-height: 120%;
@@ -261,12 +251,233 @@ div > strong{
     align-items: center;
     min-height: 35px;
     box-sizing: border-box;
-    width: 95px;
+    width: 140px;
     justify-content: center;
+}
+.common{
+	    margin-top: 10px;
+}
+.jumpoNo{
+	padding: 20px 0px 0px;
+    border-bottom: 16px solid #f1f1f1;
+}
+.totalJumpoNo{
+	padding: 40px 0 10px;
+    font-size: 15px;
+}
+.summary{
+	margin: 0px;
+	font-size: 22px;
+    font-weight: 700;
+}
+.contRast{
+	margin-bottom: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+}
+.datail{
+	margin-bottom: 8px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    font-size: 14px;
+}
+.datail a{
+	color: #0676dd;
+    font-weight: 600;
+
+}
+.chartArea{
+	position: relative;
+    min-height: 278px;
+    padding: 50px 20px 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+.chartArea p.title {
+    position: absolute;
+    top: 60px;
+    left: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    color: black;
+}
+.chartArea span.unit {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: var(--color-gray);
+}
+.rMateH5_Root{
+	color: #000000;
+    font-size: 11px;
+    font-style: normal;
+    line-height: normal;
+    font-weight: normal;
+    font-variant: normal;
+    font-stretch: normal;
+    text-decoration: none;
+    font-family: arial, verdana;
+ }
+graph {
+    margin-top: 14px;
+    min-height: 278px;
+    padding: 50px 20px 20px;
+}
+.graph2{
+	margin-top: 14px;
+	min-height: 278px;
+    padding: 50px 20px 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+.selectDistrict{
+	min-height: 200px;
+}
+.selectDistrict .chart > div{
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% auto;
+    color: #fff;
+    font-weight: 500;
+    text-align: center;
+    line-height: 2;
+}
+/*.chart{
+	width: 100%;
+}
+.chart div.si{
+	width: 210px;
+    height: 198px;
+    margin: -99px 0 0 -105px;
+}
+.chart div.gu{
+	width: 159px;
+    height: 148px;
+    margin: -74px 0 0 -79.5px;
+}
+.chart div.dong{
+	width: 110px;
+    height: 100px;
+    margin: -50px 0 0 -55px;
+    line-height: 2.5;
+}*/
+.area_col{
+	display: flex;
+	margin-top: 20px;
+}
+.chartArea2{
+	width: calc(50% - 35px);
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-right: 20px;
+    margin-left: 20px;
+    height: 330px;
+}
+.chartArea2 p.title{
+	text-align: center;   
+    font-size: 15px;
+    font-weight: 600;
+    color: black;
+    margin-top: 15px;
+}
+.legend{
+	display: flex;
+	margin-left: 70px;
+    padding-bottom: 20px;
+    font-size: 15px;
+    text-align: center;
+}
+.legendto{
+	display: inline-block;
+    position: relative;
+    margin-left: 10px;
+    padding-left: 14px;
+    font-size: 10px;
+    vertical-align: middle;
+}
+.siBtnColor{
+	position: absolute;
+    top: 60%;
+    margin-top: -120px;
+    background-position: center;
+}
+.chartArea3{
+	width: calc(50% - 35px);
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+.chartArea3 p.title{
+	text-align: center;   
+    font-size: 15px;
+    font-weight: 600;
+    color: black;
+    margin-top: 15px;
+}
+.rMateH5_box{
+	text-align: center;
+    color: #888;
+    border: 1px solid #e9e9e9;
+    background-color: #ffffff;
+    height: 39px;
+    width: 175px;
+    margin-left: 100px;
+    margin-top: 230px;
+}
+.rMateH5_Legend{
+	width: 280px;
+    display: table-cell;
+}
+.rMateH5_Text{
+	font-size: 12px;
+	font-weight: 600;
+}
+.sin{
+	padding: 0 20px 30px;
+    border-bottom: 16px solid #f1f1f1;
+}
+.gi{
+	padding: 40px 0 10px;
+    font-size: 15px;
+    font-weight: 600;
+}
+.summary{
+	margin-bottom: 16px;
+    font-size: 22px;
+    font-weight: 700;
+}
+.contRast2{
+	margin-bottom: 8px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    display: flex;
+    height: 41px;
+    width: 850px;
+    justify-content: center;
+}
+p.title{
+	font-size: 14px;
+    font-weight: 600;
+    color: black;
+    margin-top: -38px;
+    margin-left: 30px;
+}
+p.unit{
+	color: black;
+    margin-top: -30px;
+    margin-left: 550px;
 }
 .scroll_y{
 	overflow-y: auto;
 	touch-action: pinch-zoom;
+	width: 850px;
+    height: 700px;
 }
 .ScrollBox{
 	position: relative;

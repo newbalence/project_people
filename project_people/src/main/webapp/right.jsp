@@ -120,6 +120,7 @@
 		</div>
 	</div>
 	<div class="tabWrapLy">
+		<div class="totlaJumpo">
 		<div class="jumpo">
 			<div class="relative">점포수</div>
 				<div class="chartArea">
@@ -145,8 +146,8 @@
 						<div class="labelA"><p>나의 등수</p></div>
 						<div class="labelA"><p>18/18위</p></div>
 					</div>
-				</div>
-		</div>	
+				</div>	
+	</div>
 		<div class="jumpo">
 			<div class="relative">매출액(점포당 월평균)</div>
 				<div class="chartArea">
@@ -216,24 +217,205 @@
 				<div class="reportContentCell">
 					<h3 class="reportTit02">개업</h3>
 					<div class="reportComment">
-						<p class="reportTit02">세탁소<br>(2개)</p>
+						<p class="reportComment">세탁소<br>(2개)</p>
 					</div>
 				</div>
 				<div class="reportContentCell">
 					<h3 class="reportTit02">폐업</h3>
 					<div class="reportComment">
-						<p class="reportTit02">한국음식점<br>(0개)</p>
+						<p class="reportComment">한국음식점<br>(0개)</p>
 					</div>
 				</div>
 				<div class="reportContentCell">
 					<h3 class="reportTit02">영업기간</h3>
 					<div class="reportComment">
-						<p class="reportTit02">청과상<br>(114개월)</p>
+						<p class="reportComment">청과상<br>(114개월)</p>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+	<div class="tabWrapLy">
+		<div class="reportDetail">
+			<h2 class="textTit01">Best 매출</h2>
+			<div class="reportContentRow">
+				<div class="reportContentCell">
+					<h3 class="reportTit02">성별/연령대</h3>
+					<div class="reportComment">
+						<p>여성/20대</p>
+					</div>
+				</div>
+				<div class="reportContentCell">
+					<h3 class="reportTit02">요일</h3>
+					<div class="reportComment">
+						<p class="reportComment">금용일(30.4%)</p>
+					</div>
+				</div>
+				<div class="reportContentCell">
+					<h3 class="reportTit02">시간대</h3>
+					<div class="reportComment">
+						<p class="reportComment">14 ~ 17시</p>
+					</div>
+				</div>
+				<div class="reportContentCell">
+					<h3 class="reportTit02">최대매출업종<br>(동일면적)</h3>
+					<div class="reportComment">
+						<p class="reportComment">소매업</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tabWrapLy">
+		<div class="reportDetail">
+			<h2 class="textTit01">Best 유동인구</h2>
+			<div class="reportContentRow">
+				<div class="reportContentCell">
+					<h3 class="reportTit02">성별</h3>
+					<div class="reportComment">
+						<p>여성</p>
+					</div>
+				</div>
+				<div class="reportContentCell">
+					<h3 class="reportTit02">연령대</h3>
+					<div class="reportComment">
+						<p class="reportComment">60대이상(14.2%)</p>
+					</div>
+				</div>
+				<div class="reportContentCell">
+					<h3 class="reportTit02">요일</h3>
+					<div class="reportComment">
+						<p class="reportComment">화요일(14.56%)</p>
+					</div>
+				</div>
+				<div class="reportContentCell">
+					<h3 class="reportTit02">시간대</h3>
+					<div class="reportComment">
+						<p class="reportComment">06 ~ 11시</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="common">
+		<div class="jumpoNo">
+			<div class="totalJumpoNo">점포수</div>
+			<div>
+				<div class="list_reportItem">
+					<p class="summary">점포수는<a style="color: #0676dd;">32개</a>입니다.</p>
+				</div>
+					<div class="contRast">
+						<p style="font-size: 15px; color: grey">전년 동분기 대비</p>
+						<p style="margin: 15px 0px 15px 0px; padding-right: 80px;"><strong id="stor" class="increase" aria-label="증가" style="color: #e02171; font-size: 15px ;"><img src="./img/i_increase.svg" style="width: 13px;">6개</strong></p>
+						<p style="font-size: 15px; color: grey">전분기 대비</p>
+						<p style="margin: 15px 0px 15px 0px;"><strong id="stor" class="increase" aria-label="증가" style="color: #e02171; font-size: 15px ;"><img src="./img/i_increase.svg" style="width: 13px;">5개</strong></p>
+					</div>
+					<div class="datail">
+						<p><a>업종전체</a>의 점포수가 전분기대비<a>증가</a>하고 있습니다.
+						 상권이 발달하는 시기인 경우 입지선정에 신중하셔야 합니다.</p>
+					</div>
+					<div>
+						<div class="chartArea">
+							<p class="title">점포수 추이</p>
+							<span class="unit" id="storQuSub">단위 : 개 / 2024년 4분기 기준</span>
+							<div class="area" id="store">
+								<div class="rMateH5_Root" id="chart_store">
+									<div class="rMateH5_Chart">
+										<div class="rMateH5_contentPane">
+											<div class="rMateH5_Main">
+												<div class="rMateH5_ContentPane">
+													<div class="rMateH5_Column">
+														<div class="rMateH5_Bacground">
+															<div class="rMateH5_GridLines"></div>
+														</div>
+														<div class="rMateH5_Axis"></div>
+														<div class="rMateH5_Axis"></div>
+														<div class="rMateH5_Series">
+															<div class="rMateH5_Column"></div>
+														</div>
+														<div class="rMateH5_Canvas">
+															<canvas class="rMateH5_Chart"></canvas>
+														</div>
+														<div class="rMateH5_Annotation"></div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="graph">
+					<div class="area_col">
+						<div class="chartArea2">
+							<p class="title">점포수 현황</p>
+							<div id="store2" class="selectDistrict">
+								<div class="legend">
+									<div class="legendto">
+										<p id="siBtn" class="siBtnColor">서울시<img src="./img/chart_si.svg"></p>
+									</div>
+									<div>
+										<p id="guBtn" class="guBtnColor"><img src="./img/chart_gu.svg">강동구</p>
+									</div>
+									<div>
+										<p id="dongBtn" class="dongBtnColor"><img src="./img/chart_dong.svg">둔촌1동</p>
+									</div>
+								</div>
+								<div class="chart">
+									<div class="si" id="mega">648848</div>
+									<div class="gu" id="signgu">24494</div>
+									<div class="dong" id="adstrd">32</div>
+								</div>
+							</div>
+						</div>
+						<div class="chartArea3">
+							<p class="title">프랜차이즈와 일반 점포수 비교</p>
+							<div class="store3">
+								<div class="rMateH5_Root" id="chart_store3">
+									<div class="rMateH5_rMateChart">
+										<div class="rMateH5_ContentPane"></div>
+									<div class="rMateH5_box">
+										<div class="rMateH5_Legend" title="일반점포">
+											<p class="rMateH5_Text">일반점포</p>
+										</div>
+										<div class="rMateH5_Legend" title="프랜차이즈">
+											<p class="rMateH5_Text">프랜차이즈</p>
+										</div>
+									</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			<div class="sin">
+				<p class="gi">신생기업 생존율(3년)</p>
+				<div>
+					<div class="reportItem">
+						<p class="summary">신생기업 생존율은<a style="color: #0676dd;">0%</a>입니다.</p>
+					</div>
+					<div class="contRast2">
+						<p style="font-size: 15px; color: grey;">전년 동분기 대비</p>
+						<p style="padding-right: 80px; padding-left: 10px;"><strong style="font-size: 15px; color: black;">0%</strong></p>
+						<p style="font-size: 15px; color: grey;">전분기 대비</p>
+						<p><strong style="color: #0676dd; font-size: 15px ;"><img src="./img/i_decrease.svg">100%</strong></p>
+					</div>
+					<div class="datail">
+						<p style="color:black;">기준일로부터 3년전에 개업한 업소가 없어 3년 생존율을 계산하지 못하는 상권입니다.</p>
+					</div>
+					<div class="graph2">
+						<p class="title">신생기업 생존율 추이</p>
+						<p class="unit">단위 : % / 2024 4분기 기준</p>						
+					</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
 </div>
 <div class="scrollbar" style="display: block;">
 	<div class="dragContainer">
