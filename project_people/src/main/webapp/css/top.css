@@ -108,6 +108,7 @@ select{
     background: #fff;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
     margin-top: 10px;
+    margin-bottom: 10px;
 }
 .village2{
 	display: flex;
@@ -136,13 +137,11 @@ select{
     background: #fff;
     font-size: 14px;
     font-weight: 500;
-    line-height: 36px;
     cursor: pointer;
 }
 .topP{
 	font-size: 12px;
     font-weight: 600;
-    height: 25px;
 }
 .chose{
 	font-size: 15px;
