@@ -95,6 +95,16 @@ public class DBManager {
 		}
 	}
 	
+	public long getLong(String value) {
+		try {
+			long result = rs.getLong(value);
+			return result;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return 0L;
+		}
+	}
+	
 	public double getDouble(String value) {
 		try {
 			double result = rs.getDouble(value);

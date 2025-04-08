@@ -17,7 +17,7 @@ public class storeReportDAO extends DBManager {
 		driverLoad();
 		DBConnect();
 		
-		String sql = "select year_code, sum(store) as store, sum(Franchise_store) as Franchise_store ";
+		String sql = "select year_code, sum(similar_store) as similar_store, sum(store) as store, sum(Franchise_store) as Franchise_store ";
 		sql += "from df_seoul_store_sales_final ";
 		sql += "where Gu_code = '" + code + "' and year_code > 20233 group by year_code, Gu_code";
 		
@@ -27,11 +27,13 @@ public class storeReportDAO extends DBManager {
 
 		while(next()) {
 			String yearCode = getString("year_code");
+			String similarStore = getString("similar_store");
 			String store = getString("store");
 			String FranchiseStore = getString("Franchise_store");
 			
 			shopSalesVO vo = new shopSalesVO();
 			vo.setYearCode(yearCode);
+			vo.setSimilarStore(similarStore);
 			vo.setStore(store);
 			vo.setFranchiseStore(FranchiseStore);
 			
@@ -128,7 +130,7 @@ public class storeReportDAO extends DBManager {
 		driverLoad();
 		DBConnect();
 		
-		String sql = "select left(service_code, 3) as code, sum(store) as store ";
+		String sql = "select left(service_code, 3) as code, sum(similar_store) as store ";
 		sql += "from df_seoul_store_sales_final where Gu_code = '" + code + "' and year_code = '20244' group by code";
 		
 		executeQuery(sql);
@@ -150,6 +152,34 @@ public class storeReportDAO extends DBManager {
 		return list;
 	}
 	
+//	업종으로 묶어 분기별 업종 개수 표시
+	public List<shopSalesVO> storeServiceHalf(String code) {
+		driverLoad();
+		DBConnect();
+		
+		String sql = "select year_code, left(service_code, 3) as code, sum(similar_store) as store ";
+		sql += "from df_seoul_store_sales_final where Gu_code = '" + code + "' and year_code > 20233 group by code, year_code";
+		
+		executeQuery(sql);
+		
+		List<shopSalesVO> list = new ArrayList<>();
+
+		while(next()) {
+			String yearCode = getString("year_code");
+			String scode = getString("code");
+			String store = getString("store");
+			
+			shopSalesVO vo = new shopSalesVO();
+			vo.setYearCode(yearCode);
+			vo.setServiceCode(scode);
+			vo.setStore(store);
+			
+			list.add(vo);
+
+		}
+		DBDisConnect();
+		return list;
+	}
 	
 	
 	

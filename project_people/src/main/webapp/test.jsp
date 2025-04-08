@@ -1,8 +1,15 @@
+<%@page import="seoulAll.seoulAllVO"%>
+<%@page import="shopSales.shopSalesVO"%>
+<%@page import="java.util.List"%>
+<%@page import="com.fasterxml.jackson.databind.ObjectMapper"%>
+<%@page import="report.localReportDAO"%>
+<%@page import="report.peopleReportDAO"%>
+<%@page import="report.storeReportDAO"%>
+<%@page import="report.payReportDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="header.jsp" %>
 <%@ include file="top.jsp" %>
-
 
 <html>
 <head>
@@ -13,14 +20,20 @@
 		.label * {display: inline-block;vertical-align: top;}
 		body {
 		  overflow-x: hidden; 
-		  overflow-y: auto;
+		  overflow-y: hidden;
 		  margin: 0px;
-}
+		}
+		.rightinclude{
+			justify-self: right;
+   	 		width: 79vh;
+		}
     </style>
     </head>
 <body>
-<div id="map" style="width:100%;height:90vh;;" >
-<%@ include file="right.jsp" %>
+<div id="map" style="width:100%;height:90vh;;">
+	<div class="rightinclude">
+		<%@ include file="right.jsp" %>
+	</div>
 </div>
 <script type="text/javascript" src="http://dapi.kakao.com/v2/maps/sdk.js?appkey=1fdb7ac7e51636cb659c1f91ffa94535"></script>
 <script>
@@ -71,4 +84,5 @@ function setBounds() {
 /* customOverlay.setMap(map); */
 </script>
 </body>
+
 </html>

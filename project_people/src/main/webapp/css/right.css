@@ -1,8 +1,9 @@
 @charset "UTF-8";
+
 .rightB{
 	height:85vh;
     position: absolute;
-    z-index: 50;
+    z-index: 65;
 }
 .rightBtn{
 	display: block;
@@ -15,11 +16,11 @@
     border-radius: 5px;
 }
 .report{
+	width: 100%;
 	height: 50px;
     padding: 0 20px;
     background: #0676dd;
     font-size: 15px;
-    width: 810px;
     color: #fff;
     align-content: center;
     
@@ -39,23 +40,27 @@ div > strong{
     vertical-align: middle;
 }
 .Btn{
-	margin-left: 64%;
+	float: right;
+    margin-right: 30px;
     width: 40px;
     height: 40px;
 }
 .right{
-	height:85vh;
+	right: 0;
+    min-width: 850px;
+	height:90vh;
     position: absolute;
-    z-index: 100;
-    width: 100%;
+    z-index: 70;
     text-align: -webkit-right;
+    overflow-x: hidden;
+    overflow-y: hidden; 
 }
 .tab{
 	height: 100px;
     padding: 0 20px;
     background: #fff;
     font-size: 0;
-    width: 810px;
+    width: 100%;
     align-items: center;
 }
 .tab_report{
@@ -110,7 +115,7 @@ div > strong{
 	margin-top: 8px;
     border-radius: 5px;
     background: #f9f9f9;
-    width: 101%;
+    width: 900px;
 }
 #warning strong{
 	display: inline-block;
@@ -131,18 +136,21 @@ div > strong{
     background: #f9f9f9;
 }
 .tabWrapLy{
-	padding: 1px 20px;
     background: #fff;
-    width: 900px;
-    text-align: left;
+    text-align: center;
+    padding-top: 10px;
  }
 .totalOpi{
-	margin-bottom: 16px;
+	margin:0px 0px 16px 30px;;
+	text-align: left;
     font-size: 22px;
     font-weight: 700;
     padding: 10px 0 0;
 }
 .totalReport{
+	place-self: center;
+    text-align: left;
+	width: 900px;
 	padding: 20px;
     border: 1px solid #ddd;
     border-radius: 5px;
@@ -161,13 +169,16 @@ div > strong{
     background: #ffffff;
     border: 1px solid #ddd;
     box-sizing: border-box;
-    width: calc(33.33% - 10px);
+    width: 300px;
     display: inline-block;
     margin-top: 0px;
 }
+.labelArea > div > p{
+	padding: 0px;
+}
 .relative{
 	padding: 0 0 10px;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 600;
 }
 .contrast{
@@ -180,7 +191,7 @@ div > strong{
 }
 .jeon{
 	color: #fff;
-    font-size: 23px;
+    font-size: 20px;
     margin-top: 3px;
     text-align: center;
     margin: 0px;
@@ -200,13 +211,14 @@ div > strong{
     margin: 10px 0px;
 }
 .yearBun01{
+	margin: 0px;
 	font-size: 20px;
     font-weight: 500;
 }
 .yearBun02{
+	margin: 0px;
 	font-size: 20px;
     font-weight: 700;
-    margin-top: -15px;
 }
 .labelArea{
 	    display: flex;
@@ -226,12 +238,14 @@ div > strong{
     letter-spacing: -1px;
     height: 25px;
     margin: 0px;
+    text-align: left;
+    margin: 0px 0px 16px 30px;
   }
 .reportContentRow{
 	margin-top: 15px;
 }
 .reportContentCell{
-	width: calc(25% - 10px);
+	width: 224px;
     padding: 20px;
     border-radius: 5px;
     background: #ffffff;
@@ -255,22 +269,28 @@ div > strong{
     justify-content: center;
 }
 .common{
-	    margin-top: 10px;
+	    /* margin-top: 10px; */
 }
 .jumpoNo{
 	padding: 20px 0px 0px;
     border-bottom: 16px solid #f1f1f1;
+    background-color: white;
 }
 .totalJumpoNo{
-	padding: 40px 0 10px;
+	margin: 0px 0px 16px 30px;
+	text-align: left;
+	padding: 10px 0 10px;
     font-size: 15px;
 }
 .summary{
-	margin: 0px;
+	text-align: left;
+	margin: 0px 0px 16px 30px;
 	font-size: 22px;
     font-weight: 700;
 }
 .contRast{
+	justify-self: center;
+	width: 900px;
 	margin-bottom: 8px;
     border: 1px solid #ddd;
     border-radius: 5px;
@@ -278,6 +298,8 @@ div > strong{
     justify-content: center;
 }
 .datail{
+	justify-self: center;
+	width: 900px;
 	margin-bottom: 8px;
     border: 1px solid #ddd;
     border-radius: 10px;
@@ -293,13 +315,13 @@ div > strong{
 .chartArea{
 	position: relative;
     min-height: 278px;
-    padding: 50px 20px 20px;
+    margin: 30px 20px 20px;
     border: 1px solid #ddd;
     border-radius: 5px;
 }
 .chartArea p.title {
     position: absolute;
-    top: 60px;
+    top: 45px;
     left: 20px;
     font-size: 14px;
     font-weight: 600;
@@ -307,8 +329,7 @@ div > strong{
 }
 .chartArea span.unit {
     position: absolute;
-    top: 20px;
-    right: 20px;
+    right: 5px;
     color: var(--color-gray);
 }
 .rMateH5_Root{
@@ -331,14 +352,19 @@ graph {
 	margin-top: 14px;
 	min-height: 278px;
     padding: 50px 20px 20px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+}
+.graph2 p.title {
+    text-align:left;
+    top: 45px;
+    left: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    color: black;
 }
 .selectDistrict{
 	min-height: 200px;
 }
 .selectDistrict .chart > div{
-	position: absolute;
     top: 50%;
     left: 50%;
     background-repeat: no-repeat;
@@ -378,7 +404,7 @@ graph {
     border-radius: 5px;
     margin-right: 20px;
     margin-left: 20px;
-    height: 330px;
+    height: 435px;
 }
 .chartArea2 p.title{
 	text-align: center;   
@@ -428,7 +454,6 @@ graph {
     height: 39px;
     width: 175px;
     margin-left: 100px;
-    margin-top: 230px;
 }
 .rMateH5_Legend{
 	width: 280px;
@@ -439,27 +464,38 @@ graph {
 	font-weight: 600;
 }
 .sin{
-	padding: 0 20px 30px;
+	margin: 0px;
     border-bottom: 16px solid #f1f1f1;
 }
 .gi{
-	padding: 40px 0 10px;
+	padding: 15px 0 10px;
     font-size: 15px;
     font-weight: 600;
+    text-align: left;
+    margin-left: 15px;
 }
-.summary{
-	margin-bottom: 16px;
-    font-size: 22px;
-    font-weight: 700;
+#live{
+	margin: 0px 0px 0px 15px;
 }
 .contRast2{
 	margin-bottom: 8px;
     border: 1px solid #ddd;
     border-radius: 10px;
-    display: flex;
-    height: 41px;
-    width: 850px;
-    justify-content: center;
+    text-align: left;
+    display: block;
+    width: 900px;
+    place-self: center;
+}
+.half{
+	font-size: 15px;
+	color: grey;
+	width: 65%;
+	margin-left: 20px;
+}
+.percent{
+	font-size: 15px;
+	float: right;
+	margin-right: 20px;
 }
 p.title{
 	font-size: 14px;
@@ -476,8 +512,9 @@ p.unit{
 .scroll_y{
 	overflow-y: auto;
 	touch-action: pinch-zoom;
-	width: 850px;
-    height: 700px;
+    width: 100%;
+    height: 86%;
+    overflow-x: hidden;
 }
 .ScrollBox{
 	position: relative;
@@ -485,4 +522,12 @@ p.unit{
     max-width: 100%;
     outline: 0;
     direction: ltr;
+}
+hr{
+	width: 98%;
+}
+.multipleChartArea{
+	display: flex;
+    width: 97%;
+    justify-self: center;
 }

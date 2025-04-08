@@ -2,6 +2,29 @@ package seoulAll;
 
 public class seoulAllVO {
 	private String score;
+	private String schooll;
+	private String transportation;
+	
+	
+	public String getTransportation() {
+		return transportation;
+	}
+
+
+	public void setTransportation(String transportation) {
+		this.transportation = transportation;
+	}
+
+
+	public String getSchooll() {
+		return schooll;
+	}
+
+
+	public void setSchooll(String schooll) {
+		this.schooll = schooll;
+	}
+
 
 	public String getScore() {
 		return score;
@@ -268,54 +291,6 @@ public class seoulAllVO {
 	private String age60Company;
 
 
-	/* M_10_company */ 
-	private String m10Company;
-
-
-	/* M_20_company */ 
-	private String m20Company;
-
-
-	/* M_30_company */ 
-	private String m30Company;
-
-
-	/* M_40_company */ 
-	private String m40Company;
-
-
-	/* M_50_company */ 
-	private String m50Company;
-
-
-	/* M_60_company */ 
-	private String m60Company;
-
-
-	/* F_10_company */ 
-	private String f10Company;
-
-
-	/* F_20_company */ 
-	private String f20Company;
-
-
-	/* F_30_company */ 
-	private String f30Company;
-
-
-	/* F_40_company */ 
-	private String f40Company;
-
-
-	/* F_50_company */ 
-	private String f50Company;
-
-
-	/* F_60_company */ 
-	private String f60Company;
-
-
 	/* all_move_people */ 
 	private String allMovePeople;
 
@@ -438,54 +413,6 @@ public class seoulAllVO {
 
 	/* age_60_live */ 
 	private String age60Live;
-
-
-	/* M_10_live */ 
-	private String m10Live;
-
-
-	/* M_20_live */ 
-	private String m20Live;
-
-
-	/* M_30_live */ 
-	private String m30Live;
-
-
-	/* M_40_live */ 
-	private String m40Live;
-
-
-	/* M_50_live */ 
-	private String m50Live;
-
-
-	/* M_60_live */ 
-	private String m60Live;
-
-
-	/* F_10_live */ 
-	private String f10Live;
-
-
-	/* F_20_live */ 
-	private String f20Live;
-
-
-	/* F_30_live */ 
-	private String f30Live;
-
-
-	/* F_40_live */ 
-	private String f40Live;
-
-
-	/* F_50_live */ 
-	private String f50Live;
-
-
-	/* F_60_live */ 
-	private String f60Live;
 
 
 	/* all_family_people */ 
@@ -1132,126 +1059,6 @@ public class seoulAllVO {
 	}
 
 
-	public String getM10Company() {
-		return m10Company;
-	}
-
-
-	public void setM10Company(String m10Company) {
-		this.m10Company = m10Company;
-	}
-
-
-	public String getM20Company() {
-		return m20Company;
-	}
-
-
-	public void setM20Company(String m20Company) {
-		this.m20Company = m20Company;
-	}
-
-
-	public String getM30Company() {
-		return m30Company;
-	}
-
-
-	public void setM30Company(String m30Company) {
-		this.m30Company = m30Company;
-	}
-
-
-	public String getM40Company() {
-		return m40Company;
-	}
-
-
-	public void setM40Company(String m40Company) {
-		this.m40Company = m40Company;
-	}
-
-
-	public String getM50Company() {
-		return m50Company;
-	}
-
-
-	public void setM50Company(String m50Company) {
-		this.m50Company = m50Company;
-	}
-
-
-	public String getM60Company() {
-		return m60Company;
-	}
-
-
-	public void setM60Company(String m60Company) {
-		this.m60Company = m60Company;
-	}
-
-
-	public String getF10Company() {
-		return f10Company;
-	}
-
-
-	public void setF10Company(String f10Company) {
-		this.f10Company = f10Company;
-	}
-
-
-	public String getF20Company() {
-		return f20Company;
-	}
-
-
-	public void setF20Company(String f20Company) {
-		this.f20Company = f20Company;
-	}
-
-
-	public String getF30Company() {
-		return f30Company;
-	}
-
-
-	public void setF30Company(String f30Company) {
-		this.f30Company = f30Company;
-	}
-
-
-	public String getF40Company() {
-		return f40Company;
-	}
-
-
-	public void setF40Company(String f40Company) {
-		this.f40Company = f40Company;
-	}
-
-
-	public String getF50Company() {
-		return f50Company;
-	}
-
-
-	public void setF50Company(String f50Company) {
-		this.f50Company = f50Company;
-	}
-
-
-	public String getF60Company() {
-		return f60Company;
-	}
-
-
-	public void setF60Company(String f60Company) {
-		this.f60Company = f60Company;
-	}
-
-
 	public String getAllMovePeople() {
 		return allMovePeople;
 	}
@@ -1562,126 +1369,6 @@ public class seoulAllVO {
 	}
 
 
-	public String getM10Live() {
-		return m10Live;
-	}
-
-
-	public void setM10Live(String m10Live) {
-		this.m10Live = m10Live;
-	}
-
-
-	public String getM20Live() {
-		return m20Live;
-	}
-
-
-	public void setM20Live(String m20Live) {
-		this.m20Live = m20Live;
-	}
-
-
-	public String getM30Live() {
-		return m30Live;
-	}
-
-
-	public void setM30Live(String m30Live) {
-		this.m30Live = m30Live;
-	}
-
-
-	public String getM40Live() {
-		return m40Live;
-	}
-
-
-	public void setM40Live(String m40Live) {
-		this.m40Live = m40Live;
-	}
-
-
-	public String getM50Live() {
-		return m50Live;
-	}
-
-
-	public void setM50Live(String m50Live) {
-		this.m50Live = m50Live;
-	}
-
-
-	public String getM60Live() {
-		return m60Live;
-	}
-
-
-	public void setM60Live(String m60Live) {
-		this.m60Live = m60Live;
-	}
-
-
-	public String getF10Live() {
-		return f10Live;
-	}
-
-
-	public void setF10Live(String f10Live) {
-		this.f10Live = f10Live;
-	}
-
-
-	public String getF20Live() {
-		return f20Live;
-	}
-
-
-	public void setF20Live(String f20Live) {
-		this.f20Live = f20Live;
-	}
-
-
-	public String getF30Live() {
-		return f30Live;
-	}
-
-
-	public void setF30Live(String f30Live) {
-		this.f30Live = f30Live;
-	}
-
-
-	public String getF40Live() {
-		return f40Live;
-	}
-
-
-	public void setF40Live(String f40Live) {
-		this.f40Live = f40Live;
-	}
-
-
-	public String getF50Live() {
-		return f50Live;
-	}
-
-
-	public void setF50Live(String f50Live) {
-		this.f50Live = f50Live;
-	}
-
-
-	public String getF60Live() {
-		return f60Live;
-	}
-
-
-	public void setF60Live(String f60Live) {
-		this.f60Live = f60Live;
-	}
-
-
 	public String getAllFamilyPeople() {
 		return allFamilyPeople;
 	}
@@ -1691,5 +1378,47 @@ public class seoulAllVO {
 		this.allFamilyPeople = allFamilyPeople;
 	}
 
+
+	@Override
+	public String toString() {
+		return "seoulAllVO [score=" + score + ", schooll=" + schooll + ", transportation=" + transportation
+				+ ", yearCode=" + yearCode + ", guCode=" + guCode + ", guCodeName=" + guCodeName + ", changeIndex="
+				+ changeIndex + ", changeIndexName=" + changeIndexName + ", openMonthMean=" + openMonthMean
+				+ ", closeMonthMean=" + closeMonthMean + ", seoulOpenMonth=" + seoulOpenMonth + ", seoulCloseMonth="
+				+ seoulCloseMonth + ", monthMeanPay=" + monthMeanPay + ", incomeCode=" + incomeCode + ", totalPay="
+				+ totalPay + ", foodShopPay=" + foodShopPay + ", clothingPay=" + clothingPay + ", suppliesPay="
+				+ suppliesPay + ", medicalPay=" + medicalPay + ", trafficPay=" + trafficPay + ", educationPay="
+				+ educationPay + ", pubPay=" + pubPay + ", culturePay=" + culturePay + ", elsePay=" + elsePay
+				+ ", foodPay=" + foodPay + ", hospitalityFacilities=" + hospitalityFacilities + ", publicOffice="
+				+ publicOffice + ", bank=" + bank + ", generalHospital=" + generalHospital + ", hospital=" + hospital
+				+ ", drugstore=" + drugstore + ", babyCare=" + babyCare + ", elementarySchool=" + elementarySchool
+				+ ", middleSchool=" + middleSchool + ", highSchool=" + highSchool + ", college=" + college
+				+ ", department=" + department + ", market=" + market + ", theater=" + theater + ", stay=" + stay
+				+ ", airport=" + airport + ", train=" + train + ", busTerminal=" + busTerminal + ", subway=" + subway
+				+ ", busStop=" + busStop + ", totalLive=" + totalLive + ", local=" + local + ", longForeigner="
+				+ longForeigner + ", shortForeigner=" + shortForeigner + ", dMax=" + dMax + ", dMin=" + dMin
+				+ ", dayPeople=" + dayPeople + ", nightPeople=" + nightPeople + ", dMaxMove=" + dMaxMove + ", outMove="
+				+ outMove + ", guDongMove=" + guDongMove + ", guMove=" + guMove + ", visitor=" + visitor
+				+ ", allCompanyPeople=" + allCompanyPeople + ", mCompany=" + mCompany + ", fCompany=" + fCompany
+				+ ", age10Company=" + age10Company + ", age20Company=" + age20Company + ", age30Company=" + age30Company
+				+ ", age40Company=" + age40Company + ", age50Company=" + age50Company + ", age60Company=" + age60Company
+				+ ", allMovePeople=" + allMovePeople + ", mMove=" + mMove + ", fMove=" + fMove + ", age10Move="
+				+ age10Move + ", age20Move=" + age20Move + ", age30Move=" + age30Move + ", age40Move=" + age40Move
+				+ ", age50Move=" + age50Move + ", age60Move=" + age60Move + ", time0006Move=" + time0006Move
+				+ ", time0611Move=" + time0611Move + ", time1114Move=" + time1114Move + ", time1417Move=" + time1417Move
+				+ ", time1721Move=" + time1721Move + ", time2124Move=" + time2124Move + ", monMove=" + monMove
+				+ ", tueMove=" + tueMove + ", wedMove=" + wedMove + ", thurMove=" + thurMove + ", friMove=" + friMove
+				+ ", satMove=" + satMove + ", sunMove=" + sunMove + ", allLivePeople=" + allLivePeople + ", mLive="
+				+ mLive + ", fLive=" + fLive + ", age10Live=" + age10Live + ", age20Live=" + age20Live + ", age30Live="
+				+ age30Live + ", age40Live=" + age40Live + ", age50Live=" + age50Live + ", age60Live=" + age60Live
+				+ ", allFamilyPeople=" + allFamilyPeople + "]";
+	}
+
+
+
+	
+	
+	
+	
 	
 }

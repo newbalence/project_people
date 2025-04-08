@@ -127,7 +127,7 @@ for year_code in year_code_uniques:
 #               # #Null값에 구한 값을 넣기 위한 코드 -> 즉, 변경한 후 데이터
             print(f"{D_code} 완료")
     print(f"{year_code} 완료")
-    total.to_csv("./code/project02/df_seoul_test.csv", encoding="utf-8", index=False)
+    #total.to_csv("./code/project02/df_seoul_test.csv", encoding="utf-8", index=False)
 print("Null 값 제거 완료")
 
 # # total.to_csv("/project02/df_seoul_test.csv", encoding="utf-8", index=False)

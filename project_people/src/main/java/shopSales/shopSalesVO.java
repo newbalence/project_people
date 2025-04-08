@@ -851,5 +851,27 @@ public class shopSalesVO {
 		this.age60Num = age60Num;
 	}
 
+	@Override
+	public String toString() {
+		return "shopSalesVO [score=" + score + ", yearCode=" + yearCode + ", guCode=" + guCode + ", guCodeName="
+				+ guCodeName + ", serviceCode=" + serviceCode + ", serviceCodeName=" + serviceCodeName + ", store="
+				+ store + ", similarStore=" + similarStore + ", open=" + open + ", openStore=" + openStore + ", close="
+				+ close + ", closeStore=" + closeStore + ", franchiseStore=" + franchiseStore + ", monthSalesPay="
+				+ monthSalesPay + ", monthSalesNum=" + monthSalesNum + ", weekDaysPay=" + weekDaysPay + ", weekendPay="
+				+ weekendPay + ", monSalesPay=" + monSalesPay + ", tueSalesPay=" + tueSalesPay + ", wedSalesPay="
+				+ wedSalesPay + ", thurSalesPay=" + thurSalesPay + ", friSalesPay=" + friSalesPay + ", satSalesPay="
+				+ satSalesPay + ", sunSalesPay=" + sunSalesPay + ", time0006Pay=" + time0006Pay + ", time0611Pay="
+				+ time0611Pay + ", time1114Pay=" + time1114Pay + ", time1417Pay=" + time1417Pay + ", time1721Pay="
+				+ time1721Pay + ", time2124Pay=" + time2124Pay + ", mSalesPay=" + mSalesPay + ", fSalesPay=" + fSalesPay
+				+ ", age10Pay=" + age10Pay + ", age20Pay=" + age20Pay + ", age30Pay=" + age30Pay + ", age40Pay="
+				+ age40Pay + ", age50Pay=" + age50Pay + ", age60Pay=" + age60Pay + ", weekDaysNum=" + weekDaysNum
+				+ ", weekendNum=" + weekendNum + ", monSalesNum=" + monSalesNum + ", tueSalesNum=" + tueSalesNum
+				+ ", wedSalesNum=" + wedSalesNum + ", thurSalesNum=" + thurSalesNum + ", friSalesNum=" + friSalesNum
+				+ ", satSalesNum=" + satSalesNum + ", sunSalesNum=" + sunSalesNum + ", time06Num=" + time06Num
+				+ ", time11Num=" + time11Num + ", time14Num=" + time14Num + ", time17Num=" + time17Num + ", time21Num="
+				+ time21Num + ", time24Num=" + time24Num + ", mSalesNum=" + mSalesNum + ", fSalesNum=" + fSalesNum
+				+ ", age10Num=" + age10Num + ", age20Num=" + age20Num + ", age30Num=" + age30Num + ", age40Num="
+				+ age40Num + ", age50Num=" + age50Num + ", age60Num=" + age60Num + "]";
+	}
 	
 }

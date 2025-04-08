@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <link rel="stylesheet" href="./css/top.css"></link>
-</head>
+<%
+String codes = request.getParameter("selectSigun");
+%>
 <body>
 	<nav id="sideMenu">
 	<div class="me">
@@ -14,33 +16,35 @@
 	<div class="wrap_box">
 		<h3>뜨는 상권</h3>
 	<div id="searchSigunList">
-		<select id="selectSigun" class="radius" title="서울 구역 선택">
-			<option vlaue="11">서울시 전체<img src="./img/arrow_bottom.svg"></option>
-			<option vlaue="11680">강남구</option>
-			<option vlaue="11740">강동구</option>
-			<option vlaue="11305">강북구</option>
-			<option vlaue="11500">강서구</option>
-			<option vlaue="11620">관악구</option>
-			<option vlaue="11215">구로구</option>
-			<option vlaue="11545">금천구</option>
-			<option vlaue="11350">노원구</option>
-			<option vlaue="11320">도봉구</option>
-			<option vlaue="11230">동대문구</option>
-			<option vlaue="11590">동작구</option>
-			<option vlaue="11440">마포구</option>
-			<option vlaue="11410">서대문구</option>
-			<option vlaue="11650">서초구</option>
-			<option vlaue="11200">성동구</option>
-			<option vlaue="11290">성북구</option>
-			<option vlaue="11710">송파구</option>
-			<option vlaue="11470">양천구</option>
-			<option vlaue="11560">영등포구</option>
-			<option vlaue="11170">용산구</option>
-			<option vlaue="11380">은평구</option>
-			<option vlaue="11110">종로구</option>
-			<option vlaue="11140">중구</option>
-			<option vlaue="11260">중랑구</option>
-		</select>
+		<form action="test.jsp" method="get" id="selectGu">
+			<select id="selectSigun" class="radius" title="서울 구역 선택" name="selectSigun">
+				<option value="11680" <%= codes.equals("11680") ? "selected" : "" %>>서울시 전체</option>
+				<option value="11680" <%= codes.equals("11680") ? "selected" : "" %>>강남구</option>
+				<option value="11740" <%= codes.equals("11740") ? "selected" : "" %>>강동구</option>
+				<option value="11305" <%= codes.equals("11305") ? "selected" : "" %>>강북구</option>
+				<option value="11500" <%= codes.equals("11500") ? "selected" : "" %>>강서구</option>
+				<option value="11620" <%= codes.equals("11620") ? "selected" : "" %>>관악구</option>
+				<option value="11215" <%= codes.equals("11215") ? "selected" : "" %>>구로구</option>
+				<option value="11545" <%= codes.equals("11545") ? "selected" : "" %>>금천구</option>
+				<option value="11350" <%= codes.equals("11350") ? "selected" : "" %>>노원구</option>
+				<option value="11320" <%= codes.equals("11320") ? "selected" : "" %>>도봉구</option>
+				<option value="11230" <%= codes.equals("11230") ? "selected" : "" %>>동대문구</option>
+				<option value="11590" <%= codes.equals("11590") ? "selected" : "" %>>동작구</option>
+				<option value="11440" <%= codes.equals("11440") ? "selected" : "" %>>마포구</option>
+				<option value="11410" <%= codes.equals("11410") ? "selected" : "" %>>서대문구</option>
+				<option value="11650" <%= codes.equals("11650") ? "selected" : "" %>>서초구</option>
+				<option value="11200" <%= codes.equals("11200") ? "selected" : "" %>>성동구</option>
+				<option value="11290" <%= codes.equals("11290") ? "selected" : "" %>>성북구</option>
+				<option value="11710" <%= codes.equals("11710") ? "selected" : "" %>>송파구</option>
+				<option value="11470" <%= codes.equals("11470") ? "selected" : "" %>>양천구</option>
+				<option value="11560" <%= codes.equals("11560") ? "selected" : "" %>>영등포구</option>
+				<option value="11170" <%= codes.equals("11170") ? "selected" : "" %>>용산구</option>
+				<option value="11380" <%= codes.equals("11380") ? "selected" : "" %>>은평구</option>
+				<option value="11110" <%= codes.equals("11110") ? "selected" : "" %>>종로구</option>
+				<option value="11140" <%= codes.equals("11140") ? "selected" : "" %>>중구</option>
+				<option value="11260" <%= codes.equals("11260") ? "selected" : "" %>>중랑구</option>
+			</select>
+		</form>
 	</div>
 		<p class="box_checkbox">
 			<%-- <input type="checkbox" name="allArea" id="allArea" class="hidden">--%>
@@ -124,7 +128,7 @@
 	<div>
 		<div class="mapBtn">
 		  <div id="now" class="now">
-		    <button><img src="./img/i_currentSpot.svg"f></button>
+		    <button><img src="./img/i_currentSpot.svg"></button>
 		  </div>
 		  <div class="bong">
 			  <div class="maptype">
@@ -159,4 +163,3 @@
 		</div>
 	</div>
 </body>
-</html>
