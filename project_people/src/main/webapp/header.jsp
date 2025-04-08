@@ -18,7 +18,7 @@
 			</ul>
 			<div class="seoul-gnb-news">
 				<div class="news">
-					<a href="https://www.seoul.go.kr/realmnews/in/list.do" target="_blank" title="새창열림(서울소식)" class="seoul-gnb-icon-notice"><img style="border-radius: 10px; width: 35px;" src="./img/announcement.png"></a>
+					<a href="https://www.seoul.go.kr/realmnews/in/list.do" target="_blank" title="새창열림(서울소식)" class="seoul-gnb-icon-notice"><img style="border-radius: 10px; width: 35px; margin-right: 10px;" src="./img/announcement.png"></a>
 					<a href="https://news.seoul.go.kr/culture/archives/527415" target="_blank" title="새창열림" style="color: #fff; font-size: 15px;">서울스트링페스타 로드쇼 편 아니트워크 5K 5월4일 광화문광장 청화대일원</a>
 				</div>
 			</div>
