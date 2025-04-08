@@ -75,9 +75,12 @@
 	</div>
 	<div class="tabcnt">
 		<div style="background-color: #fff; border-radius: 5px;">
-			<div class="top">
-				<p class="topP"><img src="./img/i_store.svg" style="margin-left: 10px; margin-right: 10px;">순위 TOP 10<img src="./img/arrow_bottom.svg" style="margin-left: 165px;"></p><hr>
+			<div class="top" style="display:flex;">
+				<img src="./img/i_store.svg" style="margin-left: 10px; margin-right: 10px;">
+				<p class="topP">순위 TOP 10</p>
+				<img src="./img/arrow_bottom.svg" style="margin-left: 165px;">
 			</div>
+			<hr>
 			<div class="ranking">
 				<div class="ranking_datalist">
 					<div class="relative2">

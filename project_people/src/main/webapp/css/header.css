@@ -4,7 +4,14 @@
 	list-style: none;
 	margin: 0 70px;
 	padding: 0;
-	width: 77%;
+	width: 13%;
+}
+.news{
+	display: flex;
+    align-items: center;
+}
+.seoul-gnb-news{
+	width: 60%;
 }
 li {
 	display: inline-block;
@@ -48,7 +55,7 @@ li {
 	display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 75px;
+    height: 60px;
 }
 .hea {
 	text-decoration: none;
@@ -56,7 +63,7 @@ li {
 	font-size: 15px;
     font-weight: 600;
     cursor: pointer;
-    width: 40%;
+    width: 30%;
     
 }
 .none:hover {
