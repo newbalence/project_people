@@ -22,11 +22,6 @@
 <div id="map" style="width:100%;height:90vh;;" >
 <%@ include file="right.jsp" %>
 </div>
-<!-- <div style="position:absolute;top:60px;left:20px;width:150px;height:100px;background-color:#fff;box-shadow:0 0 10px #000"><a>나도 곧 사장</a></div>
-</div> --> 
-<div>
-
-</div>
 <script type="text/javascript" src="http://dapi.kakao.com/v2/maps/sdk.js?appkey=1fdb7ac7e51636cb659c1f91ffa94535"></script>
 <script>
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 

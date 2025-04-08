@@ -44,7 +44,7 @@
 		</div>
 		<div id="thrd">
 			<div id="login">
-				<img src="./img/log.svg">
+				<img style="padding: 0px 8px;" src="./img/log.svg">
 			    <a href="#">로그인</a>
 		    </div>
 		    <img src="./img/chat.svg">

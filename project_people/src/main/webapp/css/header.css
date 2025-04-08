@@ -2,7 +2,7 @@
 
 .nav {
 	list-style: none;
-	margin: 0 20px;
+	margin: 0 70px;
 	padding: 0;
 	width: 77%;
 }
@@ -14,6 +14,14 @@ li {
 	text-decoration: none;
 	color: #fff;
 	font-size: 27px;
+    font-weight: 600;
+    cursor: pointer;
+    vertical-align: middle;
+}
+.hea > li > a{
+	text-decoration: none;
+    color: #fff;
+    font-size: 15px;
     font-weight: 600;
     cursor: pointer;
     vertical-align: middle;
@@ -59,15 +67,13 @@ li {
 .hd {
 	max-width: 100%;
 	background-color: #fff;
-	padding: 5px 0;
 	display: flex;
-	height: 35px;
 	align-items: center;
 	border-bottom: 1px solid #eee;
 	height: 50px;
 }
 #name {
-	font-size: 20px;
+	font-size: 16px;
 	color : black;
 	font-weight: 700;
 }
@@ -97,22 +103,18 @@ ul{
     width: 100%;
     padding: 0px;
     display: inline-block;
-	margin-right: 5%;
+	margin-right: 30%;
     align-content: center;
 }
 #icon {
 	width:30%;
-	margin-left: 20px;
+	margin-left: 70px;
 	align-content: center;
 }
 #thrd {
-	text-align: center;
-    padding: 0px;
-	margin-right: 5%;
-    align-content: center;
+	margin-right: 10%;
     height: 100%;
     display: flex;
-    justify-content: right;
     width: 25%;
 }
 #login{
