@@ -129,8 +129,7 @@ public class bestDAO extends DBManager {
 		}
 	}
 	
-	
-	
+
 	
 	
 	
