@@ -15,6 +15,10 @@
 <script src="./js/jquery-3.7.1.js"></script>
 <%
 String code = request.getParameter("selectSigun");
+if(code == null || code.isEmpty()){
+	code = "11680";
+}
+
 payReportDAO dao = new payReportDAO();
 storeReportDAO storeDao = new storeReportDAO();
 payReportDAO payDao = new payReportDAO();
@@ -54,7 +58,7 @@ String storeServiceHalfString = mapper.writeValueAsString(storeServiceHalfList);
 
 //점포당 분기 평균 매출액
 List<shopSalesVO> storeMeanPayList = payDao.storeMeanPay(code);
-String storeMeanPayString = mapper.writeValueAsString(storeServiceHalfList);
+String storeMeanPayString = mapper.writeValueAsString(storeMeanPayList);
 
 //점포당 분기 평군 매출건수
 List<shopSalesVO> storeMeanNumList = payDao.storeMeanNum(code);
@@ -620,7 +624,7 @@ seoulAllVO guMoveOne = rankDao.guMoveOne(code);
 						</div>
 						<div class="chartArea">
 							<p class="title">매출액 추이</p>
-							<span class="unit">단위 : 원 / 2024 4분기 기준</span>
+							<span class="unit">단위 : 만원 / 2024 4분기 기준</span>
 							<canvas id="storeMeanPayLine" style="width:100%; min-width:300px"></canvas>
 						</div>
 					</div>
@@ -672,7 +676,7 @@ seoulAllVO guMoveOne = rankDao.guMoveOne(code);
 						</div>
 						<div class="chartArea">
 							<p class="title">요일별 매출 현황</p>
-							<span class="unit">단위 : 원 / 2024 4분기 기준</span>
+							<span class="unit">단위 : 만원 / 2024 4분기 기준</span>
 							<canvas id="weekPayBar" style="width:100%; min-width:300px"></canvas>
 						</div>
 					</div>
@@ -698,7 +702,7 @@ seoulAllVO guMoveOne = rankDao.guMoveOne(code);
 						</div>
 						<div class="chartArea">
 							<p class="title">시간대별 매출 현황</p>
-							<span class="unit">단위 : 원 / 2024 4분기 기준</span>
+							<span class="unit">단위 : 만원 / 2024 4분기 기준</span>
 							<canvas id="timePayLine" style="width:100%; min-width:300px"></canvas>
 						</div>
 					</div>
@@ -724,7 +728,7 @@ seoulAllVO guMoveOne = rankDao.guMoveOne(code);
 						</div>
 						<div class="chartArea">
 							<p class="title">성별 매출 현황</p>
-							<span class="unit">단위 : 원 / 2024 4분기 기준</span>
+							<span class="unit">단위 : 만원 / 2024 4분기 기준</span>
 							<canvas id="genderPayPie" style="width:100%; min-width:300px"></canvas>
 						</div>
 						<div class="multipleChartArea">
@@ -764,7 +768,7 @@ seoulAllVO guMoveOne = rankDao.guMoveOne(code);
 						</div>
 						<div class="chartArea">
 							<p class="title">연령대별 외식업 매출 현황</p>
-							<span class="unit">단위 : 원 / 2024 4분기 기준</span>
+							<span class="unit">단위 : 만원 / 2024 4분기 기준</span>
 							<canvas id="agePayBar" style="width:100%; min-width:300px"></canvas>
 						</div>
 						<div class="multipleChartArea">
@@ -780,6 +784,318 @@ seoulAllVO guMoveOne = rankDao.guMoveOne(code);
 								<p class="title">연령대별 외식업 매출 현황</p>
 									<canvas id="CS3AgePie" style="width:100%; min-width:300px"></canvas>
 							</div>
+						</div>
+					</div>
+				</div>
+				<div class="sin">
+					<p class="gi">유동인구 수</p>
+					<div>
+						<div class="reportItem">
+							<p class="summary" id="live">유동인구 수는 일평균 <a style="color: #0676dd;">00,000명</a> 입니다.</p>
+						</div>
+						<div class="contRast2">
+							<p>
+								<span class="half">전년 동분기 대비</span>
+								<strong class="percent">0%</strong>
+							</p>
+							<p>
+								<span class="half">전분기 대비</span>
+								<strong class="percent"><img src="./img/i_decrease.svg">100%</strong>
+							</p>
+						</div>
+						<div class="datail">
+							<p style="color:black;">기준일로부터 3년전에 개업한 업소가 없어 3년 생존율을 계산하지 못하는 상권입니다.</p>
+						</div>
+						<div class="chartArea">
+							<p class="title">유동인구 추이</p>
+							<span class="unit">단위 : 명 / 2024 4분기 기준</span>
+							<canvas id="allMoveBar" style="width:100%; min-width:300px"></canvas>
+						</div>
+					</div>
+				</div>
+				<div class="sin">
+					<p class="gi">성별, 연령별 유동인구</p>
+					<div>
+						<div class="reportItem">
+							<p class="summary" id="live"><a style="color: #0676dd;">O성, 00대 (00%)</a>유동인구가 가장 많아요.</p>
+						</div>
+						<div class="contRast2">
+							<p>
+								<span class="half">전년 동분기 대비</span>
+								<strong class="percent">0%</strong>
+							</p>
+							<p>
+								<span class="half">전분기 대비</span>
+								<strong class="percent"><img src="./img/i_decrease.svg">100%</strong>
+							</p>
+						</div>
+						<div class="datail">
+							<p style="color:black;">기준일로부터 3년전에 개업한 업소가 없어 3년 생존율을 계산하지 못하는 상권입니다.</p>
+						</div>
+						<div class="chartArea">
+							<p class="title">성별, 연령별 유동인구 현황</p>
+							<span class="unit">단위 : 명 / 2024 4분기 기준</span>
+							<canvas id="genderAgeMoveBar" style="width:100%; min-width:300px"></canvas>
+						</div>
+					</div>
+				</div>
+				<div class="sin">
+					<p class="gi">요일별 유동인구</p>
+					<div>
+						<div class="reportItem">
+							<p class="summary" id="live"><a style="color: #0676dd;">O요일</a>유동인구가 가장 많아요.</p>
+						</div>
+						<div class="contRast2">
+							<p>
+								<span class="half">전년 동분기 대비</span>
+								<strong class="percent">0%</strong>
+							</p>
+							<p>
+								<span class="half">전분기 대비</span>
+								<strong class="percent"><img src="./img/i_decrease.svg">100%</strong>
+							</p>
+						</div>
+						<div class="datail">
+							<p style="color:black;">기준일로부터 3년전에 개업한 업소가 없어 3년 생존율을 계산하지 못하는 상권입니다.</p>
+						</div>
+						<div class="chartArea">
+							<p class="title">요일별 유동인구 현황</p>
+							<span class="unit">단위 : 명 / 2024 4분기 기준</span>
+							<canvas id="dayMoveBar" style="width:100%; min-width:300px"></canvas>
+						</div>
+					</div>
+				</div>
+				<div class="sin">
+					<p class="gi">시간대별 유동인구</p>
+					<div>
+						<div class="reportItem">
+							<p class="summary" id="live"><a style="color: #0676dd;">00 ~ 00시</a>유동인구가 가장 많아요.</p>
+						</div>
+						<div class="contRast2">
+							<p>
+								<span class="half">전년 동분기 대비</span>
+								<strong class="percent">0%</strong>
+							</p>
+							<p>
+								<span class="half">전분기 대비</span>
+								<strong class="percent"><img src="./img/i_decrease.svg">100%</strong>
+							</p>
+						</div>
+						<div class="datail">
+							<p style="color:black;">기준일로부터 3년전에 개업한 업소가 없어 3년 생존율을 계산하지 못하는 상권입니다.</p>
+						</div>
+						<div class="chartArea">
+							<p class="title">시간대별 유동인구 현황</p>
+							<span class="unit">단위 : 명 / 2024 4분기 기준</span>
+							<canvas id="timeMoveLine" style="width:100%; min-width:300px"></canvas>
+						</div>
+					</div>
+				</div>
+				<div class="sin">
+					<p class="gi">거주인구 수</p>
+					<div>
+						<div class="reportItem">
+							<p class="summary" id="live">거주인구는<a style="color: #0676dd;"> 00,000명</a>입니다.</p>
+						</div>
+						<div class="contRast2">
+							<p>
+								<span class="half">전년 동분기 대비</span>
+								<strong class="percent">0%</strong>
+							</p>
+							<p>
+								<span class="half">전분기 대비</span>
+								<strong class="percent"><img src="./img/i_decrease.svg">100%</strong>
+							</p>
+						</div>
+						<div class="datail">
+							<p style="color:black;">기준일로부터 3년전에 개업한 업소가 없어 3년 생존율을 계산하지 못하는 상권입니다.</p>
+						</div>
+						<div class="chartArea">
+							<p class="title">거주인구 추이</p>
+							<span class="unit">단위 : 명 / 2024 4분기 기준</span>
+							<canvas id="allLiveBar" style="width:100%; min-width:300px"></canvas>
+						</div>
+					</div>
+				</div>
+				<div class="sin">
+					<p class="gi">성별, 연령별 거주인구</p>
+					<div>
+						<div class="reportItem">
+							<p class="summary" id="live"><a style="color: #0676dd;"> 0성, 00대</a>거주인구가 가장 많아요.</p>
+						</div>
+						<div class="contRast2">
+							<p>
+								<span class="half">전년 동분기 대비</span>
+								<strong class="percent">0%</strong>
+							</p>
+							<p>
+								<span class="half">전분기 대비</span>
+								<strong class="percent"><img src="./img/i_decrease.svg">100%</strong>
+							</p>
+						</div>
+						<div class="datail">
+							<p style="color:black;">기준일로부터 3년전에 개업한 업소가 없어 3년 생존율을 계산하지 못하는 상권입니다.</p>
+						</div>
+						<div class="chartArea">
+							<p class="title">성별, 연령별 거주인구 현황</p>
+							<span class="unit">단위 : 명 / 2024 4분기 기준</span>
+							<canvas id="genderAgeLiveBar" style="width:100%; min-width:300px"></canvas>
+						</div>
+					</div>
+				</div>
+				<div class="sin">
+					<p class="gi">직장인구 수</p>
+					<div>
+						<div class="reportItem">
+							<p class="summary" id="live">직장인구 수는<a style="color: #0676dd;"> 00명 </a>입니다.</p>
+						</div>
+						<div class="contRast2">
+							<p>
+								<span class="half">전년 동분기 대비</span>
+								<strong class="percent">0%</strong>
+							</p>
+							<p>
+								<span class="half">전분기 대비</span>
+								<strong class="percent"><img src="./img/i_decrease.svg">100%</strong>
+							</p>
+						</div>
+						<div class="datail">
+							<p style="color:black;">기준일로부터 3년전에 개업한 업소가 없어 3년 생존율을 계산하지 못하는 상권입니다.</p>
+						</div>
+						<div class="chartArea">
+							<p class="title">직장인구 추이</p>
+							<span class="unit">단위 : 명 / 2024 4분기 기준</span>
+							<canvas id="allCompanyBar" style="width:100%; min-width:300px"></canvas>
+						</div>
+					</div>
+				</div>
+				<div class="sin">
+					<p class="gi">성별, 연령별 직장인구</p>
+					<div>
+						<div class="reportItem">
+							<p class="summary" id="live"><a style="color: #0676dd;"> 0성, 00대</a>직장인구가 가장 많아요.</p>
+						</div>
+						<div class="contRast2">
+							<p>
+								<span class="half">전년 동분기 대비</span>
+								<strong class="percent">0%</strong>
+							</p>
+							<p>
+								<span class="half">전분기 대비</span>
+								<strong class="percent"><img src="./img/i_decrease.svg">100%</strong>
+							</p>
+						</div>
+						<div class="datail">
+							<p style="color:black;">기준일로부터 3년전에 개업한 업소가 없어 3년 생존율을 계산하지 못하는 상권입니다.</p>
+						</div>
+						<div class="chartArea">
+							<p class="title">성별, 연령별 직장인구 현황</p>
+							<span class="unit">단위 : 명 / 2024 4분기 기준</span>
+							<canvas id="genderAgeCompanyBar" style="width:100%; min-width:300px"></canvas>
+						</div>
+					</div>
+				</div>
+				<div class="sin">
+					<p class="gi">가구세대 수</p>
+					<div>
+						<div class="reportItem">
+							<p class="summary" id="live">가구세대 수<a style="color: #0676dd;">0,000가구</a>입니다.</p>
+						</div>
+						<div class="contRast2">
+							<p>
+								<span class="half">전년 동분기 대비</span>
+								<strong class="percent">0%</strong>
+							</p>
+							<p>
+								<span class="half">전분기 대비</span>
+								<strong class="percent"><img src="./img/i_decrease.svg">100%</strong>
+							</p>
+						</div>
+						<div class="datail">
+							<p style="color:black;">기준일로부터 3년전에 개업한 업소가 없어 3년 생존율을 계산하지 못하는 상권입니다.</p>
+						</div>
+						<div class="chartArea">
+							<p class="title">가구세대 수 추이</p>
+							<span class="unit">단위 : 가구 / 2024 4분기 기준</span>
+							<canvas id="allFamilyLineBar" style="width:100%; min-width:300px"></canvas>
+						</div>
+					</div>
+				</div>
+				<div class="sin">
+					<p class="gi">집객시설 수</p>
+					<div>
+						<div class="reportItem">
+							<p class="summary" id="live">집객시설 수는<a style="color: #0676dd;"> 00개 </a>입니다.</p>
+						</div>
+						<div class="contRast2">
+							<p>
+								<span class="half">전년 동분기 대비</span>
+								<strong class="percent">0%</strong>
+							</p>
+							<p>
+								<span class="half">전분기 대비</span>
+								<strong class="percent"><img src="./img/i_decrease.svg">100%</strong>
+							</p>
+						</div>
+						<div class="datail">
+							<p style="color:black;">기준일로부터 3년전에 개업한 업소가 없어 3년 생존율을 계산하지 못하는 상권입니다.</p>
+						</div>
+						<div class="chartArea">
+							<p class="title">집객시설 현황</p>
+							<span class="unit">단위 : 개 / 2024 4분기 기준</span>
+							<canvas id="allLocalBar" style="width:100%; min-width:300px"></canvas>
+						</div>
+					</div>
+				</div>
+				<div class="sin">
+					<p class="gi">주요시설, 집객시설 현황</p>
+					<div>
+						<div class="reportItem">
+							<p class="summary" id="live">선택자치구는<a style="color: #0676dd;"> 0000 </a>이 가장 많아요.</p>
+						</div>
+						<div class="contRast2">
+							<p>
+								<span class="half">전년 동분기 대비</span>
+								<strong class="percent">0%</strong>
+							</p>
+							<p>
+								<span class="half">전분기 대비</span>
+								<strong class="percent"><img src="./img/i_decrease.svg">100%</strong>
+							</p>
+						</div>
+						<div class="datail">
+							<p style="color:black;">기준일로부터 3년전에 개업한 업소가 없어 3년 생존율을 계산하지 못하는 상권입니다.</p>
+						</div>
+						<div class="chartArea">
+							<p class="title">주요시설, 집객시설 현황</p>
+							<span class="unit">단위 : 명</span>
+							<canvas id="mainLocalBar" style="width:100%; min-width:300px"></canvas>
+						</div>
+					</div>
+				</div>
+				<div class="sin">
+					<p class="gi">소득수준</p>
+					<div>
+						<div class="reportItem">
+							<p class="summary" id="live">소득수준은<a style="color: #0676dd;"> 00분위</a>입니다.</p>
+						</div>
+						<div class="contRast2">
+							<p>
+								<span class="half">전년 동분기 대비</span>
+								<strong class="percent">0%</strong>
+							</p>
+							<p>
+								<span class="half">전분기 대비</span>
+								<strong class="percent"><img src="./img/i_decrease.svg">100%</strong>
+							</p>
+						</div>
+						<div class="datail">
+							<p style="color:black;">기준일로부터 3년전에 개업한 업소가 없어 3년 생존율을 계산하지 못하는 상권입니다.</p>
+						</div>
+						<div class="chartArea">
+							<p class="title">소득수준 현황</p>
+							<span class="unit">단위 : 분위</span>
+							<canvas id="allIncomeBar" style="width:100%; min-width:300px"></canvas>
 						</div>
 					</div>
 				</div>

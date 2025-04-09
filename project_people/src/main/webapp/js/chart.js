@@ -1,3 +1,6 @@
+let allStore = storeListJson[storeListJson.length - 1].similarStore
+console.log(storeListJson)
+
 /* 업종 보고서 그래프 */
 	function drowStoreLine(){
 		
@@ -280,11 +283,10 @@
 	}
 	
 	function drowStoreServicePie(){
-		let storeServiceLabels = [];
+		let storeServiceLabels = ["외식업", "서비스업", "소매업"];
 		let storeServiceDatas = [];
 		
 		for(let i = 0; i < storeServiceListJson.length; i ++){
-			storeServiceLabels.push(storeServiceListJson[i].serviceCode)
 			storeServiceDatas.push(storeServiceListJson[i].store)
 		}
 		const storeServicePiedata = {
@@ -324,12 +326,12 @@
     }
 	
 	function drowStoreServiceHalfBar(){
-		
+		let StoreServiceHalfBarCodeLabels  = ["외식업", "서비스업", "소매업", "외식업", "서비스업", "소매업", "외식업", "서비스업", "소매업", "외식업", "서비스업", "소매업", "외식업", "서비스업", "소매업"]
 		let StoreServiceHalfBarLabels = [];
 	    let StoreServiceHalfBarDatas = [];
 	    
 	    for(let i = 0; i < storeServiceHalfJson.length; i ++){
-	    	StoreServiceHalfBarLabels.push(storeServiceHalfJson[i].yearCode + storeServiceHalfJson[i].serviceCode)
+	    	StoreServiceHalfBarLabels.push(storeServiceHalfJson[i].yearCode + StoreServiceHalfBarCodeLabels[i])
 	    	StoreServiceHalfBarDatas.push(storeServiceHalfJson[i].store)
 	    }
 		
@@ -354,13 +356,13 @@
 	    const StoreServiceHalfBardata = {
 	      labels: StoreServiceHalf,
 		  datasets: [{
-				label: "CS1",
+				label: "외식업",
 				data: CS1SSHBData,
 			},{
-				label: "CS2",
+				label: "서비스업",
 				data: CS2SSHBData,
 			},{
-				label: "CS3",
+				label: "소매업",
 				data: CS3SSHBData,
 			}]
 		};
@@ -396,41 +398,37 @@
 	    let drowstoreMeanPayLineData = []
 		
 		for(let i = 0; i < storeMeanPayJson.length; i ++){
-			drowstoreMeanPayLinelabels.push(storeMeanPayJson[i].yearCode + storeMeanPayJson[i].serviceCode)
-			drowstoreMeanPayLineData.push(storeMeanPayJson[i].store)
+			drowstoreMeanPayLinelabels.push(storeMeanPayJson[i].yearCode)
+			drowstoreMeanPayLineData.push(storeMeanPayJson[i].monthSalesPay / 10000 / 3)
 		}
-		
-		let CS1SMPData = []
-		let CS2SMPData = []
-		let CS3SMPData = []
-		
-		for(let i = 0; i < storeMeanPayJson.length; i+=3){
-			CS1SMPData.push(storeMeanPayJson[i].store)
-		}
-		
-		for(let i = 1; i < storeMeanPayJson.length; i+=3){
-			CS2SMPData.push(storeMeanPayJson[i].store)
-		}
-		
-		for(let i = 2; i < storeMeanPayJson.length; i+=3){
-			CS3SMPData.push(storeMeanPayJson[i].store)
-		}
-		
-		let drowstoreMeanPay = [20234, 20241, 20242, 20243, 20244]
 	    
 		const drowstoreMeanPayLinedata = {
-	      labels: drowstoreMeanPay,
+	      labels: drowstoreMeanPayLinelabels,
 	      datasets: [{
-	        label: "CS1",
-	        data: CS1SMPData,
-	      },{
-	        label: "CS2",
-	        data: CS2SMPData,
-	      },{
-	        label: "CS3",
-	        data: CS3SMPData,
+	        label: '월평균 매출액',
+	        data: drowstoreMeanPayLineData,
+	        backgroundColor: [
+	          'rgba(255, 99, 132, 0.2)',
+	          'rgba(255, 159, 64, 0.2)',
+	          'rgba(255, 205, 86, 0.2)',
+	          'rgba(75, 192, 192, 0.2)',
+	          'rgba(54, 162, 235, 0.2)',
+	          'rgba(153, 102, 255, 0.2)',
+	          'rgba(201, 203, 207, 0.2)'
+	        ],
+	        borderColor: [
+	          'rgb(255, 99, 132)',
+	          'rgb(255, 159, 64)',
+	          'rgb(255, 205, 86)',
+	          'rgb(75, 192, 192)',
+	          'rgb(54, 162, 235)',
+	          'rgb(153, 102, 255)',
+	          'rgb(201, 203, 207)'
+	        ],
+	        borderWidth: 1
 	      }]
 	    };
+	    
 	    
 	    let drowstoreMeanPayLineChart = document.getElementById('storeMeanPayLine').getContext('2d');
 		new Chart(drowstoreMeanPayLineChart, {
@@ -446,7 +444,7 @@
 			    plugins: {
 					title: {
 						display: true,
-						text: '점포당 분기별 평균 매출액'
+						text: '점포당 월평균 매출액'
 					},
 					legend: {
 			    		display : false
@@ -537,13 +535,13 @@
 	function drowWeekPayBar(){
 		let drowWeekPayBarLabels = ["월요일", "화요일", "수요일", "목요일", "금요일", "토요일", "일요일"];
 	    let drowWeekPayBarDatas = [
-			weekPayJson.monSalesPay,
-			weekPayJson.tueSalesPay,
-			weekPayJson.wedSalesPay,
-			weekPayJson.thurSalesPay,
-			weekPayJson.friSalesPay,
-			weekPayJson.satSalesPay,
-			weekPayJson.sunSalesPay
+			weekPayJson.monSalesPay / 10000,
+			weekPayJson.tueSalesPay / 10000,
+			weekPayJson.wedSalesPay / 10000,
+			weekPayJson.thurSalesPay / 10000,
+			weekPayJson.friSalesPay / 10000,
+			weekPayJson.satSalesPay / 10000,
+			weekPayJson.sunSalesPay / 10000
 		];
 	    
 	    const drowWeekPayBardata = {
@@ -605,12 +603,12 @@
 			"17 ~ 21시", "21 ~ 24시"
 		]
 	    let TimePayLineDatas =[
-	    	timePayJson.time0006Pay, 
-	    	timePayJson.time0611Pay,
-			timePayJson.time1114Pay,
-	   		timePayJson.time1417Pay,
-	   		timePayJson.time1721Pay,
-	   		timePayJson.time2124Pay
+	    	timePayJson.time0006Pay / 10000, 
+	    	timePayJson.time0611Pay / 10000,
+			timePayJson.time1114Pay / 10000,
+	   		timePayJson.time1417Pay / 10000,
+	   		timePayJson.time1721Pay / 10000,
+	   		timePayJson.time2124Pay / 10000
 	    ] 
 	    
 	    
@@ -657,8 +655,8 @@
         
         //Json.parse()
         let GenderPayPieDatas = [
-			genderPayJson.fSalesPay, 
-			genderPayJson.mSalesPay
+			genderPayJson.fSalesPay / 10000, 
+			genderPayJson.mSalesPay / 10000
 		]
 		
         const GenderPayPiedata = {
@@ -700,11 +698,11 @@
 	function drowServiceGenderPie(){
 			let ServiceGenderPieLabels = ["Female", "Male"]
 			
-			let ServiceGenderPieLabel = ["CS1", "CS2", "CS3"]
+			let ServiceGenderPieLabel = ["외식업", "서비스업", "소매업"]
 	        
-			let CS1GPPData = [serviceGenderPayJson[0].fSalesPay, serviceGenderPayJson[0].mSalesPay]
-			let CS2GPPData = [serviceGenderPayJson[1].fSalesPay, serviceGenderPayJson[1].mSalesPay]
-			let CS3GPPData = [serviceGenderPayJson[2].fSalesPay, serviceGenderPayJson[2].mSalesPay]
+			let CS1GPPData = [serviceGenderPayJson[0].fSalesPay / 10000, serviceGenderPayJson[0].mSalesPay / 10000]
+			let CS2GPPData = [serviceGenderPayJson[1].fSalesPay / 10000, serviceGenderPayJson[1].mSalesPay / 10000]
+			let CS3GPPData = [serviceGenderPayJson[2].fSalesPay / 10000, serviceGenderPayJson[2].mSalesPay / 10000]
 			
 			let ServiceGenderPieDatas = [
 				CS1GPPData,
@@ -810,22 +808,22 @@
 	function drowServiceAgePie(){
 		let ServiceAgePieLabels =  ["10대", "20대", "30대", "40대", "50대", "60대"]
 		
-		let ServiceAgePieLabel = ["CS1", "CS2", "CS3"]
+		let ServiceAgePieLabel = ["외식업", "서비스업", "소매업"]
         
 		let CS1SAPData = [
-			serviceAgePayJson[0].age10Pay, serviceAgePayJson[0].age20Pay, 
-			serviceAgePayJson[0].age30Pay, serviceAgePayJson[0].age40Pay, 
-			serviceAgePayJson[0].age50Pay, serviceAgePayJson[0].age60Pay
+			serviceAgePayJson[0].age10Pay / 10000, serviceAgePayJson[0].age20Pay / 10000, 
+			serviceAgePayJson[0].age30Pay / 10000, serviceAgePayJson[0].age40Pay / 10000, 
+			serviceAgePayJson[0].age50Pay / 10000, serviceAgePayJson[0].age60Pay / 10000
 		]
 		let CS2SAPData = [
-			serviceAgePayJson[1].age10Pay, serviceAgePayJson[1].age20Pay, 
-			serviceAgePayJson[1].age30Pay, serviceAgePayJson[1].age40Pay, 
-			serviceAgePayJson[1].age50Pay, serviceAgePayJson[1].age60Pay
+			serviceAgePayJson[1].age10Pay / 10000, serviceAgePayJson[1].age20Pay / 10000, 
+			serviceAgePayJson[1].age30Pay / 10000, serviceAgePayJson[1].age40Pay / 10000, 
+			serviceAgePayJson[1].age50Pay / 10000, serviceAgePayJson[1].age60Pay / 10000
 		]
 		let CS3SAPData = [
-			serviceAgePayJson[2].age10Pay, serviceAgePayJson[2].age20Pay, 
-			serviceAgePayJson[2].age30Pay, serviceAgePayJson[2].age40Pay, 
-			serviceAgePayJson[2].age50Pay, serviceAgePayJson[2].age60Pay
+			serviceAgePayJson[2].age10Pay / 10000, serviceAgePayJson[2].age20Pay / 10000, 
+			serviceAgePayJson[2].age30Pay / 10000, serviceAgePayJson[2].age40Pay / 10000, 
+			serviceAgePayJson[2].age50Pay / 10000, serviceAgePayJson[2].age60Pay / 10000
 		]
 		
 		let ServiceAgePieDatas = [

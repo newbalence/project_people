@@ -3,6 +3,10 @@
 <link rel="stylesheet" href="./css/top.css"></link>
 <%
 String codes = request.getParameter("selectSigun");
+
+if(codes == null || codes.isEmpty()){
+	codes = "11680";
+}
 %>
 <body>
 	<nav id="sideMenu">
@@ -18,7 +22,7 @@ String codes = request.getParameter("selectSigun");
 	<div id="searchSigunList">
 		<form action="test.jsp" method="get" id="selectGu">
 			<select id="selectSigun" class="radius" title="서울 구역 선택" name="selectSigun">
-				<option value="11680" <%= codes.equals("11680") ? "selected" : "" %>>서울시 전체</option>
+				<option value="11680" <%= codes.equals("") ? "selected" : "" %>>서울시 전체</option>
 				<option value="11680" <%= codes.equals("11680") ? "selected" : "" %>>강남구</option>
 				<option value="11740" <%= codes.equals("11740") ? "selected" : "" %>>강동구</option>
 				<option value="11305" <%= codes.equals("11305") ? "selected" : "" %>>강북구</option>
@@ -52,12 +56,12 @@ String codes = request.getParameter("selectSigun");
 		</p>
 		<div class="tab_common">
 			<div class="relative">
-				<button id="searchCommercialTown" class="searchCommercialTown">
+				<button id="searchCommercialTown" onclick="alert('추후제공예정')" class="searchCommercialTown">
 					뜨는 동네
 				</button>
 				</div>
 			<div class="relative">
-				<button id="searchCommercialArea" class="searchCommercialArea">
+				<button id="searchCommercialArea" onclick="alert('추후제공예정')" class="searchCommercialArea">
 					뜨는 상권
 				</button>
 			</div>
@@ -67,10 +71,10 @@ String codes = request.getParameter("selectSigun");
 	<div class="wrap_box2">
 		<div class="village">
 			<div class="village2">
-				<div class="store"><button><img src="./img/i_store_gr.svg"><br>점포수</button></div>
-				<div class="sales"><button><img src="./img/i_sales_gr.svg"><br>매출</button></div>
-				<div class="floating"><button><img src="./img/i_floating_gr.svg"><br>유동인구</button></div>
-				<div class="living"><button><img src="./img/i_living_gr.svg"><br>주거인구</button></div>
+				<div class="store"><button onclick="alert('추후제공예정')"><img src="./img/i_store_gr.svg"><br>점포수</button></div>
+				<div class="sales"><button onclick="alert('추후제공예정')"><img src="./img/i_sales_gr.svg"><br>매출</button></div>
+				<div class="floating"><button onclick="alert('추후제공예정')"><img src="./img/i_floating_gr.svg"><br>유동인구</button></div>
+				<div class="living"><button onclick="alert('추후제공예정')"><img src="./img/i_living_gr.svg"><br>주거인구</button></div>
 			</div>
 		</div>
 		<div class="condition">

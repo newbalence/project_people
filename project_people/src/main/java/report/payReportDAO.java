@@ -14,7 +14,7 @@ public class payReportDAO extends DBManager {
 		driverLoad();
 		DBConnect();
 		
-		String sql = "select year_code, avg(Month_sales_pay / store) as Month_sales_pay ";
+		String sql = "select year_code, avg(Month_sales_pay / similar_store) as Month_sales_pay ";
 		sql += "from df_seoul_store_sales_final where Gu_code = '" + code + "' and year_code > 20233 group by Gu_code, year_code";
 		
 		executeQuery(sql);

@@ -150,7 +150,7 @@ div > strong{
 .totalReport{
 	place-self: center;
     text-align: left;
-	width: 900px;
+	width:865px;
 	padding: 20px;
     border: 1px solid #ddd;
     border-radius: 5px;
@@ -195,11 +195,13 @@ div > strong{
     margin-top: 3px;
     text-align: center;
     margin: 0px;
+    margin-bottom: 0px;
 }
 .jeonBun{
 	color: #fff;
     font-size: 17px;
     text-align: center;
+    margin-bottom: 0px;
 	}
 .yearBun{
 	height: 80px;
@@ -314,7 +316,7 @@ div > strong{
 }
 .chartArea{
 	position: relative;
-    min-height: 278px;
+    min-height: 268px;
     margin: 30px 20px 20px;
     border: 1px solid #ddd;
     border-radius: 5px;
@@ -468,14 +470,13 @@ graph {
     border-bottom: 16px solid #f1f1f1;
 }
 .gi{
-	padding: 15px 0 10px;
     font-size: 15px;
     font-weight: 600;
     text-align: left;
-    margin-left: 15px;
+    margin-left: 25px;
 }
 #live{
-	margin: 0px 0px 0px 15px;
+	margin: 0px 0px 0px 25px;
 }
 .contRast2{
 	margin-bottom: 8px;
@@ -513,7 +514,7 @@ p.unit{
 	overflow-y: auto;
 	touch-action: pinch-zoom;
     width: 100%;
-    height: 86%;
+    height: 83%;
     overflow-x: hidden;
 }
 .ScrollBox{
