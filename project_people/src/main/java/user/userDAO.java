@@ -9,17 +9,24 @@ import db.DBManager;
 public class userDAO extends DBManager {
 	//회원가입
 	public void join(userVO vo) {
+		String id = vo.getId();
+		String pw = vo.getPw();
+		String name = vo.getName();
+		String email = vo.getEmail();
+		String address = vo.getAddress();
+		String phoneNumber = vo.getPhoneNumber();
+		
+		
 		driverLoad();
 		DBConnect();
 		
 		String sql = "";
-		sql += "insert into user(id, pw, name, email, address, poneNumber)";
-		sql += "vlaues('"+vo.getId()+"', '"+vo.getPw()+"'. '"+vo.getName()+"', '"+vo.getEmail()+"', '"+vo.getAddress()+"', '"+vo.getPnoneNumber()+"')";
+		sql += "insert into user(id, pw, name, email, address, phoneNumber)";
+		sql += "values('"+id+"', '"+pw+"', '"+name+"', '"+email+"', '"+address+"', '"+phoneNumber+"');";
 		executeUpdate(sql);
 		
 		DBDisConnect();
 	}
-	
 	//로그인
 	public userVO login(userVO uvo) {
 		driverLoad();
@@ -37,7 +44,7 @@ public class userDAO extends DBManager {
 			vo.setName(getString("name"));
 			vo.setEmail(getString("email"));
 			vo.setAddress(getString("address"));
-			vo.setPnoneNumber(getString("poneNumber"));
+			vo.setPhoneNumber(getString("phoneNumber"));
 			
 			DBDisConnect();
 			return vo;
@@ -93,7 +100,7 @@ public class userDAO extends DBManager {
 		driverLoad();
 		DBConnect();
 		
-		String sql="select count(*) as cnt from users where email = '"+email+"';";
+		String sql="select count(*) as cnt from user where email = '"+email+"';";
 		executeQuery(sql);
 		
 		if(next()) {
@@ -107,11 +114,11 @@ public class userDAO extends DBManager {
 	}
 	
 	//전화번호 중복체크
-	public int numberCheck(String poneNumber) {
+	public int numberCheck(String phoneNumber) {
 		driverLoad();
 		DBConnect();
 		
-		String sql="select count(*) as cnt from users where number = '"+poneNumber+"';";
+		String sql="select count(*) as cnt from user where phoneNumber = '"+phoneNumber+"';";
 		executeQuery(sql);
 		
 		if(next()) {

@@ -11,10 +11,14 @@
 	String name = request.getParameter("name");
 	String email = request.getParameter("email");
 	String address = request.getParameter("address");
-	String number = request.getParameter("ponenumber");
+	String number = request.getParameter("phoneNumber");
+	
+	System.out.println("아이디는 : " + id);
+	System.out.println("비밀번호는 : " + pw);
+	// 여기까지는 출력은 잘되는데.......
 	
 	if(id == null || pw == null || name == null || email == null || address == null || number == null){
-		response.sendRedirect("singup.jsp");
+		response.sendRedirect("signup.jsp");
 		return;
 	}
 	if(id.isEmpty() || pw.isEmpty() || name.isEmpty() || email.isEmpty() || address.isEmpty() || number.isEmpty()){
@@ -29,9 +33,11 @@
 	vo.setPw(pw);
 	vo.setName(name);
 	vo.setEmail(email);
-	vo.setPnoneNumber(number);
+	vo.setAddress(address);
+	vo.setPhoneNumber(number);
 	
 	dao.join(vo);
 	
-	response.sendRedirect("login,jsp");
+	response.sendRedirect("login.jsp");
+	//sendRedirect 실행안됨?! 로그인페이지로 이동되지 않음!!
 %>
