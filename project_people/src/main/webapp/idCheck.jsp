@@ -6,4 +6,5 @@
 	userDAO dao = new userDAO();
 	
 	int result = dao.idCheck(id);
+	out.print(result);
 %>

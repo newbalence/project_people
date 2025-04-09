@@ -3,12 +3,15 @@
 <%@page import="user.userDAO"%>
 <%@page import="user.userVO"%>
 <%
-String id = request.getParameter("userId");
-String pw = request.getParameter("password");
+String id = request.getParameter("id");
+String pw = request.getParameter("pw");
 String idSaveCheck = request.getParameter("idSaveCheck");
 
+System.out.println("아이디는 : " + id);
+System.out.println("비밀번호는 : " + pw);	//null로 프린트됨,,,,
+
+
 if(id == null || pw == null){
-	System.out.println("아이디 비밀번호 null?");
 	response.sendRedirect("login.jsp");
 	return;
 }		
@@ -21,17 +24,10 @@ userDAO dao = new userDAO();
 userVO vo = new userVO();
 vo.setId(id);
 vo.setPw(pw);
-
-userVO user = dao.login(vo);
-
-if( user == null){
-	session.setAttribute("id", id);
-	response.sendRedirect("login.jsp");
-	return;
-} 
+ 
  
 session.removeAttribute("id");
-session.setAttribute("user", user);
+
 if(idSaveCheck != null){
 	//화면에서 자동로그인 체크 했을 때 아이디 저장
 	Cookie cookie = new Cookie("id", "id_"+id);
@@ -40,7 +36,6 @@ if(idSaveCheck != null){
 	response.addCookie(cookie);
 }
 
-session.setAttribute("user", user);
 
 response.sendRedirect("test.jsp");
 

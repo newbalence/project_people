@@ -6,29 +6,9 @@ public class userVO {
 	private String name;
 	private String email;
 	private String address;
-	private String pnoneNumber;
-	private String user_type;
+	private String phoneNumber;
 	private String updateDate;
 	private String deleteDate;
-	
-	public String getUpdateDate() {
-		return updateDate;
-	}
-	public void setUpdateDate(String updateDate) {
-		this.updateDate = updateDate;
-	}
-	public String getDeleteDate() {
-		return deleteDate;
-	}
-	public void setDeleteDate(String deleteDate) {
-		this.deleteDate = deleteDate;
-	}
-	public String getUser_type() {
-		return user_type;
-	}
-	public void setUser_type(String user_type) {
-		this.user_type = user_type;
-	}
 	public String getId() {
 		return id;
 	}
@@ -59,10 +39,23 @@ public class userVO {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public String getPnoneNumber() {
-		return pnoneNumber;
+	public String getPhoneNumber() {
+		return phoneNumber;
 	}
-	public void setPnoneNumber(String pnoneNumber) {
-		this.pnoneNumber = pnoneNumber;
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
 	}
+	public String getUpdateDate() {
+		return updateDate;
+	}
+	public void setUpdateDate(String updateDate) {
+		this.updateDate = updateDate;
+	}
+	public String getDeleteDate() {
+		return deleteDate;
+	}
+	public void setDeleteDate(String deleteDate) {
+		this.deleteDate = deleteDate;
+	}
+	
 }

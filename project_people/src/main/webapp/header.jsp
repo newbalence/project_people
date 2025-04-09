@@ -51,7 +51,7 @@
 		<div id="thrd">
 			<div id="login">
 				<img style="padding: 0px 8px;" src="./img/log.svg">
-			    <a onclick="location.href='login.jsp'">로그인</a>
+			    <a onclick="location.href='login.jsp'" style="cursor:pointer;">로그인</a>
 		    </div>
 		    <img src="./img/chat.svg">
 		    <a href="#" class="chatbot" ></a>

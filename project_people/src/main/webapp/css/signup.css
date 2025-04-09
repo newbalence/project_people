@@ -3,13 +3,11 @@
 	box-sizing: border-box;
 }
 body {
-    background-color: #333;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
-    background: url("../img/bg.jpg") no-repeat center top fixed;
     font-family: "pretendard", sans-serif;
 	font-style: normal;
 }
@@ -59,7 +57,7 @@ input[type="text"], input[type="password"] {
 	color: green;
 }
 #id-feedback, #pw-feedback, #name-feedback, #email-feedback, #Address-feedback,
-#poneNumber-feedback{
+#phoneNumber-feedback{
 	display: none;
 }
 .actions {

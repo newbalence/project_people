@@ -42,22 +42,26 @@
 </head>
 <body>
 	<div class="container">
-	  <form onsubmit="" method="post" action="loginOk.jps">
-	  	<div class="back" onclick="goHome()">&larr;</div>
+	  <form onsubmit="return formCheck()" method="post" action="loginok.jsp">
+	  	<div class="back" onclick="location.href='test.jsp'">&larr;</div>
 	  	<div class="tab">
 	  		<div class="tab dctive" id="personalTab">서울시 상권분석</div>
 	  	</div>
 	  	<div>
 		  	<div class="group">
-		  		<input type="text" id="userId" name="userId" placeholder="아이디를 입력해주세요." value="<%= showId%>">
+		  		<input type="text" id="id" name="id" placeholder="아이디를 입력해주세요." value="<%= showId%>">
 		  	</div>
 		  	<div class="group">
-		  		<input type="password" id="password" name="password" placeholder="비밀번호를 입력해주세요.">
+		  		<input type="password" id="pw" name="pw" placeholder="비밀번호를 입력해주세요.">
 		  	</div>
 		  	<%
-		  		if(id == null){
+		  		if(id != null){
 		  	%>
-		  		<div id="userPw-feedback" class="feedback" style="display:block">아이디 또는 비밀번호가 일치하지 않습니다.</div>
+		  		<div id="pw-feedback" class="feedback" style="display:block">아이디 또는 비밀번호가 일치하지 않습니다.</div>
+		  	<%
+		  		}else{
+		  	%>
+		  		<div id="pw-feedback" class="feedback">아이디 또는 비밀번호가 일치하지 않습니다.</div>
 		  	<%
 		  		}
 		  	%>
@@ -66,7 +70,7 @@
 	  		<label for="idSaveCheck">
 	  			<input type="checkbox" name="idSaveCheck" id="idSaveCheck" value="off" <%= savedId != null ? "checked" : "" %>>아이디 저장
 	  		</label>
-	  		<span onclick="goSignup()" style="cursor:pointer;">회원가입</span>
+	  		<span onclick="location.href='signup.jsp'" style="cursor:pointer;">회원가입</span>
 	  	</div>
 	  	<button class="btn" type="submit">로그인</button>
 	  </form>
@@ -84,7 +88,7 @@
 	
 function formCheck(){
 	//아이디 입력창이 비었는지 확인
-			let id = $("#userId");
+		let id = $("#id");
     	if(id.val().trim() == ""){
     		id.focus();
     		id.val("");
@@ -94,19 +98,21 @@ function formCheck(){
     	}
     	
     	//비밀번호 입력창이 비었는지 확인
-    	let pw = $("#password");
+    	let pw = $("#pw");
     	if(pw.val().trim() == ""){
     		pw.focus();
     		pw.val("");
+    		
+    		pw.text("비밀번호를 입력해주세요");
     		return false;
     	}
+    	window.localStorage.setItem("id", id.val());
+    	return true;
     	
-function goHome() {
-        window.location.href = 'test.jsp';
-    }
-function goSignup() {
-        window.location.href = 'signup.jsp';
-    }
+	}
+
+
+
 </script>
 </body>
 </html>

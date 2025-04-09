@@ -33,21 +33,23 @@
 	                <input type="text" id="address" name="address" placeholder="주소">
 	                <div id="Address-feedback" class="feedback">주소 입력은 필수입니다.</div>
 	  				
-	  				<input type="text" id="poneNumber" name="poneNumber" placeholder="핸드폰번호">
-	                <div id="poneNumber-feedback" class="feedback">핸드폰번호는 입력은 필수입니다.</div>
+	  				<input type="text" id="phoneNumber" name="phoneNumber" placeholder="핸드폰번호">
+	                <div id="phoneNumber-feedback" class="feedback">핸드폰번호는 입력은 필수입니다.</div>
                 </div>
      		    <div class="actions">
 		            <span>이미 아이디가 있으신가요? -&gt;</span>
 		            <span onclick="location.href='login.jsp'" style="cursor:pointer;">로그인하기</span>
 		        </div>
-		        <button class="btn" onclick="">회원가입</button>
+		        <button type="submit" class="btn">회원가입</button>
 	        </div>
 		</form>
 	</div>
 <script>
+		
+		let idCheckFlag = false;
 		let idRegex = /^[a-zA-Z0-9]{4,12}$/;
-			let idCheckFlag = false;
-			$("#id").keyup(function(e){
+		$("#id").keyup(function(e){
+			
 			let id = e.target.value;
 			let idFeedback = $("#id-feedback");
 			idFeedback.css("display", "block").text("아이디는 영어 대소문자와 숫자 4~12자리만 사용 가능합니다.").removeClass("success");
@@ -78,38 +80,47 @@
 			});
 		});
 			
-			let numRegex = /^\d{3}-\d{4}-\d{4}$/;
+		/*  핸드폰번호 정규식만 왜 안되는지 모르겠음!!!!-> 속성값을 찾지 못함?!(reading'target') */
+			
 	       	let numCheckFlag = false;
-	       	$("#poneNumber").keyup(function(e){
-				let num = e.target.value;
-				let numFeedback = $("#poneNumber-feedback");
-				numFeedback.css("display", "block").text("전화번호는 -를 포함하여 작성하여주세요.").removeClass("success");
-				numCheckFlag = false;
-				
-				if(!numRegex.test(num)) {
-					return false;
-				}
-				
-				$.ajax({
-					url : "poneNumberCheck.jsp",
-					type : "post",
-					data : {
-						num : num
-					},
-					success : function(result){
-						if(result.trim()=="0"){
-							numCheckFlag = true;
-							numFeedback.css("display", "block").addClass("success").text("사용 가능한 전화번호입니다.");
-						}else{
-							numCheckFlag = false;
-							numFeedback.css("display", "block").removeClass("success").text("사용 불가능한 전화번호입니다.");
-						}
-					},
-					error : function(){
-						console.log("오류발생");
+	       	let numRegex = /^\d{3}-\d{3,4}-\d{4}$/;
+	       	$("#phoneNumber").keyup(function(e){
+	       		try {
+	       			
+					let num = e.target.value;
+					let numFeedback = $("#phoneNumber-feedback");
+					numFeedback.css("display", "block").text("전화번호는 -를 포함하여 작성하여주세요.").removeClass("success");
+					numCheckFlag = false;
+					
+					if(!numRegex.test(num)) {
+						return;
 					}
-				});
-	       	});
+					
+					$.ajax({
+						url : "phoneNumberCheck.jsp",
+						type : "post",
+						data : {
+							num : num
+						},
+						success : function(result){
+							if(result.trim()=="0"){
+								numCheckFlag = true;
+								numFeedback.css("display", "block").addClass("success").text("사용 가능한 전화번호입니다.");
+							}else{
+								numCheckFlag = false;
+								numFeedback.css("display", "block").removeClass("success").text("사용 불가능한 전화번호입니다.");
+							}
+						},
+						error : function(){
+							console.log("오류발생");
+						}
+					});
+
+	       		} catch (err) {
+					console.log(err)
+	       		}
+	       		
+	       	});  
 	      
 	       	let emailRegex = /^[a-zA-Z0-9+-\_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
 	       	let emailCheckFlag = false;
@@ -173,7 +184,7 @@
 		
 		idFeedback.css("display", "block").text("아이디 확인이 완료되었습니다.").addClass("success");
 		
-		let pw = $("pw");
+		let pw = $("#pw");
 		let pwFeedback = $("#pw-feedback");
 		if(pw.val().trim()==""){
 			pw.focus();
@@ -195,8 +206,8 @@
 			nameFeedback.css("display", "none");
 		}
 		
-		let num = $("#poneNumber");
-		let numFeedback = $("#poneNumber-feedback");
+		let num = $("#phoneNumber");
+		let numFeedback = $("#phoneNumber-feedback");
 		if(num.val().trim()==""){
 			num.focus();
 			num.val("");
@@ -244,6 +255,7 @@
 			emailFeedback.css("display", "block").text("이메일 중복 확인이 필요합니다.").removeClass("success");
 			return false;
 		}
+	 }
 </script>
 </body>
 </html>

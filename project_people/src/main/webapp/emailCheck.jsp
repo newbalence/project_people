@@ -7,4 +7,5 @@
 	userDAO dao = new userDAO();
 	
 	int result = dao.emailCheck(email);
+	out.print(result);
 %>

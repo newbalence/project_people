@@ -7,4 +7,5 @@
 	userDAO dao = new userDAO();
 	
 	int result = dao.numberCheck(num);
+	out.print(result);
 %>
