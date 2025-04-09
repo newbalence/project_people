@@ -181,6 +181,28 @@ public class storeReportDAO extends DBManager {
 		return list;
 	}
 	
-	
+	public shopSalesVO allStoreSiGu(String code) {
+		driverLoad();
+		DBConnect();
+		
+		String sql = "select sum(similar_store)gu, (select sum(similar_store) from df_seoul_store_sales_final where year_code = 20244) as si ";
+		sql += "from df_seoul_store_sales_final where Gu_code = '" + code + "' and year_code = '20244'";
+		
+		executeQuery(sql);
+		if(next()) {
+			String si = String.valueOf(getInt("si"));
+			String gu = String.valueOf(getInt("gu"));
+			
+			shopSalesVO vo = new shopSalesVO();
+			vo.setSimilarStore(si);
+			vo.setStore(gu);
+			
+			DBDisConnect();
+			return vo;
+		}else {
+			DBDisConnect();
+			return null;
+		}
+	}
 	
 }

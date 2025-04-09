@@ -8,7 +8,7 @@
 	<link rel="stylesheet" href="./css/header.css"></link>
 	<link rel="stylesheet" href="./img/icon.jpg"></link>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-	
+	<script src="./js/jquery-3.7.1.js"></script>
 </head>
 <body>
 	<div class="wrap">
@@ -26,11 +26,11 @@
 				<li><a class="main" onclick="location.href='https://www.seoul.go.kr/realmnews/in/list.do'">서울소식</a></li>
 				<li><a class="main" onclick="location.href='https://eungdapso.seoul.go.kr/main.do'">응답소</a></li>
 				<li><a class="main" onclick="location.href='https://opengov.seoul.go.kr/'">정보공개</a></li>
-				<li><a class="main">분야별정보</a>
-				<div id="information">
-					<div>안녕</div>
-					<div>클래오</div>
-					<div>파트라</div>
+				<li id="type"><a class="main">분야별정보</a>
+				<div id="information" class="infort">
+					<div class="category">안녕</div>
+					<div class="category">클래오</div>
+					<div class="category">파트라</div>
 				</div>
 				</li>
 			</div>
@@ -51,7 +51,7 @@
 		<div id="thrd">
 			<div id="login">
 				<img style="padding: 0px 8px;" src="./img/log.svg">
-			    <a onclick="location.href='login.jsp'">로그인</a>
+			    <a onclick="location.href='login.jsp'" style="cursor:pointer;">로그인</a>
 		    </div>
 		    <img src="./img/chat.svg">
 		    <a href="#" class="chatbot" ></a>
@@ -60,6 +60,16 @@
 	</div>
 </body>
 <script>
-
+$("#type").click(function(){
+	report = $("#information").attr('class')
+	
+	if(report == "infort"){
+		$("#information").attr('class', "infortview")
+	}else if(report == "infortview"){
+		$("#information").attr('class', "infort")
+	}else{
+		alert("오류발생")
+	}
+});
 </script>
 </html>

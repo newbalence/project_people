@@ -5,6 +5,17 @@
     position: absolute;
     z-index: 65;
 }
+.rightBtnRight{
+	display: block;
+    position: absolute;
+    align-self: anchor-center;
+    width: 60px;
+    height: 100px;
+    background-color: #fff;
+    border: 0px;
+    border-radius: 5px;
+    right: -850px;
+}
 .rightBtn{
 	display: block;
     position: absolute;
@@ -14,6 +25,21 @@
     background-color: #fff;
     border: 0px;
     border-radius: 5px;
+    right: 100px;
+}
+.rightNone{
+	display:none;
+}
+.right{
+	width: 50%;
+	right: 0;
+    min-width: 850px;
+	height:90vh;
+    position: absolute;
+    z-index: 70;
+    text-align: -webkit-right;
+    overflow-x: hidden;
+    overflow-y: hidden; 
 }
 .report{
 	width: 100%;
@@ -33,27 +59,14 @@
 	border-bottom: 2px solid grey;
 }
 div > strong{
-	display: inline-block;
 	font-size: 24px;
-    color: #fff;
-    line-height: 50px;
-    vertical-align: middle;
+    color: #0676dd;
 }
 .Btn{
 	float: right;
     margin-right: 30px;
     width: 40px;
     height: 40px;
-}
-.right{
-	right: 0;
-    min-width: 850px;
-	height:90vh;
-    position: absolute;
-    z-index: 70;
-    text-align: -webkit-right;
-    overflow-x: hidden;
-    overflow-y: hidden; 
 }
 .tab{
 	height: 100px;
@@ -98,9 +111,9 @@ div > strong{
 }
 .explain{
 	height: 330px;
-    padding: 0 20px;
+    justify-items: center;
     background: #fff;
-    width: 900px;
+    width: 100%;
     align-items: center;
     text-align: left;
 }
@@ -112,10 +125,17 @@ div > strong{
     vertical-align: middle;
 }
 .warning{
-	margin-top: 8px;
     border-radius: 5px;
     background: #f9f9f9;
-    width: 900px;
+    width: 755px;
+}
+.choiceGu{
+    background: #fff;
+    text-align: left;
+    padding-left: 40px;
+}
+#selectArea{
+	
 }
 #warning strong{
 	display: inline-block;
@@ -128,7 +148,6 @@ div > strong{
 	position: relative;
     font-size: 16px;
     border-style: hidden;
-    top: 10px;
 }
 .info_active{
 	margin-top: 20px;
@@ -150,16 +169,12 @@ div > strong{
 .totalReport{
 	place-self: center;
     text-align: left;
-	width:865px;
+	width: 710px;
 	padding: 20px;
     border: 1px solid #ddd;
     border-radius: 5px;
     background: #f9f9f9;
 }
-#summary strong{
-	color: #0676dd;
-    font-size: inherit;
- }
  .totalJumpo{
  	margin-top: -95px;
  }
@@ -169,7 +184,7 @@ div > strong{
     background: #ffffff;
     border: 1px solid #ddd;
     box-sizing: border-box;
-    width: 300px;
+    width: 250px;
     display: inline-block;
     margin-top: 0px;
 }
@@ -247,7 +262,7 @@ div > strong{
 	margin-top: 15px;
 }
 .reportContentCell{
-	width: 224px;
+	width: 187px;
     padding: 20px;
     border-radius: 5px;
     background: #ffffff;
@@ -270,9 +285,6 @@ div > strong{
     width: 140px;
     justify-content: center;
 }
-.common{
-	    /* margin-top: 10px; */
-}
 .jumpoNo{
 	padding: 20px 0px 0px;
     border-bottom: 16px solid #f1f1f1;
@@ -292,7 +304,7 @@ div > strong{
 }
 .contRast{
 	justify-self: center;
-	width: 900px;
+    width: 770px;
 	margin-bottom: 8px;
     border: 1px solid #ddd;
     border-radius: 5px;
@@ -301,7 +313,7 @@ div > strong{
 }
 .datail{
 	justify-self: center;
-	width: 900px;
+    width: 770px;
 	margin-bottom: 8px;
     border: 1px solid #ddd;
     border-radius: 10px;
@@ -406,7 +418,7 @@ graph {
     border-radius: 5px;
     margin-right: 20px;
     margin-left: 20px;
-    height: 435px;
+    height: 488px;
 }
 .chartArea2 p.title{
 	text-align: center;   
@@ -416,8 +428,7 @@ graph {
     margin-top: 15px;
 }
 .legend{
-	display: flex;
-	margin-left: 70px;
+	
     padding-bottom: 20px;
     font-size: 15px;
     text-align: center;
@@ -430,11 +441,25 @@ graph {
     font-size: 10px;
     vertical-align: middle;
 }
+.gu{
+	background-image: url("../img/chart_gu.svg");
+	width: 200px;
+	height: 195px;
+	margin: -243px 105px 0 0px;
+}
+.si{
+	background-image: url("../img/chart_si.svg");
+	width: 300px;
+	height: 295px;
+	margin: -65px 54px 0 0px;
+}
 .siBtnColor{
-	position: absolute;
-    top: 60%;
-    margin-top: -120px;
-    background-position: center;
+    font-size: 15px;
+    margin: 35px;
+}
+.guBtnColor{
+	font-size: 15px;
+    margin: -9px;
 }
 .chartArea3{
 	width: calc(50% - 35px);
@@ -484,7 +509,7 @@ graph {
     border-radius: 10px;
     text-align: left;
     display: block;
-    width: 900px;
+    width: 770px;
     place-self: center;
 }
 .half{
@@ -531,4 +556,39 @@ hr{
 	display: flex;
     width: 97%;
     justify-self: center;
+    margin-bottom: 20px;
+}
+
+strong.increaseStore{
+	color: #e02171;
+    font-size: 15px;
+}
+
+strong.decreaseStore{
+	color: #0676dd;
+    font-size: 15px;
+}
+strong.sameStore{
+	color: #808080;
+    font-size: 15px;
+}
+
+strong.increase{
+	color: #e02171;
+    font-size: 15px;
+    float: right;
+    margin-right: 20px;
+}
+
+strong.decrease{
+	color: #0676dd;
+    font-size: 15px;
+    float: right;
+    margin-right: 20px;
+}
+strong.same{
+	color: #808080;
+    font-size: 15px;
+    float: right;
+    margin-right: 20px;
 }

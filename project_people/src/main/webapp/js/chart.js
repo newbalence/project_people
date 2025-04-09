@@ -1,5 +1,3 @@
-let allStore = storeListJson[storeListJson.length - 1].similarStore
-console.log(storeListJson)
 
 /* 업종 보고서 그래프 */
 	function drowStoreLine(){
@@ -47,6 +45,7 @@ console.log(storeListJson)
 				  mode: 'index',
 				  intersect: false,
 				},
+				
 				stacked: false,
 				plugins: {
 					title: {
@@ -326,12 +325,12 @@ console.log(storeListJson)
     }
 	
 	function drowStoreServiceHalfBar(){
-		let StoreServiceHalfBarCodeLabels  = ["외식업", "서비스업", "소매업", "외식업", "서비스업", "소매업", "외식업", "서비스업", "소매업", "외식업", "서비스업", "소매업", "외식업", "서비스업", "소매업"]
+		let StoreServiceHalfBarCodeLabels  = ["외식업", "서비스업", "소매업"]
 		let StoreServiceHalfBarLabels = [];
 	    let StoreServiceHalfBarDatas = [];
 	    
 	    for(let i = 0; i < storeServiceHalfJson.length; i ++){
-	    	StoreServiceHalfBarLabels.push(storeServiceHalfJson[i].yearCode + StoreServiceHalfBarCodeLabels[i])
+	    	StoreServiceHalfBarLabels.push(storeServiceHalfJson[i].yearCode + StoreServiceHalfBarCodeLabels[i % 3])
 	    	StoreServiceHalfBarDatas.push(storeServiceHalfJson[i].store)
 	    }
 		

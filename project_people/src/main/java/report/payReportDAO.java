@@ -42,7 +42,7 @@ public class payReportDAO extends DBManager {
 		driverLoad();
 		DBConnect();
 		
-		String sql = "select year_code, avg(Month_sales_num) as Month_sales_num ";
+		String sql = "select year_code, avg(Month_sales_num / similar_store) as Month_sales_num ";
 		sql += "from df_seoul_store_sales_final where Gu_code = '" + code + "' and year_code > 20233 group by Gu_code, year_code";
 		
 		executeQuery(sql);
@@ -70,8 +70,8 @@ public class payReportDAO extends DBManager {
 		driverLoad();
 		DBConnect();
 		
-		String sql = "select sum(mon_sales_pay) as Mon, sum(Tue_sales_pay) as Tue, sum(Wed_sales_pay) as Wed, ";
-		sql += "sum(Thur_sales_pay) as Thur, sum(Fri_sales_pay) as Fri, sum(Sat_sales_pay) as Sat, sum(Sun_sales_pay) as Sun ";
+		String sql = "select avg(mon_sales_pay / similar_store) as Mon, avg(Tue_sales_pay / similar_store) as Tue, avg(Wed_sales_pay / similar_store) as Wed, ";
+		sql += "avg(Thur_sales_pay / similar_store) as Thur, avg(Fri_sales_pay / similar_store) as Fri, avg(Sat_sales_pay / similar_store) as Sat, avg(Sun_sales_pay / similar_store) as Sun ";
 		sql += "from df_seoul_store_sales_final ";
 		sql += "where Gu_code = '" + code + "' and year_code = '20244'";
 		executeQuery(sql);
@@ -108,8 +108,8 @@ public class payReportDAO extends DBManager {
 		driverLoad();
 		DBConnect();
 		
-		String sql = "select sum(time_00_06_pay) as fi, sum(time_06_11_pay) as se, sum(time_11_14_pay) as th, ";
-		sql += "sum(time_14_17_pay) as fo, sum(time_17_21_pay) as fiv, sum(time_21_24_pay) as six ";
+		String sql = "select avg(time_00_06_pay / similar_store) as fi, avg(time_06_11_pay / similar_store) as se, avg(time_11_14_pay / similar_store) as th, ";
+		sql += "avg(time_14_17_pay / similar_store) as fo, avg(time_17_21_pay / similar_store) as fiv, avg(time_21_24_pay / similar_store) as six ";
 		sql += "from df_seoul_store_sales_final ";
 		sql += "where Gu_code = '" + code + "' and year_code = '20244'";
 
@@ -146,7 +146,7 @@ public class payReportDAO extends DBManager {
 		driverLoad();
 		DBConnect();
 		
-		String sql = "SELECT sum(F_sales_pay) AS F, sum(M_sales_pay) AS M ";
+		String sql = "SELECT avg(F_sales_pay / similar_store) AS F, avg(M_sales_pay / similar_store) AS M ";
 		sql += "FROM df_seoul_store_sales_final ";
 		sql += "WHERE Gu_code = '" + code + "' AND year_code = '20244'";
 		
@@ -175,7 +175,7 @@ public class payReportDAO extends DBManager {
 		DBConnect();
 		
 		String sql = "SELECT ";
-		sql += "LEFT(service_code, 3) AS code, sum(F_sales_pay) AS F, sum(M_sales_pay) AS M ";		
+		sql += "LEFT(service_code, 3) AS code, avg(F_sales_pay / similar_store) AS F, avg(M_sales_pay / similar_store) AS M ";		
 		sql += "FROM df_seoul_store_sales_final WHERE Gu_code = '" + code + "' AND year_code = '20244' group by code";
 		
 		executeQuery(sql);
@@ -202,8 +202,8 @@ public class payReportDAO extends DBManager {
 		driverLoad();
 		DBConnect();
 		
-		String sql = "select sum(age_10_pay) as one, sum(age_20_pay) as two, sum(age_30_pay) as three, ";
-		sql += "sum(age_40_pay) as four, sum(age_50_pay) as fiv, sum(age_60_pay) as six ";
+		String sql = "select avg(age_10_pay / similar_store) as one, avg(age_20_pay / similar_store) as two, avg(age_30_pay / similar_store) as three, ";
+		sql += "avg(age_40_pay / similar_store) as four, avg(age_50_pay / similar_store) as fiv, avg(age_60_pay / similar_store) as six ";
 		
 		sql += "from df_seoul_store_sales_final ";
 		
@@ -241,8 +241,8 @@ public class payReportDAO extends DBManager {
 		driverLoad();
 		DBConnect();
 		
-		String sql = "select LEFT(service_code, 3) AS code, sum(age_10_pay) as one, sum(age_20_pay) as two, sum(age_30_pay) as three,  ";
-		sql += "sum(age_40_pay) as four, sum(age_50_pay) as fiv, sum(age_60_pay) as six ";
+		String sql = "select LEFT(service_code, 3) AS code, avg(age_10_pay / similar_store) as one, avg(age_20_pay / similar_store) as two, avg(age_30_pay / similar_store) as three,  ";
+		sql += "avg(age_40_pay / similar_store) as four, avg(age_50_pay / similar_store) as fiv, avg(age_60_pay / similar_store) as six ";
 		
 		sql += "from df_seoul_store_sales_final ";
 		sql += "where Gu_code = '" + code + "' and year_code = '20244' ";

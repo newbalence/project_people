@@ -97,8 +97,22 @@ li {
     cursor: pointer;
     vertical-align: middle;
 }
-#information{
+.infort{
+   	position: absolute;
+    background-color: #0676dd;
 	display: none;
+	color: white;
+    text-align: center;
+}
+.infortview{
+   	position: absolute;
+    background-color: #0676dd;
+	display: block;
+	color: white;
+    text-align: center;
+}
+.category{
+	width:70px;
 }
 ul{
 	display: inline-block;

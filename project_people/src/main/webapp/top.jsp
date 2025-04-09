@@ -5,7 +5,7 @@
 String codes = request.getParameter("selectSigun");
 
 if(codes == null || codes.isEmpty()){
-	codes = "11680";
+	codes = "";
 }
 %>
 <body>
@@ -22,7 +22,7 @@ if(codes == null || codes.isEmpty()){
 	<div id="searchSigunList">
 		<form action="test.jsp" method="get" id="selectGu">
 			<select id="selectSigun" class="radius" title="서울 구역 선택" name="selectSigun">
-				<option value="11680" <%= codes.equals("") ? "selected" : "" %>>서울시 전체</option>
+				<option value="" <%= codes.equals("") ? "selected" : "" %>>서울시 전체</option>
 				<option value="11680" <%= codes.equals("11680") ? "selected" : "" %>>강남구</option>
 				<option value="11740" <%= codes.equals("11740") ? "selected" : "" %>>강동구</option>
 				<option value="11305" <%= codes.equals("11305") ? "selected" : "" %>>강북구</option>

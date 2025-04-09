@@ -10,7 +10,7 @@ public class bestDAO extends DBManager {
 		driverLoad();
 		DBConnect();
 		
-		String sql = "select service_code, service_code_name, store ";
+		String sql = "select service_code, service_code_name, similar_store ";
 		sql += "from df_seoul_store_sales_final ";
 		sql += "where Gu_code = '" + code + "' and year_code ='20244' ";
 		sql += "order by store desc limit 1";
@@ -21,11 +21,11 @@ public class bestDAO extends DBManager {
 		if(next()) {
 			String serviceCode = getString("service_code");
 			String serviceCodeName = getString("service_code_name");
-			String store = getString("store");
+			String similarStore = String.valueOf(getInt("similar_store"));
 			
 			vo.setServiceCode(serviceCode);
 			vo.setServiceCodeName(serviceCodeName);
-			vo.setStore(store);
+			vo.setSimilarStore(similarStore);
 			
 			DBDisConnect();
 			return vo;
@@ -52,7 +52,7 @@ public class bestDAO extends DBManager {
 		if(next()) {
 			String serviceCode = getString("service_code");
 			String serviceCodeName = getString("service_code_name");
-			String openStore = getString("open_store");
+			String openStore = String.valueOf(getInt("open_store"));
 			
 			vo.setServiceCode(serviceCode);
 			vo.setServiceCodeName(serviceCodeName);
@@ -83,7 +83,7 @@ public class bestDAO extends DBManager {
 		if(next()) {
 			String serviceCode = getString("service_code");
 			String serviceCodeName = getString("service_code_name");
-			String closeStore = getString("close_store");
+			String closeStore = String.valueOf(getInt("close_store"));
 			
 			vo.setServiceCode(serviceCode);
 			vo.setServiceCodeName(serviceCodeName);
@@ -114,7 +114,7 @@ public class bestDAO extends DBManager {
 		if(next()) {
 			String serviceCode = getString("service_code");
 			String serviceCodeName = getString("service_code_name");
-			String FranchiseStore = getString("Franchise_store");
+			String FranchiseStore = String.valueOf(getInt("Franchise_store"));
 			
 			vo.setServiceCode(serviceCode);
 			vo.setServiceCodeName(serviceCodeName);

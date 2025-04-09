@@ -1,3 +1,4 @@
+<%@page import="best.bestDAO"%>
 <%@page import="ranking.rankingDAO"%>
 <%@page import="area.seoulAreaVO"%>
 <%@page import="area.seoulAreaDAO"%>
@@ -16,7 +17,7 @@
 <%
 String code = request.getParameter("selectSigun");
 if(code == null || code.isEmpty()){
-	code = "11680";
+	code = "11110";
 }
 
 payReportDAO dao = new payReportDAO();
@@ -146,17 +147,30 @@ shopSalesVO guStroeOne = rankDao.guStoreOne(code);
 shopSalesVO guPayOne = rankDao.guPayOne(code);
 seoulAllVO guMoveOne = rankDao.guMoveOne(code);
 
+
+//Best 가져오기
+bestDAO bestDao = new bestDAO();
+shopSalesVO bestStore = bestDao.bestStore(code);
+shopSalesVO bestOpen = bestDao.bestOpen(code);
+shopSalesVO bestClose = bestDao.bestClose(code);
+shopSalesVO bestFranchise = bestDao.bestFranchise(code);
+
+//서울시 자치구 상점 갯수 가져오기
+shopSalesVO allStoreSiGu = storeDao.allStoreSiGu(code);
+
+
+shopSalesVO listvo = storeList.get(storeList.size() - 1);
 %>
 <link rel="stylesheet" href="./css/right.css"></link>
 <div class="rightB">
-	<button class="rightBtn"><img src="./img/i_reduce.svg"></button>
+	<button class="rightBtnRight" id="rBtn"><img src="./img/i_reduce.svg" style="transform: rotateY(180deg);"></button>
 </div>
-<div class="right">
+<div class="rightNone" id="rightview">
 	<div class="report">
 		<div class="repor">
 			<strong>분석리포트</strong>
 			<span class="sub">2024년 4분기</span>
-			<button class="Btn"><img src="./img/close_w.svg"></button>
+			<button class="Btn" id="closeBtn"><img src="./img/close_w.svg"></button>
 		</div>
 	</div>
 	<div class="tab">
@@ -196,21 +210,22 @@ seoulAllVO guMoveOne = rankDao.guMoveOne(code);
 		<div class="ScrollBox" style="max-height: none;">
 			<div class="container" style="position: relative; top: -4033px; left: 0px;" dir="ltr"></div>
 		</div>
-		<div class="dragRail"></div>
-		<div class="explain" id="explain">
-				선택면적은 
+		<div class="choiceGu">
+				선택자치구는 
 				<strong id="selectArea"><%= areaCode.getGuArea() %></strong>
 				입니다. 
-			
+		</div>
+		<div class="explain" id="explain">
 			<div class="warning" id="warning">
-				본 보고서에 제공하는 내용은 
-				<strong>추정정보</strong>
-				이므로 
-				<strong>실제와 다를 수</strong>
-				있기에, 
-				<strong>사용자의 책임 하에 활용</strong>
-				하시기 바랍니다. 
-				
+				<div>
+					본 보고서에 제공하는 내용은 
+					<strong>추정정보</strong>
+					이므로 
+					<strong>실제와 다를 수</strong>
+					있기에, 
+					<strong>사용자의 책임 하에 활용</strong>
+					하시기 바랍니다. 
+				</div>
 				<div class="info_limit">
 					<p class="info_limit">책임의 한계 안내</p>
 					<hr>
@@ -231,7 +246,7 @@ seoulAllVO guMoveOne = rankDao.guMoveOne(code);
 			<div class="tabWrap">
 				<div class="tabWrapLy">
 					<h3 class="totalOpi">종합의견</h3>
-					<div class="totalReport">
+					<div class="totalReport" id="totalReport">
 						<div id="summary">
 							<strong>업종전체</strong>
 							의 점포수가 전분기대비
@@ -240,9 +255,9 @@ seoulAllVO guMoveOne = rankDao.guMoveOne(code);
 						</div>
 						<div id="summary">
 							<strong><%= areaCode.getGuCodeName() %></strong>
-							은 자치구에 비해 매출이 감소 추세입니다.
-							<strong>업종전체</strong>
-							의 평균임대시세 등 고정비용에 대한 관리가 중요합니다.
+							은 전년 동분기에 비해 매출이 
+							<strong>감소</strong> 추세입니다.
+							업종전체의 평균임대시세 등 고정비용에 대한 관리가 중요합니다.
 						</div>
 						<div id="summary">
 							<strong><%= areaCode.getGuCodeName() %></strong>
@@ -271,17 +286,17 @@ seoulAllVO guMoveOne = rankDao.guMoveOne(code);
 						<div class="contrast">
 							<div class="">
 								<p class="jeon">전분기 대비</p>
-								<p class="jeonBun">+5개</p>
+								<p class="jeonBun" id="storeHalf">+5개</p>
 							</div>
 						</div>
 						<div class="yearBun">
 							<p class="yearBun01">2024년 4분기</p>
-							<p class="yearBun02">32개</p>
+							<p class="yearBun02" id="storeNow">32개</p>
 						</div>
 						<div class="contrast">
 							<div>
 								<p class="jeon">전년 동분기 대비</p>
-								<p class="jeonBun">+6개</p>
+								<p class="jeonBun" id="storeYear">+6개</p>
 							</div>
 						</div>
 					</div>
@@ -298,17 +313,17 @@ seoulAllVO guMoveOne = rankDao.guMoveOne(code);
 						<div class="contrast">
 							<div class="">
 								<p class="jeon">전분기 대비</p>
-								<p class="jeonBun">+21개</p>
+								<p class="jeonBun" id="storeHalfPay">+21개</p>
 							</div>
 						</div>
 						<div class="yearBun">
 							<p class="yearBun01">2024년 4분기</p>
-							<p class="yearBun02">364만원</p>
+							<p class="yearBun02" id="storeNowPay">364만원</p>
 						</div>
 						<div class="contrast">
 							<div>
 								<p class="jeon">전년 동분기 대비</p>
-								<p class="jeonBun">+35만원</p>
+								<p class="jeonBun" id="storeYearPay">+35만원</p>
 							</div>
 						</div>
 					</div>
@@ -325,17 +340,17 @@ seoulAllVO guMoveOne = rankDao.guMoveOne(code);
 						<div class="contrast">
 							<div class="">
 								<p class="jeon">전분기 대비</p>
-								<p class="jeonBun">+31명</p>
+								<p class="jeonBun" id="storehalfMove">+31명</p>
 							</div>
 						</div>
 						<div class="yearBun">
 							<p class="yearBun01">2024년 4분기</p>
-							<p class="yearBun02">120명/ha</p>
+							<p class="yearBun02" id="storeNowMove">120명/ha</p>
 						</div>
 						<div class="contrast">
 							<div>
 								<p class="jeon">전년 동분기 대비</p>
-								<p class="jeonBun">+29명</p>
+								<p class="jeonBun" id="storeYearMove">+29명</p>
 							</div>
 						</div>
 					</div>
@@ -354,25 +369,25 @@ seoulAllVO guMoveOne = rankDao.guMoveOne(code);
 						<div class="reportContentCell">
 							<h3 class="reportTit02">점포수</h3>
 							<div class="reportComment">
-								<p>화초<br>(5개)</p>
+								<p><%= bestStore.getServiceCodeName() %><br>(<%=bestStore.getSimilarStore() %>개)</p>
 							</div>
 						</div>
 						<div class="reportContentCell">
 							<h3 class="reportTit02">개업</h3>
 							<div class="reportComment">
-								<p class="reportComment">세탁소<br>(2개)</p>
+								<p class="reportComment"><%= bestOpen.getServiceCodeName() %><br>(<%=bestOpen.getOpenStore() %>개)</p>
 							</div>
 						</div>
 						<div class="reportContentCell">
 							<h3 class="reportTit02">폐업</h3>
 							<div class="reportComment">
-								<p class="reportComment">한국음식점<br>(0개)</p>
+								<p class="reportComment"><%= bestClose.getServiceCodeName() %><br>(<%= bestClose.getCloseStore() %>개)</p>
 							</div>
 						</div>
 						<div class="reportContentCell">
-							<h3 class="reportTit02">영업기간</h3>
+							<h3 class="reportTit02">프랜차이즈 수</h3>
 							<div class="reportComment">
-								<p class="reportComment">청과상<br>(114개월)</p>
+								<p class="reportComment"><%= bestFranchise.getServiceCodeName() %><br>(<%= bestFranchise.getFranchiseStore() %>개)</p>
 							</div>
 						</div>
 					</div>
@@ -385,25 +400,25 @@ seoulAllVO guMoveOne = rankDao.guMoveOne(code);
 						<div class="reportContentCell">
 							<h3 class="reportTit02">성별/연령대</h3>
 							<div class="reportComment">
-								<p>여성/20대</p>
+								<p id="gender_age_pay">여성/20대</p>
 							</div>
 						</div>
 						<div class="reportContentCell">
 							<h3 class="reportTit02">요일</h3>
 							<div class="reportComment">
-								<p class="reportComment">금용일(30.4%)</p>
+								<p class="reportComment" id="week_pay">금용일(30.4%)</p>
 							</div>
 						</div>
 						<div class="reportContentCell">
 							<h3 class="reportTit02">시간대</h3>
 							<div class="reportComment">
-								<p class="reportComment">14 ~ 17시</p>
+								<p class="reportComment" id="time_pay">14 ~ 17시</p>
 							</div>
 						</div>
 						<div class="reportContentCell">
-							<h3 class="reportTit02">최대매출업종<br>(동일면적)</h3>
+							<h3 class="reportTit02">최대매출업종</h3>
 							<div class="reportComment">
-								<p class="reportComment">소매업</p>
+								<p class="reportComment" id="service_pay">소매업</p>
 							</div>
 						</div>
 					</div>
@@ -416,25 +431,25 @@ seoulAllVO guMoveOne = rankDao.guMoveOne(code);
 						<div class="reportContentCell">
 							<h3 class="reportTit02">성별</h3>
 							<div class="reportComment">
-								<p>여성</p>
+								<p id="gender_move">여성</p>
 							</div>
 						</div>
 						<div class="reportContentCell">
 							<h3 class="reportTit02">연령대</h3>
 							<div class="reportComment">
-								<p class="reportComment">60대이상(14.2%)</p>
+								<p class="reportComment" id="age_move">60대이상(14.2%)</p>
 							</div>
 						</div>
 						<div class="reportContentCell">
 							<h3 class="reportTit02">요일</h3>
 							<div class="reportComment">
-								<p class="reportComment">화요일(14.56%)</p>
+								<p class="reportComment" id="day_move">화요일(14.56%)</p>
 							</div>
 						</div>
 						<div class="reportContentCell">
 							<h3 class="reportTit02">시간대</h3>
 							<div class="reportComment">
-								<p class="reportComment">06 ~ 11시</p>
+								<p class="reportComment" id="time_move">06 ~ 11시</p>
 							</div>
 						</div>
 					</div>
@@ -445,13 +460,13 @@ seoulAllVO guMoveOne = rankDao.guMoveOne(code);
 				<div class="totalJumpoNo">점포수</div>
 				<div>
 					<div class="list_reportItem">
-						<p class="summary">점포수는<a style="color: #0676dd;">32개</a>입니다.</p>
+						<p class="summary" >점포수는 <a style="color: #e02171;" id="storeCount">32개</a>입니다.</p>
 					</div>
 					<div class="contRast">
 						<p style="font-size: 15px; color: grey">전년 동분기 대비</p>
-						<p style="margin: 15px 0px 15px 0px; padding-right: 80px;"><strong id="stor" class="increase" aria-label="증가" style="color: #e02171; font-size: 15px ;"><img src="./img/i_increase.svg" style="width: 13px;">6개</strong></p>
+						<p style="margin: 15px 0px 15px 0px; padding-right: 80px;"><strong id="stor_year" class="increase" aria-label="증가" ><img src="./img/i_increase.svg" style="width: 13px;">6개</strong></p>
 						<p style="font-size: 15px; color: grey">전분기 대비</p>
-						<p style="margin: 15px 0px 15px 0px;"><strong id="stor" class="increase" aria-label="증가" style="color: #e02171; font-size: 15px ;"><img src="./img/i_increase.svg" style="width: 13px;">5개</strong></p>
+						<p style="margin: 15px 0px 15px 0px;"><strong id="stor_quarter" class="increase" aria-label="증가" ><img src="./img/i_increase.svg" style="width: 13px;">5개</strong></p>
 					</div>
 					<div class="datail">
 						<p><a>업종전체</a>의 점포수가 전분기대비<a>증가</a>하고 있습니다.
@@ -460,8 +475,8 @@ seoulAllVO guMoveOne = rankDao.guMoveOne(code);
 					<div>
 						<div class="chartArea">
 							<p class="title">점포수 추이</p>
-							<span class="unit" id="storQuSub">단위 : 개 / 2024년 4분기 기준</span>
-							<canvas id="storeBarChart" style="width:100%; min-width:300px"></canvas>
+							<span class="unit" id="storQuSub">단위 : 개</span>
+							<canvas id="storeBarChart" style="place-self: center;width: 60vh;height: 35vh;display: block;"></canvas>
 						</div>
 					</div>
 				</div>
@@ -472,25 +487,19 @@ seoulAllVO guMoveOne = rankDao.guMoveOne(code);
 							<div id="store2" class="selectDistrict">
 								<div class="legend">
 									<div class="legendto">
-										<p id="siBtn" class="siBtnColor">서울시<img src="./img/chart_si.svg"></p>
-									</div>
-									<div>
-										<p id="guBtn" class="guBtnColor"><img src="./img/chart_gu.svg">강동구</p>
-									</div>
-									<div>
-										<p id="dongBtn" class="dongBtnColor"><img src="./img/chart_dong.svg">둔촌1동</p>
+										<p id="siBtn" class="siBtnColor">서울시</p>
+										<p id="guBtn" class="guBtnColor"><%= areaCode.getGuCodeName() %></p>
 									</div>
 								</div>
 								<div class="chart">
-									<div class="si" id="mega">648848</div>
-									<div class="gu" id="signgu">24494</div>
-									<div class="dong" id="adstrd">32</div>
+									<div class="si" id="mega"><%= allStoreSiGu.getSimilarStore() %></div>
+									<div class="gu" id="signgu"><%= allStoreSiGu.getStore() %></div>
 								</div>
 							</div>
 						</div>
 						<div class="chartArea3">
 							<p class="title">프랜차이즈와 일반 점포수 비교</p>
-							<canvas id="storePieChart" style="width:100%; min-width:300px"></canvas>
+							<canvas id="storePieChart" style="place-self: center;width: 60vh;height: 35vh;display: block;"></canvas>
 						</div>
 					</div>
 				</div>
@@ -498,25 +507,25 @@ seoulAllVO guMoveOne = rankDao.guMoveOne(code);
 					<p class="gi">평균영업기간</p>
 					<div>
 						<div class="reportItem">
-							<p class="summary" id="live">평균영업기간은<a style="color: #0676dd;">0%</a>입니다.</p>
+							<p class="summary">평균영업기간은 <a style="color: #e02171;" id="avgOpen">월</a>입니다.</p>
 						</div>
 						<div class="contRast2">
 							<p>
 								<span class="half">전년 동분기 대비</span>
-								<strong class="percent">0%</strong>
+								<strong class="percent" id="yearMeanOpen">0%</strong>
 							</p>
 							<p>
 								<span class="half">전분기 대비</span>
-								<strong class="percent"><img src="./img/i_decrease.svg">100%</strong>
+								<strong class="percent" id="halfMeanOpen">100%</strong>
 							</p>
 						</div>
 						<div class="datail">
-							<p style="color:black;">기준일로부터 3년전에 개업한 업소가 없어 3년 생존율을 계산하지 못하는 상권입니다.</p>
+							<p style="color:black;">준비중 입니다.</p>
 						</div>
 						<div class="chartArea">
 							<p class="title">평균 영업기간 추이</p>
-							<span class="unit">단위 : % / 2024 4분기 기준</span>
-							<canvas id="meanOpenBar" style="width:100%; min-width:300px"></canvas>						
+							<span class="unit">단위 : 월</span>
+							<canvas id="meanOpenBar" style="place-self: center;width: 60vh;height: 35vh;display: block;"></canvas>						
 						</div>
 					</div>
 				</div>
@@ -524,25 +533,25 @@ seoulAllVO guMoveOne = rankDao.guMoveOne(code);
 					<p class="gi">개업현황</p>
 					<div>
 						<div class="reportItem">
-							<p class="summary" id="live">개업수는<a style="color: #0676dd;">0개</a>입니다.</p>
+							<p class="summary">개업수는 <a style="color: #e02171;" id="openCount">0개</a>입니다.</p>
 						</div>
 						<div class="contRast2">
 							<p>
 								<span class="half">전년 동분기 대비</span>
-								<strong class="percent">0%</strong>
+								<strong class="percent" id="openYear">0%</strong>
 							</p>
 							<p>
 								<span class="half">전분기 대비</span>
-								<strong class="percent"><img src="./img/i_decrease.svg">100%</strong>
+								<strong class="percent" id="openQuarter"><img src="./img/i_decrease.svg">100%</strong>
 							</p>
 						</div>
 						<div class="datail">
-							<p style="color:black;">기준일로부터 3년전에 개업한 업소가 없어 3년 생존율을 계산하지 못하는 상권입니다.</p>
+							<p style="color:black;">준비중 입니다.</p>
 						</div>
 						<div class="chartArea">
 							<p class="title">개업수 추이</p>
-							<span class="unit">단위 : 개 / 2024 4분기 기준</span>
-							<canvas id="storeOpenBar" style="width:100%; min-width:300px"></canvas>					
+							<span class="unit">단위 : 개</span>
+							<canvas id="storeOpenBar" style="place-self: center;width: 60vh;height: 35vh;display: block;"></canvas>					
 						</div>
 					</div>
 				</div>
@@ -550,25 +559,25 @@ seoulAllVO guMoveOne = rankDao.guMoveOne(code);
 					<p class="gi">폐업현황</p>
 					<div>
 						<div class="reportItem">
-							<p class="summary" id="live">폐업수는<a style="color: #0676dd;">0개</a>입니다.</p>
+							<p class="summary">폐업수는 <a style="color: #e02171;" id="closeStoreCount">0개</a>입니다.</p>
 						</div>
 						<div class="contRast2">
 							<p>
 								<span class="half">전년 동분기 대비</span>
-								<strong class="percent">0%</strong>
+								<strong class="percent" id="yearClose">0%</strong>
 							</p>
 							<p>
 								<span class="half">전분기 대비</span>
-								<strong class="percent"><img src="./img/i_decrease.svg">100%</strong>
+								<strong class="percent" id="QuarterClose"><img src="./img/i_decrease.svg">100%</strong>
 							</p>
 						</div>
 						<div class="datail">
-							<p style="color:black;">기준일로부터 3년전에 개업한 업소가 없어 3년 생존율을 계산하지 못하는 상권입니다.</p>
+							<p style="color:black;">준비중 입니다.</p>
 						</div>
 						<div class="chartArea">
 							<p class="title">폐업수 추이</p>
-							<span class="unit">단위 : 개 / 2024 4분기 기준</span>
-							<canvas id="storeCloseBar" style="width:100%; min-width:300px"></canvas>					
+							<span class="unit">단위 : 개</span>
+							<canvas id="storeCloseBar" style="place-self: center;width: 60vh;height: 35vh;display: block;"></canvas>					
 						</div>
 					</div>
 				</div>
@@ -576,30 +585,20 @@ seoulAllVO guMoveOne = rankDao.guMoveOne(code);
 					<p class="gi">업종분포 현황</p>
 					<div>
 						<div class="reportItem">
-							<p class="summary" id="live"><a style="color: #0676dd;">업종</a>이 가장 많고 <a style="color: #0676dd;">업종</a> 이 증가 추세입니다.</p>
-						</div>
-						<div class="contRast2">
-							<p>
-								<span class="half">전년 동분기 대비</span>
-								<strong class="percent">0%</strong>
-							</p>
-							<p>
-								<span class="half">전분기 대비</span>
-								<strong class="percent"><img src="./img/i_decrease.svg">100%</strong>
-							</p>
+							<p class="summary"><a style="color: #e02171;" id="service">업종</a>이 가장 많습니다.</p>
 						</div>
 						<div class="datail">
-							<p style="color:black;">기준일로부터 3년전에 개업한 업소가 없어 3년 생존율을 계산하지 못하는 상권입니다.</p>
+							<p style="color:black;">준비중 입니다.</p>
 						</div>
 						<div class="chartArea">
 							<p class="title">업종분포</p>
-							<span class="unit">단위 : %(개) / 2024 4분기 기준</span>
-							<canvas id="storeServicePie" style="width:100%; min-width:300px"></canvas>
+							<span class="unit">단위 : 개 / 2024 4분기 기준</span>
+							<canvas id="storeServicePie" style="place-self: center;width: 60vh;height: 35vh;display: block;"></canvas>
 						</div>
 						<div class="chartArea">
 							<p class="title">업종분포 추이</p>
-							<span class="unit">단위 : % / 2024 4분기 기준</span>
-   	 						<canvas id="storeServiceBar" style="width:100%; min-width:300px"></canvas>					
+							<span class="unit">단위 : 개</span>
+   	 						<canvas id="storeServiceBar" style="place-self: center;width: 60vh;height: 35vh;display: block;"></canvas>					
 						</div>
 					</div>
 				</div>
@@ -607,25 +606,25 @@ seoulAllVO guMoveOne = rankDao.guMoveOne(code);
 					<p class="gi">매출액</p>
 					<div>
 						<div class="reportItem">
-							<p class="summary" id="live">점포당 월평균 매출액은 <a style="color: #0676dd;">99만원</a> 입니다.</p>
+							<p class="summary">점포당 월평균 매출액은 <a style="color: #e02171;" id="monthPayCount">99만원</a> 입니다.</p>
 						</div>
 						<div class="contRast2">
 							<p>
 								<span class="half">전년 동분기 대비</span>
-								<strong class="percent">0%</strong>
+								<strong class="percent" id="monthPayYear">0%</strong>
 							</p>
 							<p>
 								<span class="half">전분기 대비</span>
-								<strong class="percent"><img src="./img/i_decrease.svg">100%</strong>
+								<strong class="percent" id="monthPayQuarter">100%</strong>
 							</p>
 						</div>
 						<div class="datail">
-							<p style="color:black;">기준일로부터 3년전에 개업한 업소가 없어 3년 생존율을 계산하지 못하는 상권입니다.</p>
+							<p style="color:black;">준비중 입니다.</p>
 						</div>
 						<div class="chartArea">
 							<p class="title">매출액 추이</p>
-							<span class="unit">단위 : 만원 / 2024 4분기 기준</span>
-							<canvas id="storeMeanPayLine" style="width:100%; min-width:300px"></canvas>
+							<span class="unit">단위 : 만원</span>
+							<canvas id="storeMeanPayLine" style="place-self: center;width: 60vh;height: 35vh;display: block;"></canvas>
 						</div>
 					</div>
 				</div>
@@ -633,25 +632,25 @@ seoulAllVO guMoveOne = rankDao.guMoveOne(code);
 					<p class="gi">매출건수</p>
 					<div>
 						<div class="reportItem">
-							<p class="summary" id="live">월평균 매출액은 <a style="color: #0676dd;">99건</a> 입니다.</p>
+							<p class="summary" id="monthNum">월평균 매출건수는 <a style="color: #e02171;" id="monthNumCount">99건</a> 입니다.</p>
 						</div>
 						<div class="contRast2">
 							<p>
 								<span class="half">전년 동분기 대비</span>
-								<strong class="percent">0%</strong>
+								<strong class="percent" id="monthNumYear">0%</strong>
 							</p>
 							<p>
 								<span class="half">전분기 대비</span>
-								<strong class="percent"><img src="./img/i_decrease.svg">100%</strong>
+								<strong class="percent" id="monthNumQuarter">100%</strong>
 							</p>
 						</div>
 						<div class="datail">
-							<p style="color:black;">기준일로부터 3년전에 개업한 업소가 없어 3년 생존율을 계산하지 못하는 상권입니다.</p>
+							<p style="color:black;">준비중 입니다.</p>
 						</div>
 						<div class="chartArea">
 							<p class="title">매출건수 추이</p>
-							<span class="unit">단위 : 건 / 2024 4분기 기준</span>
-							<canvas id="storeMeanNumLine" style="width:100%; min-width:300px"></canvas>
+							<span class="unit">단위 : 건</span>
+							<canvas id="storeMeanNumLine" style="place-self: center;width: 60vh;height: 35vh;display: block;"></canvas>
 						</div>
 					</div>
 				</div>
@@ -659,25 +658,15 @@ seoulAllVO guMoveOne = rankDao.guMoveOne(code);
 					<p class="gi">요일별 매출</p>
 					<div>
 						<div class="reportItem">
-							<p class="summary" id="live"><a style="color: #0676dd;">요일(00%)</a> 매출이 가장 높아요.</p>
-						</div>
-						<div class="contRast2">
-							<p>
-								<span class="half">전년 동분기 대비</span>
-								<strong class="percent">0%</strong>
-							</p>
-							<p>
-								<span class="half">전분기 대비</span>
-								<strong class="percent"><img src="./img/i_decrease.svg">100%</strong>
-							</p>
+							<p class="summary"><a style="color: #e02171;" id="weekPayCount">요일(00%)</a> 매출이 가장 높아요.</p>
 						</div>
 						<div class="datail">
-							<p style="color:black;">기준일로부터 3년전에 개업한 업소가 없어 3년 생존율을 계산하지 못하는 상권입니다.</p>
+							<p style="color:black;">준비중 입니다.</p>
 						</div>
 						<div class="chartArea">
 							<p class="title">요일별 매출 현황</p>
 							<span class="unit">단위 : 만원 / 2024 4분기 기준</span>
-							<canvas id="weekPayBar" style="width:100%; min-width:300px"></canvas>
+							<canvas id="weekPayBar" style="place-self: center;width: 60vh;height: 35vh;display: block;"></canvas>
 						</div>
 					</div>
 				</div>
@@ -685,25 +674,15 @@ seoulAllVO guMoveOne = rankDao.guMoveOne(code);
 					<p class="gi">시간대별 매출</p>
 					<div>
 						<div class="reportItem">
-							<p class="summary" id="live"><a style="color: #0676dd;">17 ~ 21시</a> 매출이 가장 높아요.</p>
-						</div>
-						<div class="contRast2">
-							<p>
-								<span class="half">전년 동분기 대비</span>
-								<strong class="percent">0%</strong>
-							</p>
-							<p>
-								<span class="half">전분기 대비</span>
-								<strong class="percent"><img src="./img/i_decrease.svg">100%</strong>
-							</p>
+							<p class="summary"><a style="color: #e02171;" id="timePayCount">17 ~ 21시</a> 매출이 가장 높아요.</p>
 						</div>
 						<div class="datail">
-							<p style="color:black;">기준일로부터 3년전에 개업한 업소가 없어 3년 생존율을 계산하지 못하는 상권입니다.</p>
+							<p style="color:black;">준비중 입니다.</p>
 						</div>
 						<div class="chartArea">
 							<p class="title">시간대별 매출 현황</p>
 							<span class="unit">단위 : 만원 / 2024 4분기 기준</span>
-							<canvas id="timePayLine" style="width:100%; min-width:300px"></canvas>
+							<canvas id="timePayLine" style="place-self: center;width: 60vh;height: 35vh;display: block;"></canvas>
 						</div>
 					</div>
 				</div>
@@ -711,38 +690,28 @@ seoulAllVO guMoveOne = rankDao.guMoveOne(code);
 					<p class="gi">성별 매출</p>
 					<div>
 						<div class="reportItem">
-							<p class="summary" id="live"><a style="color: #0676dd;">O성(00.0%)</a> 매출이 높아요.</p>
-						</div>
-						<div class="contRast2">
-							<p>
-								<span class="half">전년 동분기 대비</span>
-								<strong class="percent">0%</strong>
-							</p>
-							<p>
-								<span class="half">전분기 대비</span>
-								<strong class="percent"><img src="./img/i_decrease.svg">100%</strong>
-							</p>
+							<p class="summary"><a style="color: #e02171;" id="genderPayCount">O성(00.0%)</a> 매출이 높아요.</p>
 						</div>
 						<div class="datail">
-							<p style="color:black;">기준일로부터 3년전에 개업한 업소가 없어 3년 생존율을 계산하지 못하는 상권입니다.</p>
+							<p style="color:black;">준비중 입니다.</p>
 						</div>
 						<div class="chartArea">
 							<p class="title">성별 매출 현황</p>
 							<span class="unit">단위 : 만원 / 2024 4분기 기준</span>
-							<canvas id="genderPayPie" style="width:100%; min-width:300px"></canvas>
+							<canvas id="genderPayPie" style="place-self: center;width: 60vh;height: 35vh;display: block;"></canvas>
 						</div>
 						<div class="multipleChartArea">
 							<div class="chartArea3">
 								<p class="title">외식업</p>
-								<canvas id="CS1GenderPie" style="width:100%; min-width:300px"></canvas>
+								<canvas id="CS1GenderPie" style="place-self: center;width: 20vh;height: 35vh;display: block;"></canvas>
 							</div>
 							<div class="chartArea3">
 								<p class="title">서비스업</p>
-								<canvas id="CS2GenderPie" style="width:100%; min-width:300px"></canvas>
+								<canvas id="CS2GenderPie" style="place-self: center;width: 20vh;height: 35vh;display: block;"></canvas>
 							</div>
 							<div class="chartArea3">
 								<p class="title">소매업</p>
-								<canvas id="CS3GenderPie" style="width:100%; min-width:300px"></canvas>
+								<canvas id="CS3GenderPie" style="place-self: center;width: 20vh;height: 35vh;display: block;"></canvas>
 							</div>
 						</div>
 					</div>
@@ -751,38 +720,28 @@ seoulAllVO guMoveOne = rankDao.guMoveOne(code);
 					<p class="gi">연령대별 매출</p>
 					<div>
 						<div class="reportItem">
-							<p class="summary" id="live"><a style="color: #0676dd;">외식업의 O대(00.0%)</a> 매출이 높아요.</p>
-						</div>
-						<div class="contRast2">
-							<p>
-								<span class="half">전년 동분기 대비</span>
-								<strong class="percent">0%</strong>
-							</p>
-							<p>
-								<span class="half">전분기 대비</span>
-								<strong class="percent"><img src="./img/i_decrease.svg">100%</strong>
-							</p>
+							<p class="summary"><a style="color: #e02171;" id="ageServicePayCount">외식업의 O대(00.0%)</a> 매출이 높아요.</p>
 						</div>
 						<div class="datail">
-							<p style="color:black;">기준일로부터 3년전에 개업한 업소가 없어 3년 생존율을 계산하지 못하는 상권입니다.</p>
+							<p style="color:black;">준비중 입니다.</p>
 						</div>
 						<div class="chartArea">
 							<p class="title">연령대별 외식업 매출 현황</p>
 							<span class="unit">단위 : 만원 / 2024 4분기 기준</span>
-							<canvas id="agePayBar" style="width:100%; min-width:300px"></canvas>
+							<canvas id="agePayBar" style="place-self: center;width: 20vh;height: 35vh;display: block;"></canvas>
 						</div>
 						<div class="multipleChartArea">
 							<div class="chartArea3">
 								<p class="title">연령대별 외식업 매출 현황</p>
-									<canvas id="CS1AgePie" style="width:100%; min-width:300px"></canvas>
+									<canvas id="CS1AgePie" style="place-self: center;width: 20vh;height: 35vh;display: block;"></canvas>
 							</div>
 							<div class="chartArea3">
 								<p class="title">연령대별 외식업 매출 현황</p>
-									<canvas id="CS2AgePie" style="width:100%; min-width:300px"></canvas>
+									<canvas id="CS2AgePie" style="place-self: center;width: 20vh;height: 35vh;display: block;"></canvas>
 							</div>
 							<div class="chartArea3">
 								<p class="title">연령대별 외식업 매출 현황</p>
-									<canvas id="CS3AgePie" style="width:100%; min-width:300px"></canvas>
+									<canvas id="CS3AgePie" style="place-self: center;width: 20vh;height: 35vh;display: block;"></canvas>
 							</div>
 						</div>
 					</div>
@@ -791,25 +750,25 @@ seoulAllVO guMoveOne = rankDao.guMoveOne(code);
 					<p class="gi">유동인구 수</p>
 					<div>
 						<div class="reportItem">
-							<p class="summary" id="live">유동인구 수는 일평균 <a style="color: #0676dd;">00,000명</a> 입니다.</p>
+							<p class="summary">유동인구 수는 일평균 <a style="color: #e02171;" id="allMoveCount">00,000명</a> 입니다.</p>
 						</div>
 						<div class="contRast2">
 							<p>
 								<span class="half">전년 동분기 대비</span>
-								<strong class="percent">0%</strong>
+								<strong class="percent" id="allMoveYear">0%</strong>
 							</p>
 							<p>
 								<span class="half">전분기 대비</span>
-								<strong class="percent"><img src="./img/i_decrease.svg">100%</strong>
+								<strong class="percent" id="allMoveQuarter">100%</strong>
 							</p>
 						</div>
 						<div class="datail">
-							<p style="color:black;">기준일로부터 3년전에 개업한 업소가 없어 3년 생존율을 계산하지 못하는 상권입니다.</p>
+							<p style="color:black;">준비중 입니다.</p>
 						</div>
 						<div class="chartArea">
 							<p class="title">유동인구 추이</p>
-							<span class="unit">단위 : 명 / 2024 4분기 기준</span>
-							<canvas id="allMoveBar" style="width:100%; min-width:300px"></canvas>
+							<span class="unit">단위 : 명</span>
+							<canvas id="allMoveBar" style="place-self: center;width: 60vh;height: 35vh;display: block;"></canvas>
 						</div>
 					</div>
 				</div>
@@ -817,25 +776,15 @@ seoulAllVO guMoveOne = rankDao.guMoveOne(code);
 					<p class="gi">성별, 연령별 유동인구</p>
 					<div>
 						<div class="reportItem">
-							<p class="summary" id="live"><a style="color: #0676dd;">O성, 00대 (00%)</a>유동인구가 가장 많아요.</p>
-						</div>
-						<div class="contRast2">
-							<p>
-								<span class="half">전년 동분기 대비</span>
-								<strong class="percent">0%</strong>
-							</p>
-							<p>
-								<span class="half">전분기 대비</span>
-								<strong class="percent"><img src="./img/i_decrease.svg">100%</strong>
-							</p>
+							<p class="summary"><a style="color: #e02171;" id="genderAgeMoveCount">O성, 00대 (00%)</a> 유동인구가 가장 많아요.</p>
 						</div>
 						<div class="datail">
-							<p style="color:black;">기준일로부터 3년전에 개업한 업소가 없어 3년 생존율을 계산하지 못하는 상권입니다.</p>
+							<p style="color:black;">준비중 입니다.</p>
 						</div>
 						<div class="chartArea">
 							<p class="title">성별, 연령별 유동인구 현황</p>
 							<span class="unit">단위 : 명 / 2024 4분기 기준</span>
-							<canvas id="genderAgeMoveBar" style="width:100%; min-width:300px"></canvas>
+							<canvas id="genderAgeMoveBar" style="place-self: center;width: 60vh;height: 35vh;display: block;"></canvas>
 						</div>
 					</div>
 				</div>
@@ -843,25 +792,15 @@ seoulAllVO guMoveOne = rankDao.guMoveOne(code);
 					<p class="gi">요일별 유동인구</p>
 					<div>
 						<div class="reportItem">
-							<p class="summary" id="live"><a style="color: #0676dd;">O요일</a>유동인구가 가장 많아요.</p>
-						</div>
-						<div class="contRast2">
-							<p>
-								<span class="half">전년 동분기 대비</span>
-								<strong class="percent">0%</strong>
-							</p>
-							<p>
-								<span class="half">전분기 대비</span>
-								<strong class="percent"><img src="./img/i_decrease.svg">100%</strong>
-							</p>
+							<p class="summary" id="weekMove"><a style="color: #e02171;" id="weekMoveCount">O요일</a> 유동인구가 가장 많아요.</p>
 						</div>
 						<div class="datail">
-							<p style="color:black;">기준일로부터 3년전에 개업한 업소가 없어 3년 생존율을 계산하지 못하는 상권입니다.</p>
+							<p style="color:black;">준비중 입니다.</p>
 						</div>
 						<div class="chartArea">
 							<p class="title">요일별 유동인구 현황</p>
 							<span class="unit">단위 : 명 / 2024 4분기 기준</span>
-							<canvas id="dayMoveBar" style="width:100%; min-width:300px"></canvas>
+							<canvas id="dayMoveBar" style="place-self: center;width: 60vh;height: 35vh;display: block;"></canvas>
 						</div>
 					</div>
 				</div>
@@ -869,25 +808,15 @@ seoulAllVO guMoveOne = rankDao.guMoveOne(code);
 					<p class="gi">시간대별 유동인구</p>
 					<div>
 						<div class="reportItem">
-							<p class="summary" id="live"><a style="color: #0676dd;">00 ~ 00시</a>유동인구가 가장 많아요.</p>
-						</div>
-						<div class="contRast2">
-							<p>
-								<span class="half">전년 동분기 대비</span>
-								<strong class="percent">0%</strong>
-							</p>
-							<p>
-								<span class="half">전분기 대비</span>
-								<strong class="percent"><img src="./img/i_decrease.svg">100%</strong>
-							</p>
+							<p class="summary"><a style="color: #e02171;" id="timeMoveCount">00 ~ 00시</a> 유동인구가 가장 많아요.</p>
 						</div>
 						<div class="datail">
-							<p style="color:black;">기준일로부터 3년전에 개업한 업소가 없어 3년 생존율을 계산하지 못하는 상권입니다.</p>
+							<p style="color:black;">준비중 입니다.</p>
 						</div>
 						<div class="chartArea">
 							<p class="title">시간대별 유동인구 현황</p>
 							<span class="unit">단위 : 명 / 2024 4분기 기준</span>
-							<canvas id="timeMoveLine" style="width:100%; min-width:300px"></canvas>
+							<canvas id="timeMoveLine" style="place-self: center;width: 60vh;height: 35vh;display: block;"></canvas>
 						</div>
 					</div>
 				</div>
@@ -895,25 +824,25 @@ seoulAllVO guMoveOne = rankDao.guMoveOne(code);
 					<p class="gi">거주인구 수</p>
 					<div>
 						<div class="reportItem">
-							<p class="summary" id="live">거주인구는<a style="color: #0676dd;"> 00,000명</a>입니다.</p>
+							<p class="summary">거주인구는 <a style="color: #e02171;" id="allLiveCount"> 00,000명</a>입니다.</p>
 						</div>
 						<div class="contRast2">
 							<p>
 								<span class="half">전년 동분기 대비</span>
-								<strong class="percent">0%</strong>
+								<strong class="percent" id="allLiveYear">0%</strong>
 							</p>
 							<p>
 								<span class="half">전분기 대비</span>
-								<strong class="percent"><img src="./img/i_decrease.svg">100%</strong>
+								<strong class="percent" id="allLiveQuarter">100%</strong>
 							</p>
 						</div>
 						<div class="datail">
-							<p style="color:black;">기준일로부터 3년전에 개업한 업소가 없어 3년 생존율을 계산하지 못하는 상권입니다.</p>
+							<p style="color:black;">준비중 입니다.</p>
 						</div>
 						<div class="chartArea">
 							<p class="title">거주인구 추이</p>
-							<span class="unit">단위 : 명 / 2024 4분기 기준</span>
-							<canvas id="allLiveBar" style="width:100%; min-width:300px"></canvas>
+							<span class="unit">단위 : 명</span>
+							<canvas id="allLiveBar" style="place-self: center;width: 60vh;height: 35vh;display: block;"></canvas>
 						</div>
 					</div>
 				</div>
@@ -921,25 +850,15 @@ seoulAllVO guMoveOne = rankDao.guMoveOne(code);
 					<p class="gi">성별, 연령별 거주인구</p>
 					<div>
 						<div class="reportItem">
-							<p class="summary" id="live"><a style="color: #0676dd;"> 0성, 00대</a>거주인구가 가장 많아요.</p>
-						</div>
-						<div class="contRast2">
-							<p>
-								<span class="half">전년 동분기 대비</span>
-								<strong class="percent">0%</strong>
-							</p>
-							<p>
-								<span class="half">전분기 대비</span>
-								<strong class="percent"><img src="./img/i_decrease.svg">100%</strong>
-							</p>
+							<p class="summary" id="genderAgeLive"><a style="color: #e02171;" id="genderAgeLiveCount"> 0성, 00대</a> 거주인구가 가장 많아요.</p>
 						</div>
 						<div class="datail">
-							<p style="color:black;">기준일로부터 3년전에 개업한 업소가 없어 3년 생존율을 계산하지 못하는 상권입니다.</p>
+							<p style="color:black;">준비중 입니다.</p>
 						</div>
 						<div class="chartArea">
 							<p class="title">성별, 연령별 거주인구 현황</p>
 							<span class="unit">단위 : 명 / 2024 4분기 기준</span>
-							<canvas id="genderAgeLiveBar" style="width:100%; min-width:300px"></canvas>
+							<canvas id="genderAgeLiveBar" style="place-self: center;width: 60vh;height: 35vh;display: block;"></canvas>
 						</div>
 					</div>
 				</div>
@@ -947,25 +866,25 @@ seoulAllVO guMoveOne = rankDao.guMoveOne(code);
 					<p class="gi">직장인구 수</p>
 					<div>
 						<div class="reportItem">
-							<p class="summary" id="live">직장인구 수는<a style="color: #0676dd;"> 00명 </a>입니다.</p>
+							<p class="summary">직장인구 수는 <a style="color: #e02171;" id="allCompanyCount"> 00명 </a>입니다.</p>
 						</div>
 						<div class="contRast2">
 							<p>
 								<span class="half">전년 동분기 대비</span>
-								<strong class="percent">0%</strong>
+								<strong class="percent" id="allCompanyYear">0%</strong>
 							</p>
 							<p>
 								<span class="half">전분기 대비</span>
-								<strong class="percent"><img src="./img/i_decrease.svg">100%</strong>
+								<strong class="percent" id="allCompanyQuarter">100%</strong>
 							</p>
 						</div>
 						<div class="datail">
-							<p style="color:black;">기준일로부터 3년전에 개업한 업소가 없어 3년 생존율을 계산하지 못하는 상권입니다.</p>
+							<p style="color:black;">준비중 입니다.</p>
 						</div>
 						<div class="chartArea">
 							<p class="title">직장인구 추이</p>
-							<span class="unit">단위 : 명 / 2024 4분기 기준</span>
-							<canvas id="allCompanyBar" style="width:100%; min-width:300px"></canvas>
+							<span class="unit">단위 : 명</span>
+							<canvas id="allCompanyBar" style="place-self: center;width: 60vh;height: 35vh;display: block;"></canvas>
 						</div>
 					</div>
 				</div>
@@ -973,25 +892,15 @@ seoulAllVO guMoveOne = rankDao.guMoveOne(code);
 					<p class="gi">성별, 연령별 직장인구</p>
 					<div>
 						<div class="reportItem">
-							<p class="summary" id="live"><a style="color: #0676dd;"> 0성, 00대</a>직장인구가 가장 많아요.</p>
-						</div>
-						<div class="contRast2">
-							<p>
-								<span class="half">전년 동분기 대비</span>
-								<strong class="percent">0%</strong>
-							</p>
-							<p>
-								<span class="half">전분기 대비</span>
-								<strong class="percent"><img src="./img/i_decrease.svg">100%</strong>
-							</p>
+							<p class="summary"><a style="color: #e02171;" id="genderAgeCompanyCount"> 0성, 00대</a> 직장인구가 가장 많아요.</p>
 						</div>
 						<div class="datail">
-							<p style="color:black;">기준일로부터 3년전에 개업한 업소가 없어 3년 생존율을 계산하지 못하는 상권입니다.</p>
+							<p style="color:black;">준비중 입니다.</p>
 						</div>
 						<div class="chartArea">
 							<p class="title">성별, 연령별 직장인구 현황</p>
 							<span class="unit">단위 : 명 / 2024 4분기 기준</span>
-							<canvas id="genderAgeCompanyBar" style="width:100%; min-width:300px"></canvas>
+							<canvas id="genderAgeCompanyBar" style="place-self: center;width: 60vh;height: 35vh;display: block;"></canvas>
 						</div>
 					</div>
 				</div>
@@ -999,25 +908,25 @@ seoulAllVO guMoveOne = rankDao.guMoveOne(code);
 					<p class="gi">가구세대 수</p>
 					<div>
 						<div class="reportItem">
-							<p class="summary" id="live">가구세대 수<a style="color: #0676dd;">0,000가구</a>입니다.</p>
+							<p class="summary">가구세대 수 <a style="color: #e02171;" id="allFamilyCount">0,000가구</a> 입니다.</p>
 						</div>
 						<div class="contRast2">
 							<p>
 								<span class="half">전년 동분기 대비</span>
-								<strong class="percent">0%</strong>
+								<strong class="percent" id="allFamilyYear">0%</strong>
 							</p>
 							<p>
 								<span class="half">전분기 대비</span>
-								<strong class="percent"><img src="./img/i_decrease.svg">100%</strong>
+								<strong class="percent" id="allFamilyQuarter">100%</strong>
 							</p>
 						</div>
 						<div class="datail">
-							<p style="color:black;">기준일로부터 3년전에 개업한 업소가 없어 3년 생존율을 계산하지 못하는 상권입니다.</p>
+							<p style="color:black;">준비중 입니다.</p>
 						</div>
 						<div class="chartArea">
 							<p class="title">가구세대 수 추이</p>
-							<span class="unit">단위 : 가구 / 2024 4분기 기준</span>
-							<canvas id="allFamilyLineBar" style="width:100%; min-width:300px"></canvas>
+							<span class="unit">단위 : 가구</span>
+							<canvas id="allFamilyLineBar" style="place-self: center;width: 60vh;height: 35vh;display: block;"></canvas>
 						</div>
 					</div>
 				</div>
@@ -1025,25 +934,25 @@ seoulAllVO guMoveOne = rankDao.guMoveOne(code);
 					<p class="gi">집객시설 수</p>
 					<div>
 						<div class="reportItem">
-							<p class="summary" id="live">집객시설 수는<a style="color: #0676dd;"> 00개 </a>입니다.</p>
+							<p class="summary">집객시설 수는 <a style="color: #e02171;" id="localCount"> 00개 </a>입니다.</p>
 						</div>
 						<div class="contRast2">
 							<p>
 								<span class="half">전년 동분기 대비</span>
-								<strong class="percent">0%</strong>
+								<strong class="percent" id="localYear">0%</strong>
 							</p>
 							<p>
 								<span class="half">전분기 대비</span>
-								<strong class="percent"><img src="./img/i_decrease.svg">100%</strong>
+								<strong class="percent" id="localQuarter">100%</strong>
 							</p>
 						</div>
 						<div class="datail">
-							<p style="color:black;">기준일로부터 3년전에 개업한 업소가 없어 3년 생존율을 계산하지 못하는 상권입니다.</p>
+							<p style="color:black;">준비중 입니다.</p>
 						</div>
 						<div class="chartArea">
 							<p class="title">집객시설 현황</p>
-							<span class="unit">단위 : 개 / 2024 4분기 기준</span>
-							<canvas id="allLocalBar" style="width:100%; min-width:300px"></canvas>
+							<span class="unit">단위 : 개</span>
+							<canvas id="allLocalBar" style="place-self: center;width: 60vh;height: 35vh;display: block;"></canvas>
 						</div>
 					</div>
 				</div>
@@ -1051,25 +960,15 @@ seoulAllVO guMoveOne = rankDao.guMoveOne(code);
 					<p class="gi">주요시설, 집객시설 현황</p>
 					<div>
 						<div class="reportItem">
-							<p class="summary" id="live">선택자치구는<a style="color: #0676dd;"> 0000 </a>이 가장 많아요.</p>
-						</div>
-						<div class="contRast2">
-							<p>
-								<span class="half">전년 동분기 대비</span>
-								<strong class="percent">0%</strong>
-							</p>
-							<p>
-								<span class="half">전분기 대비</span>
-								<strong class="percent"><img src="./img/i_decrease.svg">100%</strong>
-							</p>
+							<p class="summary">선택자치구는 <a style="color: #e02171;" id="mainLocalCount"> 0000 </a>이 가장 많아요.</p>
 						</div>
 						<div class="datail">
-							<p style="color:black;">기준일로부터 3년전에 개업한 업소가 없어 3년 생존율을 계산하지 못하는 상권입니다.</p>
+							<p style="color:black;">준비중 입니다.</p>
 						</div>
 						<div class="chartArea">
 							<p class="title">주요시설, 집객시설 현황</p>
 							<span class="unit">단위 : 명</span>
-							<canvas id="mainLocalBar" style="width:100%; min-width:300px"></canvas>
+							<canvas id="mainLocalBar" style="place-self: center;width: 60vh;height: 35vh;display: block;"></canvas>
 						</div>
 					</div>
 				</div>
@@ -1077,25 +976,25 @@ seoulAllVO guMoveOne = rankDao.guMoveOne(code);
 					<p class="gi">소득수준</p>
 					<div>
 						<div class="reportItem">
-							<p class="summary" id="live">소득수준은<a style="color: #0676dd;"> 00분위</a>입니다.</p>
+							<p class="summary">소득수준은 <a style="color: #e02171;" id="allIncomeCount"> 00분위</a>입니다.</p>
 						</div>
 						<div class="contRast2">
 							<p>
 								<span class="half">전년 동분기 대비</span>
-								<strong class="percent">0%</strong>
+								<strong class="percent" id="allIncomeYear">0%</strong>
 							</p>
 							<p>
 								<span class="half">전분기 대비</span>
-								<strong class="percent"><img src="./img/i_decrease.svg">100%</strong>
+								<strong class="percent" id="allIncomeQuarter">100%</strong>
 							</p>
 						</div>
 						<div class="datail">
-							<p style="color:black;">기준일로부터 3년전에 개업한 업소가 없어 3년 생존율을 계산하지 못하는 상권입니다.</p>
+							<p style="color:black;">준비중 입니다.</p>
 						</div>
 						<div class="chartArea">
 							<p class="title">소득수준 현황</p>
 							<span class="unit">단위 : 분위</span>
-							<canvas id="allIncomeBar" style="width:100%; min-width:300px"></canvas>
+							<canvas id="allIncomeBar" style="place-self: center;width: 60vh;height: 35vh;display: block;"></canvas>
 						</div>
 					</div>
 				</div>
@@ -1104,9 +1003,29 @@ seoulAllVO guMoveOne = rankDao.guMoveOne(code);
 	</div>
 </div>
 
-
 <script>
-    
+
+$("#rBtn").click(function(){
+	report = $("#rightview").attr('class')
+	
+	if(report == "right"){
+		$("#rightview").attr('class', "rightNone")
+		$("#rBtn").attr('class', "rightBtnRight").html('<img src="./img/i_reduce.svg" style="transform: rotateY(180deg);">')
+	}else if(report == "rightNone"){
+		$("#rightview").attr('class', "right")
+		$("#rBtn").attr('class', "rightBtn").html('<img src="./img/i_reduce.svg">')
+	}else{
+		alert("오류발생")
+	}
+});
+
+$("#closeBtn").click(function(){
+	$("#rightview").css('display', "none")
+	$("#rBtn").css('display', "none")
+});
+
+
+
 /* 점포수 */
 let storeListJson = <%= storeListString %>;
 let meanOpenListJson = <%= openMeanListString %>;
@@ -1142,9 +1061,566 @@ let mainLocalJson = <%= mainLocalString %>
 let allIncomeJson = <%= allIncomeString %>
 
 
+
+</script>
+<script>
+//종합의견
+//점포수
+lastYearStore = storeListJson[0]["similarStore"]
+lastHalfStore = storeListJson[3]["similarStore"]
+nowYearStore = storeListJson[4]["similarStore"]
+
+$("#storeYear").text(parseInt(nowYearStore -lastYearStore ) + "개 ");
+$("#storeNow").text(parseInt(nowYearStore - 0) + "개 ");
+$("#storeHalf").text(parseInt(nowYearStore - lastHalfStore) + "개 ");
+
+//종합의견 업종전체 전분기대비 증개 or 감소
+if(parseInt(nowYearStore - lastHalfStore) > 0){
+	//증가
+	$("#stor_quarter").html('<img src="./img/i_increase.svg" style="width: 13px;">'+Math.abs(parseInt(nowYearStore - lastHalfStore))+'개 </strong>').attr('class', 'increaseStore');
+	$("#totalReport > div:nth-child(1) > strong:nth-child(2)").attr("class", "increaseStore").text("증가")
+	$("#totalReport > div:nth-child(1) > strong:nth-child(1)").attr("class", "increaseStore")
+}else if(parseInt(nowYearStore - lastHalfStore) == 0){
+	//동일
+	$("#stor_quarter").text(Math.abs(parseInt(nowYearStore - lastHalfStore)) + "개 ").attr('class', 'same');
+	$("#totalReport > div:nth-child(1) > strong:nth-child(2)").attr("class", "sameStore").text("유지")
+	$("#totalReport > div:nth-child(1) > strong:nth-child(1)").attr("class", "sameStore")
+}else{
+	//감소
+	$("#stor_quarter").html('<img src="./img/i_decrease.svg" style="width: 13px;">'+Math.abs(parseInt(nowYearStore - lastHalfStore))+'개 </strong>').attr('class', 'decreaseStore');
+	$("#totalReport > div:nth-child(1) > strong:nth-child(2)").attr("class", "decreaseStore").text("감소")
+	$("#totalReport > div:nth-child(1) > strong:nth-child(1)").attr("class", "decreaseStore")
+}
+
+//점포수 전년대비 증개 or 감소
+if(parseInt(nowYearStore -lastYearStore) > 0){
+	//증가
+	$("#stor_year").html('<img src="./img/i_increase.svg" style="width: 13px;">'+Math.abs(parseInt(nowYearStore -lastYearStore))+'개 </strong>').attr('class', 'increaseStore');
+}else if(parseInt(nowYearStore -lastYearStore) == 0){
+	//동일
+	$("#stor_year").text(Math.abs(parseInt(nowYearStore -lastYearStore)) + "개 ").attr('class', 'sameStore');
+}else{
+	//감소
+	$("#stor_year").html('<img src="./img/i_decrease.svg" style="width: 13px;">'+Math.abs(parseInt(nowYearStore -lastYearStore))+'개 </strong>').attr('class', 'decreaseStore');
+}
+
+//점포수 올해 개수
+$("#storeCount").text(parseInt(nowYearStore - 0) + "개 ");
+
+
+
+//영업기간
+lastYearAvgStore = meanOpenListJson[0]["openMonthMean"]
+lastHalfAvgStore = meanOpenListJson[3]["openMonthMean"]
+nowYearAvgStore = meanOpenListJson[4]["openMonthMean"]
+
+avgStoreLastYear = parseInt(nowYearAvgStore - lastYearAvgStore)
+avgStorenowYear = parseInt(nowYearAvgStore - 0)
+avgStoreLastQuarter = parseInt(nowYearAvgStore - lastHalfAvgStore)
+
+if(avgStoreLastQuarter > 0){
+	//증가
+	$("#halfMeanOpen").html('<img src="./img/i_increase.svg" style="width: 13px;">'+Math.abs(avgStoreLastQuarter)+'개월 </strong>').attr('class', 'increase');
+}else if(openStoreLastQuarter == 0){
+	//동일
+	$("#halfMeanOpen").text(Math.abs(avgStoreLastQuarter) + "개월 ").attr('class', 'same');
+}else{
+	//감소
+	$("#halfMeanOpen").html('<img src="./img/i_decrease.svg" style="width: 13px;">'+Math.abs(avgStoreLastQuarter)+'개월 </strong>').attr('class', 'decrease');
+}
+
+//영업일 전년대비 증개 or 감소
+if(avgStoreLastYear > 0){
+	//증가
+	$("#yearMeanOpen").html('<img src="./img/i_increase.svg" style="width: 13px;">'+Math.abs(avgStoreLastYear)+'개월 </strong>').attr('class', 'increase');
+}else if(avgStoreLastYear == 0){
+	//동일
+	$("#yearMeanOpen").text(Math.abs(avgStoreLastYear) + "개월 ").attr('class', 'same');
+}else{
+	//감소
+	$("#yearMeanOpen").html('<img src="./img/i_decrease.svg" style="width: 13px;">'+Math.abs(avgStoreLastYear)+'개월 </strong>').attr('class', 'decrease');
+}
+
+//영업일 올해 개월
+$("#avgOpen").text(avgStorenowYear + "개월 ");
+
+
+
+//개업 현황
+lastYearOpenStore = storeOpenListJson[0]["openStore"]
+lastHalfOpenStore = storeOpenListJson[3]["openStore"]
+nowYearOpenStore = storeOpenListJson[4]["openStore"]
+
+openStoreLastYear = parseInt(nowYearOpenStore - lastYearOpenStore)
+openStorenowYear = parseInt(nowYearOpenStore - 0)
+openStoreLastQuarter = parseInt(nowYearOpenStore - lastHalfOpenStore)
+
+if(openStoreLastQuarter > 0){
+	//증가
+	$("#halfMeanOpen").html('<img src="./img/i_increase.svg" style="width: 13px;">'+Math.abs(openStoreLastQuarter)+'개 </strong>').attr('class', 'increase');
+}else if(openStoreLastQuarter == 0){
+	//동일
+	$("#halfMeanOpen").text(Math.abs(openStoreLastQuarter) + "개 ").attr('class', 'same');
+}else{
+	//감소
+	$("#openQuarter").html('<img src="./img/i_decrease.svg" style="width: 13px;">'+Math.abs(openStoreLastQuarter)+'개 </strong>').attr('class', 'decrease');
+}
+
+//개엽수 전년대비 증개 or 감소
+if(openStoreLastYear > 0){
+	//증가
+	$("#openYear").html('<img src="./img/i_increase.svg" style="width: 13px;">'+Math.abs(openStoreLastYear)+'개 </strong>').attr('class', 'increase');
+}else if(avgStoreLastYear == 0){
+	//동일
+	$("#openYear").text(Math.abs(avgStoreLastYear) + "개 ").attr('class', 'same');
+}else{
+	//감소
+	$("#openYear").html('<img src="./img/i_decrease.svg" style="width: 13px;">'+Math.abs(openStoreLastYear)+'개 </strong>').attr('class', 'decrease');
+}
+
+//개업수 올해 개수
+$("#openCount").text(openStorenowYear + "개 ");
+
+
+
+//폐업 현황
+lastYearCloseStore = storeOpenListJson[0]["openStore"]
+lastHalfCloseStore = storeOpenListJson[3]["openStore"]
+nowYearCloseStore = storeOpenListJson[4]["openStore"]
+
+closeStoreLastYear = parseInt(nowYearCloseStore - lastYearCloseStore)
+closeStorenowYear = parseInt(nowYearCloseStore - 0)
+closeStoreLastQuarter = parseInt(nowYearCloseStore - lastHalfCloseStore)
+
+if(closeStoreLastQuarter > 0){
+	//증가
+	$("#QuarterClose").html('<img src="./img/i_increase.svg" style="width: 13px;">'+Math.abs(closeStoreLastQuarter)+'개 </strong>').attr('class', 'increase');
+}else if(closeStoreLastQuarter == 0){
+	//동일
+	$("#QuarterClose").text(Math.abs(closeStoreLastQuarter) + "개 ").attr('class', 'same');
+}else{
+	//감소
+	$("#QuarterClose").html('<img src="./img/i_decrease.svg" style="width: 13px;">'+Math.abs(closeStoreLastQuarter)+'개 </strong>').attr('class', 'decrease');
+}
+
+//개엽수 전년대비 증개 or 감소
+if(closeStoreLastYear > 0){
+	//증가
+	$("#yearClose").html('<img src="./img/i_increase.svg" style="width: 13px;">'+Math.abs(closeStoreLastYear)+'개 </strong>').attr('class', 'increase');
+}else if(closeStoreLastYear == 0){
+	//동일
+	$("#yearClose").text(Math.abs(closeStoreLastYear) + "개 ").attr('class', 'same');
+}else{
+	//감소
+	$("#yearClose").html('<img src="./img/i_decrease.svg" style="width: 13px;">'+Math.abs(closeStoreLastYear)+'개 </strong>').attr('class', 'decrease');
+}
+
+//개업수 올해 개수
+$("#closeStoreCount").text(closeStorenowYear + "개 ");
+
+
+
+//매출액
+lastYearPay = storeMeanPayJson[0]["monthSalesPay"]
+lastHalfPay = storeMeanPayJson[3]["monthSalesPay"]
+nowYearPay = storeMeanPayJson[4]["monthSalesPay"]
+
+$("#storeNowPay").text(parseInt(nowYearPay / 10000) + "만원 ");
+$("#storeHalfPay").text(parseInt((nowYearPay - lastHalfPay) / 10000) + "만원 ");
+$("#storeYearPay").text(parseInt((nowYearPay -lastYearPay ) / 10000) + "만원 ");
+
+if(parseInt((nowYearPay - lastHalfPay) / 10000) > 0){
+	//증가
+	$("#monthPayQuarter").html('<img src="./img/i_increase.svg" style="width: 13px;">'+Math.abs(parseInt((nowYearPay - lastHalfPay) / 10000))+'만원 </strong>').attr('class', 'increase');
+}else if(parseInt((nowYearPay - lastHalfPay) / 10000) == 0){
+	//동일
+	$("#monthPayQuarter").text(Math.abs(parseInt((nowYearPay - lastHalfPay) / 10000)) + "만원 ").attr('class', 'same');
+}else{
+	//감소
+	$("#monthPayQuarter").html('<img src="./img/i_decrease.svg" style="width: 13px;">'+Math.abs(parseInt((nowYearPay - lastHalfPay) / 10000))+'만원 </strong>').attr('class', 'decrease');
+}
+
+//종합의견 매출액 전년 동분기 증개 or 감소
+if(parseInt((nowYearPay -lastYearPay ) / 10000) > 0){
+	//증가
+	$("#totalReport > div:nth-child(2) > strong:nth-child(2)").attr("class", "increaseStore").text("증가")
+	$("#totalReport > div:nth-child(2) > strong:nth-child(1)").attr("class", "increaseStore")
+	$("#monthPayYear").html('<img src="./img/i_increase.svg" style="width: 13px;">'+Math.abs(parseInt((nowYearPay -lastYearPay ) / 10000)) +'만원 </strong>').attr('class', 'increase');
+}else if(parseInt((nowYearPay -lastYearPay ) / 10000) == 0){
+	//동일
+	$("#totalReport > div:nth-child(2) > strong:nth-child(2)").attr("class", "sameStore").text("유지")
+	$("#totalReport > div:nth-child(2) > strong:nth-child(1)").attr("class", "sameStore")
+	$("#monthPayYear").text(Math.abs(parseInt((nowYearPay -lastYearPay ) / 10000)) + "만원 ").attr('class', 'same');
+}else{
+	//감소
+	$("#totalReport > div:nth-child(2) > strong:nth-child(2)").attr("class", "decreaseStore").text("감소")
+	$("#totalReport > div:nth-child(2) > strong:nth-child(1)").attr("class", "decreaseStore")
+	$("#monthPayYear").html('<img src="./img/i_decrease.svg" style="width: 13px;">'+Math.abs(parseInt((nowYearPay -lastYearPay ) / 10000))+'만원 </strong>').attr('class', 'decrease');
+}
+
+$("#monthPayCount").text(parseInt(nowYearPay / 10000) + "만원 ");
+
+
+
+//월평균 매출건수
+lastYearMonthNum = storeMeanNumJson[0]["monthSalesNum"]
+lastHalfMonthNum = storeMeanNumJson[3]["monthSalesNum"]
+nowYearMonthNum = storeMeanNumJson[4]["monthSalesNum"]
+
+monthNumLastYear = parseInt(nowYearMonthNum - lastYearMonthNum)
+monthNumnowYear = parseInt(nowYearMonthNum - 0)
+monthNumLastQuarter = parseInt(nowYearMonthNum - lastHalfMonthNum)
+
+if(monthNumLastQuarter > 0){
+	//증가
+	$("#monthNumQuarter").html('<img src="./img/i_increase.svg" style="width: 13px;">'+Math.abs(monthNumLastQuarter)+'개 </strong>').attr('class', 'increase');
+}else if(monthNumLastQuarter == 0){
+	//동일
+	$("#monthNumQuarter").text(Math.abs(monthNumLastQuarter) + "개 ").attr('class', 'same');
+}else{
+	//감소
+	$("#monthNumQuarter").html('<img src="./img/i_decrease.svg" style="width: 13px;">'+Math.abs(monthNumLastQuarter)+'개 </strong>').attr('class', 'decrease');
+}
+
+//월평균 매출건수 전년대비 증개 or 감소
+if(monthNumLastYear > 0){
+	//증가
+	$("#monthNumYear").html('<img src="./img/i_increase.svg" style="width: 13px;">'+Math.abs(monthNumLastYear)+'개 </strong>').attr('class', 'increase');
+}else if(monthNumLastYear == 0){
+	//동일
+	$("#monthNumYear").text(Math.abs(monthNumLastYear) + "개").attr('class', 'same');
+}else{
+	//감소
+	$("#monthNumYear").html('<img src="./img/i_decrease.svg" style="width: 13px;">'+Math.abs(monthNumLastYear)+'개 </strong>').attr('class', 'decrease');
+}
+
+//월평균 매출건수 올해 개수
+$("#monthNumCount").text(monthNumnowYear + "개 ");
+
+
+
+//유동인구
+lastYearMove = allMoveJson[0]["allMovePeople"]
+lasthalfMove = allMoveJson[3]["allMovePeople"]
+nowYearMove = allMoveJson[4]["allMovePeople"]
+
+$("#storeNowMove").text(parseInt(nowYearMove - 0) + "명");
+$("#storehalfMove").text(parseInt(nowYearMove - lasthalfMove) + "명 ");
+$("#storeYearMove").text(parseInt(nowYearMove -lastYearMove ) + "명 ");
+
+//종합의견 유동인구 전년 동분기 증개 or 감소
+if(parseInt(nowYearMove -lastYearMove) > 0){
+	//증가
+	$("#totalReport > div:nth-child(3) > strong:nth-child(2)").attr("class", "increaseStore").text("증가")
+	$("#totalReport > div:nth-child(3) > strong:nth-child(1)").attr("class", "increaseStore")
+	$("#allMoveYear").html('<img src="./img/i_increase.svg" style="width: 13px;">'+Math.abs(parseInt(nowYearMove -lastYearMove ))+'명 </strong>').attr('class', 'increase');
+}else if(parseInt(nowYearMove -lastYearMove) == 0){
+	//동일
+	$("#totalReport > div:nth-child(3) > strong:nth-child(2)").attr("class", "sameStore").text("유지")
+	$("#totalReport > div:nth-child(3) > strong:nth-child(1)").attr("class", "sameStore")
+	$("#allMoveYear").text(Math.abs(parseInt(nowYearMove -lastYearMove )) + "명 ").attr('class', 'same');
+}else{
+	//감소
+	$("#totalReport > div:nth-child(3) > strong:nth-child(2)").attr("class", "decreaseStore").text("감소")
+	$("#totalReport > div:nth-child(3) > strong:nth-child(1)").attr("class", "decreaseStore")
+	$("#allMoveYear").html('<img src="./img/i_decrease.svg" style="width: 13px;">'+Math.abs(parseInt(nowYearMove -lastYearMove ))+'명 </strong>').attr('class', 'decrease');
+}
+
+if(parseInt(nowYearMove - lasthalfMove) > 0){
+	//증가
+	$("#allMoveQuarter").html('<img src="./img/i_increase.svg" style="width: 13px;">'+Math.abs(parseInt(nowYearMove - lasthalfMove))+'명 </strong>').attr('class', 'increase');
+}else if(parseInt(nowYearMove - lasthalfMove) == 0){
+	//동일
+	$("#allMoveQuarter").text(Math.abs(parseInt(nowYearMove - lasthalfMove)) + "명 ").attr('class', 'same');
+}else{
+	//감소
+	$("#allMoveQuarter").html('<img src="./img/i_decrease.svg" style="width: 13px;">'+Math.abs(parseInt(nowYearMove - lasthalfMove))+'명 </strong>').attr('class', 'decrease');
+}
+
+
+$("#allMoveCount").text(parseInt(nowYearMove - 0) + "명 ");
+
+
+
+//거주인구
+lastYearAllLive = allMoveJson[0]["allMovePeople"]
+lastHalfAllLive = allMoveJson[3]["allMovePeople"]
+nowYearAllLive = allMoveJson[4]["allMovePeople"]
+
+AllLiveLastYear = parseInt(nowYearAllLive - lastYearAllLive)
+AllLivenowYear = parseInt(nowYearAllLive - 0)
+AllLiveLastQuarter = parseInt(nowYearAllLive - lastHalfAllLive)
+
+if(AllLiveLastQuarter > 0){
+	//증가
+	$("#allLiveQuarter").html('<img src="./img/i_increase.svg" style="width: 13px;">'+Math.abs(AllLiveLastQuarter)+'명 </strong>').attr('class', 'increase');
+}else if(AllLiveLastQuarter == 0){
+	//동일
+	$("#allLiveQuarter").text(Math.abs(AllLiveLastQuarter) + "명 ").attr('class', 'same');
+}else{
+	//감소
+	$("#allLiveQuarter").html('<img src="./img/i_decrease.svg" style="width: 13px;">'+Math.abs(AllLiveLastQuarter)+'명 </strong>').attr('class', 'decrease');
+}
+
+//거주인구 전년대비 증개 or 감소
+if(AllLiveLastYear > 0){
+	//증가
+	$("#allLiveYear").html('<img src="./img/i_increase.svg" style="width: 13px;">'+Math.abs(AllLiveLastYear)+'명 </strong>').attr('class', 'increase');
+}else if(AllLiveLastYear == 0){
+	//동일
+	$("#allLiveYear").text(Math.abs(AllLiveLastYear) + "명 ").attr('class', 'same');
+}else{
+	//감소
+	$("#allLiveYear").html('<img src="./img/i_decrease.svg" style="width: 13px;">'+Math.abs(AllLiveLastYear)+'명 </strong>').attr('class', 'decrease');
+}
+
+//자치구 올해 거주인구
+$("#allLiveCount").text(AllLivenowYear + "명 ");
+
+
+
+//직장인 수
+lastYearAllCompany = allCompanyJson[0]["allCompanyPeople"]
+lastHalfAllCompany = allCompanyJson[3]["allCompanyPeople"]
+nowYearAllCompany = allCompanyJson[4]["allCompanyPeople"]
+
+AllCompanyLastYear = parseInt(nowYearAllCompany - lastYearAllCompany)
+AllCompanynowYear = parseInt(nowYearAllCompany - 0)
+AllCompanyLastQuarter = parseInt(nowYearAllCompany - lastHalfAllCompany)
+
+if(AllCompanyLastQuarter > 0){
+	//증가
+	$("#allCompanyQuarter").html('<img src="./img/i_increase.svg" style="width: 13px;">'+Math.abs(AllCompanyLastQuarter)+'명 </strong>').attr('class', 'increase');
+}else if(AllCompanyLastQuarter == 0){
+	//동일
+	$("#allCompanyQuarter").text(Math.abs(AllCompanyLastQuarter) + "명 ").attr('class', 'same');
+}else{
+	//감소
+	$("#allCompanyQuarter").html('<img src="./img/i_decrease.svg" style="width: 13px;">'+Math.abs(AllCompanyLastQuarter)+'명 </strong>').attr('class', 'decrease');
+}
+
+//거주인구 전년대비 증개 or 감소
+if(AllCompanyLastYear > 0){
+	//증가
+	$("#allCompanyYear").html('<img src="./img/i_increase.svg" style="width: 13px;">'+Math.abs(AllCompanyLastYear)+'명 </strong>').attr('class', 'increase');
+}else if(AllLiveLastYear == 0){
+	//동일
+	$("#allCompanyYear").text(Math.abs(AllCompanyLastYear) + "명 ").attr('class', 'same');
+}else{
+	//감소
+	$("#allCompanyYear").html('<img src="./img/i_decrease.svg" style="width: 13px;">'+Math.abs(AllCompanyLastYear)+'명 </strong>').attr('class', 'decrease');
+}
+
+//자치구 올해 직장인 수
+$("#allCompanyCount").text(AllCompanynowYear + "명 ");
+
+
+
+//자치구 올해 가구수
+lastYearAllFamily = allFamilyJson[0]["allFamilyPeople"]
+lastHalfAllFamily = allFamilyJson[3]["allFamilyPeople"]
+nowYearAllFamily = allFamilyJson[4]["allFamilyPeople"]
+
+AllFamilyLastYear = parseInt(nowYearAllFamily - lastYearAllFamily)
+AllFamilynowYear = parseInt(nowYearAllFamily - 0)
+AllFamilyLastQuarter = parseInt(nowYearAllFamily - lastHalfAllFamily)
+
+if(AllFamilyLastQuarter > 0){
+	//증가
+	$("#allFamilyQuarter").html('<img src="./img/i_increase.svg" style="width: 13px;">'+Math.abs(AllFamilyLastQuarter)+'가구 </strong>').attr('class', 'increase');
+}else if(AllFamilyLastQuarter == 0){
+	//동일
+	$("#allFamilyQuarter").text(Math.abs(AllFamilyLastQuarter) + "가구 ").attr('class', 'same');
+}else{
+	//감소
+	$("#allFamilyQuarter").html('<img src="./img/i_decrease.svg" style="width: 13px;">'+Math.abs(AllFamilyLastQuarter)+'가구 </strong>').attr('class', 'decrease');
+}
+
+//거주인구 전년대비 증개 or 감소
+if(AllFamilyLastYear > 0){
+	//증가
+	$("#allFamilyYear").html('<img src="./img/i_increase.svg" style="width: 13px;">'+Math.abs(AllFamilyLastYear)+'가구 </strong>').attr('class', 'increase');
+}else if(AllFamilyLastYear == 0){
+	//동일
+	$("#allFamilyYear").text(Math.abs(AllFamilyLastYear) + "가구 ").attr('class', 'same');
+}else{
+	//감소
+	$("#allFamilyYear").html('<img src="./img/i_decrease.svg" style="width: 13px;">'+Math.abs(AllFamilyLastYear)+'가구 </strong>').attr('class', 'decrease');
+}
+
+//자치구 올해 직장인 수
+$("#allFamilyCount").text(AllFamilynowYear + "가구 ");
+
+
+
+//자치구 분기별 집객시설
+lastYearAllLocal = allLocalJson[0]["hospitalityFacilities"]
+lastHalfAllLocal = allLocalJson[3]["hospitalityFacilities"]
+nowYearAllLocal = allLocalJson[4]["hospitalityFacilities"]
+
+AllLocalLastYear = parseInt(nowYearAllLocal - lastYearAllLocal)
+AllLocalnowYear = parseInt(nowYearAllLocal - 0)
+AllLocalLastQuarter = parseInt(nowYearAllLocal - lastHalfAllLocal)
+
+if(AllLocalLastQuarter > 0){
+	//증가
+	$("#localQuarter").html('<img src="./img/i_increase.svg" style="width: 13px;">'+Math.abs(AllLocalLastQuarter)+'개 </strong>').attr('class', 'increase');
+}else if(AllLocalLastQuarter == 0){
+	//동일
+	$("#localQuarter").text(Math.abs(AllLocalLastQuarter) + "개 ").attr('class', 'same');
+}else{
+	//감소
+	$("#localQuarter").html('<img src="./img/i_decrease.svg" style="width: 13px;">'+Math.abs(AllLocalLastQuarter)+'개 </strong>').attr('class', 'decrease');
+}
+
+//집객 시설 수 전년대비 증개 or 감소
+if(AllLocalLastYear > 0){
+	//증가
+	$("#localYear").html('<img src="./img/i_increase.svg" style="width: 13px;">'+Math.abs(AllLocalLastYear)+'개 </strong>').attr('class', 'increase');
+}else if(AllLocalLastYear == 0){
+	//동일
+	$("#localYear").text(Math.abs(AllLocalLastYear) + "개").attr('class', 'same');
+}else{
+	//감소
+	$("#localYear").html('<img src="./img/i_decrease.svg" style="width: 13px;">'+Math.abs(AllLocalLastYear)+'개 </strong>').attr('class', 'decrease');
+}
+
+//자치구 집객 시설 수
+$("#localCount").text(AllLocalnowYear + "개 ");
+
+
+
+//자치구 분기별 소득분위
+lastYearAllIncome = allIncomeJson[0]["incomeCode"]
+lastHalfAllIncome = allIncomeJson[3]["incomeCode"]
+nowYearAllIncome = allIncomeJson[4]["incomeCode"]
+
+AllIncomelLastYear = parseInt(nowYearAllIncome - lastYearAllIncome)
+AllIncomenowYear = parseInt(nowYearAllIncome - 0)
+AllIncomeLastQuarter = parseInt(nowYearAllIncome - lastHalfAllIncome)
+
+if(AllIncomeLastQuarter > 0){
+	//증가
+	$("#allIncomeQuarter").html('<img src="./img/i_increase.svg" style="width: 13px;">'+Math.abs(AllIncomeLastQuarter)+'분위 </strong>').attr('class', 'increase');
+}else if(AllIncomeLastQuarter == 0){
+	//동일
+	$("#allIncomeQuarter").text(Math.abs(AllIncomeLastQuarter) + "분위 ").attr('class', 'same');
+}else{
+	//감소
+	$("#allIncomeQuarter").html('<img src="./img/i_decrease.svg" style="width: 13px;">'+Math.abs(AllIncomeLastQuarter)+'분위 </strong>').attr('class', 'decrease');
+}
+
+//집객 시설 수 전년대비 증개 or 감소
+if(AllIncomelLastYear > 0){
+	//증가
+	$("#allIncomeYear").html('<img src="./img/i_increase.svg" style="width: 13px;">'+Math.abs(AllIncomelLastYear)+'분위 </strong>').attr('class', 'increase');
+}else if(AllIncomelLastYear == 0){
+	//동일
+	$("#allIncomeYear").text(Math.abs(AllIncomelLastYear) + "분위 ").attr('class', 'same');
+}else{
+	//감소
+	$("#allIncomeYear").html('<img src="./img/i_decrease.svg" style="width: 13px;">'+Math.abs(AllIncomelLastYear)+'분위 </strong>').attr('class', 'decrease');
+}
+
+//자치구 올해 소득분위
+$("#allIncomeCount").text(AllIncomenowYear + "분위 ");
+
+
+
+
+
+
+
+
+//자치구 등수
+let jachiScore = 0;
+
+//점포수
+if("<%= guStroeOne.getScore() %>" < 25 / 2){
+	$("#totalReport > div:nth-child(4) > strong:nth-child(2)").attr("class", "increaseStore")
+	jachiScore += 1;
+}else{
+	$("#totalReport > div:nth-child(4) > strong:nth-child(2)").attr("class", "decreaseStore")
+}
+
+//매출액
+if("<%= guPayOne.getScore() %>" < 25 / 2){
+	$("#totalReport > div:nth-child(4) > strong:nth-child(3)").attr("class", "increaseStore")
+	jachiScore += 1;
+}else{
+	$("#totalReport > div:nth-child(4) > strong:nth-child(3)").attr("class", "decreaseStore")
+}
+
+//유동인구
+if("<%= guMoveOne.getScore() %>" < 25 / 2){
+	$("#totalReport > div:nth-child(4) > strong:nth-child(4)").attr("class", "increaseStore")
+	jachiScore += 1;
+}else{
+	$("#totalReport > div:nth-child(4) > strong:nth-child(4)").attr("class", "decreaseStore")
+}
+
+if(jachiScore >= 2){
+	$("#totalReport > div:nth-child(4) > strong:nth-child(1)").attr("class", "increaseStore")
+}else{
+	$("#totalReport > div:nth-child(4) > strong:nth-child(1)").attr("class", "decreaseStore")
+}
+
 </script>
 <script src="./js/chart.js"></script>
+<script src="./js/best.js"></script>
 <script>
+
+//레포트 값 꺼내기
+//매출
+age_pay_value = getAgeBestPay(agePayJson).age
+gender_pay_value = getGenderBestPay(genderPayJson).gender
+week_pay_value = getWeekBestPay(weekPayJson).week
+time_pay_value = getTimeBestPay(timePayJson).time
+service_pay_value = getServiceBestPay(serviceGenderPayJson).service
+
+//유동인구
+age_move_value = getAgeMove(genderAgeMoveJson).ageMove
+gender_move_value = getGenderMove(genderAgeMoveJson).genderMove
+week_move_value = getWeekBestMove(dayMoveJson).WeekMove
+time_move_value = getTimeBestMove(timeMoveJson).TimeMove
+
+//거주인구
+gender_live_value = getGenderLive(genderAgeLiveJson).genderLive
+age_live_value = getAgeLive(genderAgeLiveJson).ageLive
+
+//직장인
+gender_company_value = getGenderCompany(genderAgeCompanyJson).genderCompany
+age_company_value = getAgeCompany(genderAgeCompanyJson).ageCompany
+
+//집객시설
+all_local_value = getMainLocal(mainLocalJson).mainLocal
+
+//html에 값 변경
+//매출
+document.getElementById("gender_age_pay").innerText = gender_pay_value + "/" + age_pay_value
+$("#genderPayCount").text(gender_pay_value)
+$("#ageServicePayCount").text(age_pay_value)
+document.getElementById("week_pay").innerText = week_pay_value
+$("#weekPayCount").text(week_pay_value)
+document.getElementById("time_pay").innerText = time_pay_value
+$("#timePayCount").text(time_pay_value)
+document.getElementById("service_pay").innerText = service_pay_value
+$("#service").text(service_pay_value)
+//유동인구
+document.getElementById("age_move").innerText = age_move_value
+document.getElementById("gender_move").innerText = gender_move_value
+$("#genderAgeMoveCount").text(gender_move_value + ", " + age_move_value)
+document.getElementById("day_move").innerText = week_pay_value
+$("#weekMoveCount").text(week_pay_value)
+document.getElementById("time_move").innerText = time_pay_value
+$("#timeMoveCount").text(time_pay_value)
+
+$("#genderAgeLiveCount").text(gender_live_value + ", " + age_live_value)
+
+$("#genderAgeCompanyCount").text(gender_company_value + ", " + age_company_value)
+
+$("#mainLocalCount").text(all_local_value)
+
 $("#selectSigun").change(function(e){
 	$("#selectGu").submit();
 })
