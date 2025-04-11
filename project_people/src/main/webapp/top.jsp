@@ -44,7 +44,7 @@ String guLiveTenString = mapper2.writeValueAsString(guLiveTen);
 		<div class="wrap_box">
 			<h3>뜨는 상권</h3>
 		<div id="searchSigunList">
-			<form action="test.jsp" method="get" id="selectGu">
+			<form action="ProjectMap.jsp" method="get" id="selectGu">
 				<select id="selectSigun" class="radius" title="서울 구역 선택" name="selectSigun">
 					<option value="" <%= codes.equals("") ? "selected" : "" %>>서울시 전체</option>
 					<option value="11680" <%= codes.equals("11680") ? "selected" : "" %>>강남구</option>
@@ -108,17 +108,16 @@ String guLiveTenString = mapper2.writeValueAsString(guLiveTen);
 		</div>
 		<div class="tabcnt">
 			<div id="rankTop10">
-				<div class="top" style="display:flex;">
+				<div class="top" id="rankImg" style="display:flex;">
 					<img src="./img/i_store.svg" style="margin-left: 10px; margin-right: 10px;">
 					<p class="topP">순위 TOP 10</p>
-					<img src="./img/arrow_bottom.svg" style="margin-left: 165px;">
 				</div>
 				<hr style="width:99.5%;">
 				<div class="ranking">
 <!-- 					<div class="ranking_datalist"> -->
 						<div class="relative2">
 							<p class="chose">전체</p>
-							<p class="standard">2024년 4분기 기준(전분기)</p>
+							<p class="standard">2024년 4분기 기준 월평균</p>
 						</div>
 						<hr style="width:99.5%;">
 						<div id="rankBox">
@@ -126,7 +125,7 @@ String guLiveTenString = mapper2.writeValueAsString(guLiveTen);
 							for(int i = 0; i < 10; i++){
 								shopSalesVO vo = guStoreTen.get(i);
 								%>
-								<div id="rank" onclick="location.href='test.jsp?selectSigun=<%= vo.getGuCode() %>'">
+								<div id="rank" onclick="location.href='ProjectMap.jsp?selectSigun=<%= vo.getGuCode() %>'">
 									<a class="num"><%= vo.getScore() %></a>
 									<a class="subject"><%= vo.getGuCodeName() %></a>
 									<a class="value"><%= String.format("%,d", Long.parseLong(vo.getSimilarStore())) %>개</a>
@@ -227,13 +226,22 @@ String guLiveTenString = mapper2.writeValueAsString(guLiveTen);
 				alert("오류발생")
 			}
 		})
+		
+		
+		
 		$("#shopRank").click(function(e){
 			removeButtonClass()
 			$(this).addClass("activation")
 			$("#rankBox").empty()
+			
+			let imgHtml = '';
+			imgHtml += '<img src="./img/i_store.svg" style="margin-left: 10px; margin-right: 10px;">'
+			imgHtml += '<p class="topP">순위 TOP 10</p>'
+			
+			$("#rankImg").html(imgHtml);
 			for(let i = 0; i < guStoreTenJson.length; i ++){
 				let html = '';
-				html += '<div id="rank" onclick="location.href=`test.jsp?selectSigun='+guStoreTenJson[i].guCode+'`">'
+				html += '<div id="rank" onclick="location.href=`ProjectMap.jsp?selectSigun='+guStoreTenJson[i].guCode+'`">'
 				html += '<a class="num">'+guStoreTenJson[i].score+'</a>'
 				html += '<a class="subject">'+guStoreTenJson[i].guCodeName+'</a>'
 				html += '<a class="value">'+strToLocationNumber(guStoreTenJson[i].similarStore)+'개</a>'
@@ -247,9 +255,15 @@ String guLiveTenString = mapper2.writeValueAsString(guLiveTen);
 			removeButtonClass()
 			$(this).addClass("activation")
 			$("#rankBox").empty()
+			
+			let imgHtml = '';
+			imgHtml += '<img src="./img/i_sales_gr.svg" style="margin-left: 10px; margin-right: 10px;">'
+			imgHtml += '<p class="topP">순위 TOP 10</p>'
+			
+			$("#rankImg").html(imgHtml);
 			for(let i = 0; i < guPayTenJson.length; i ++){
 				let html = '';
-				html += '<div id="rank" onclick="location.href=`test.jsp?selectSigun='+guPayTenJson[i].guCode+'`">'
+				html += '<div id="rank" onclick="location.href=`ProjectMap.jsp?selectSigun='+guPayTenJson[i].guCode+'`">'
 				html += '<a class="num">'+guPayTenJson[i].score+'</a>'
 				html += '<a class="subject">'+guPayTenJson[i].guCodeName+'</a>'
 				html += '<a class="value">'+strToLocationNumber(guPayTenJson[i].monthSalesPay / 10000)+'만원</a>'
@@ -263,9 +277,15 @@ String guLiveTenString = mapper2.writeValueAsString(guLiveTen);
 			removeButtonClass()
 			$(this).addClass("activation")
 			$("#rankBox").empty()
+			
+			let imgHtml = '';
+			imgHtml += '<img src="./img/i_floating_gr.svg" style="margin-left: 10px; margin-right: 10px;">'
+			imgHtml += '<p class="topP">순위 TOP 10</p>'
+			
+			$("#rankImg").html(imgHtml);
 			for(let i = 0; i < guMoveTenJson.length; i ++){
 				let html = '';
-				html += '<div id="rank" onclick="location.href=`test.jsp?selectSigun='+guMoveTenJson[i].guCode+'`">'
+				html += '<div id="rank" onclick="location.href=`ProjectMap.jsp?selectSigun='+guMoveTenJson[i].guCode+'`">'
 				html += '<a class="num">'+guMoveTenJson[i].score+'</a>'
 				html += '<a class="subject">'+guMoveTenJson[i].guCodeName+'</a>'
 				html += '<a class="value">'+strToLocationNumber(guMoveTenJson[i].allMovePeople)+'명</a>'
@@ -279,9 +299,15 @@ String guLiveTenString = mapper2.writeValueAsString(guLiveTen);
 			removeButtonClass()
 			$(this).addClass("activation")
 			$("#rankBox").empty()
+			
+			let imgHtml = '';
+			imgHtml += '<img src="./img/i_living_gr.svg" style="margin-left: 10px; margin-right: 10px;">'
+			imgHtml += '<p class="topP">순위 TOP 10</p>'
+			
+			$("#rankImg").html(imgHtml);
 			for(let i = 0; i < guLiveTenJson.length; i ++){
 				let html = '';
-				html += '<div id="rank" onclick="location.href=`test.jsp?selectSigun='+guLiveTenJson[i].guCode+'`">'
+				html += '<div id="rank" onclick="location.href=`ProjectMap.jsp?selectSigun='+guLiveTenJson[i].guCode+'`">'
 				html += '<a class="num">'+guLiveTenJson[i].score+'</a>'
 				html += '<a class="subject">'+guLiveTenJson[i].guCodeName+'</a>'
 				html += '<a class="value">'+strToLocationNumber(guLiveTenJson[i].allLivePeople)+'명</a>'

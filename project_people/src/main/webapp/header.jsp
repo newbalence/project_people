@@ -14,7 +14,7 @@
 	<div class="wrap">
 		<div class="header">
 			<ul class="nav">
-				<li><img src="./img/free-icon-thumb-up-12526118.png" alt="아이콘 사진" class="icon-img"><a onclick="location.href='https://www.seoul.go.kr/main/index.jsp'" title="새창알림" class="main">EZEN Project</a></li>
+				<li><img src="./img/title.png" alt="아이콘 사진" class="icon-img"><a onclick="location.href='./test.jsp'" title="새창알림" class="main">EZEN Project</a></li>
 			</ul>
 			<!-- <div class="seoul-gnb-news">
 				<div class="news">

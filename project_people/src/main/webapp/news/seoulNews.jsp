@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="header.jsp" %>
+<%@ include file="../header.jsp" %>
 <%@page import="board.boardVO"%>
 <%@page import="board.boardDAO"%>
 <%@page import="java.util.List"%>

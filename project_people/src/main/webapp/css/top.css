@@ -156,7 +156,10 @@ select{
 	background-color: #f9f9f9;
 	border: none;
 	font-weight: 800;
-	user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 .fewCondition{
 	margin-top: 30px;

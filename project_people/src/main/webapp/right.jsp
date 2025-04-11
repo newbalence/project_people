@@ -171,19 +171,19 @@ shopSalesVO listvo = storeList.get(storeList.size() - 1);
 	<div class="tab">
 		<div class="tab_report">
 			<div>
-				<button class="active" id="shortReport">간략보고서</button>
+				<button class="active" id="shortReport" onclick="location.href='#top'">간략보고서</button>
 			</div>
 			<div>
-				<button class="active" id="serviceReport">업종분석</button>
+				<button class="active" id="serviceReport" onclick="location.href='#jumpoNum'">업종분석</button>
 			</div>
 			<div>
-				<button class="active" id="payReport">매출분석</button>
+				<button class="active" id="payReport" onclick="location.href='#middlePay'">매출분석</button>
 			</div>
 			<div>
-				<button class="active" id="peopleReport">인구분석</button>
+				<button class="active" id="peopleReport" onclick="location.href='#middleMove'">인구분석</button>
 			</div>
 			<div>
-				<button class="active" id="LocalReport">지역(배후지)분석</button>
+				<button class="active" id="LocalReport" onclick="location.href='#middleLocal'">지역(배후지)분석</button>
 			</div>
 		</div>
 		<div class="place">
@@ -205,7 +205,7 @@ shopSalesVO listvo = storeList.get(storeList.size() - 1);
 		<div class="ScrollBox" style="max-height: none;">
 			<div class="container" style="position: relative; top: -4033px; left: 0px;" dir="ltr"></div>
 		</div>
-		<div class="choiceGu">
+		<div class="choiceGu" id="top">
 				선택자치구 면적은 
 				<strong id="selectArea"><%= String.format("%,d", Long.parseLong(areaCode.getGuArea())) %></strong>
 				m<sup>2</sup>입니다. 
@@ -359,24 +359,30 @@ shopSalesVO listvo = storeList.get(storeList.size() - 1);
 			</div>
 			<div class="tabWrapLy">
 				<div class="reportDetail">
-					<h2 class="textTit01">예상 매출 1순위 업종</h2>
-					<div class="reportContentRow" id="ranking1">
+					<h2 class="textTit01">예상 매출 외식업 순위</h2>
+					<div class="reportContentRow" id="foodPayRank">
 						<div class="reportContentCell">
-							<h3 class="reportTit02">외식업</h3>
+							<h3 class="reportTit02">1위</h3>
 							<div class="reportComment">
 								<p id="CS1Rank1"></p>
 							</div>
 						</div>
 						<div class="reportContentCell">
-							<h3 class="reportTit02">서비스업</h3>
+							<h3 class="reportTit02">2위</h3>
 							<div class="reportComment">
-								<p id="CS2Rank1" class="reportComment"></p>
+								<p id="CS1Rank2" class="reportComment"></p>
 							</div>
 						</div>
 						<div class="reportContentCell">
-							<h3 class="reportTit02">소매업</h3>
+							<h3 class="reportTit02">3위</h3>
 							<div class="reportComment">
-								<p id="CS3Rank1" class="reportComment"></p>
+								<p id="CS1Rank3" class="reportComment"></p>
+							</div>
+						</div>
+						<div class="reportContentCell">
+							<h3 class="reportTit02">4위</h3>
+							<div class="reportComment">
+								<p id="CS1Rank4" class="reportComment"></p>
 							</div>
 						</div>
 					</div>
@@ -384,24 +390,61 @@ shopSalesVO listvo = storeList.get(storeList.size() - 1);
 			</div>
 			<div class="tabWrapLy">
 				<div class="reportDetail">
-					<h2 class="textTit01">예상 매출 2순위 업종</h2>
-					<div class="reportContentRow" id="ranking2">
+					<h2 class="textTit01">예상 매출 서비스업 순위</h2>
+					<div class="reportContentRow" id="servPayRank">
 						<div class="reportContentCell">
-							<h3 class="reportTit02">외식업</h3>
+							<h3 class="reportTit02">1위</h3>
 							<div class="reportComment">
-								<p id="CS1Rank2"></p>
+								<p id="CS2Rank1"></p>
 							</div>
 						</div>
 						<div class="reportContentCell">
-							<h3 class="reportTit02">서비스업</h3>
+							<h3 class="reportTit02">2위</h3>
 							<div class="reportComment">
 								<p id="CS2Rank2" class="reportComment"></p>
 							</div>
 						</div>
 						<div class="reportContentCell">
-							<h3 class="reportTit02">소매업</h3>
+							<h3 class="reportTit02">3위</h3>
+							<div class="reportComment">
+								<p id="CS2Rank3" class="reportComment"></p>
+							</div>
+						</div>
+						<div class="reportContentCell">
+							<h3 class="reportTit02">4위</h3>
+							<div class="reportComment">
+								<p id="CS2Rank4" class="reportComment"></p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="tabWrapLy">
+				<div class="reportDetail">
+					<h2 class="textTit01">예상 매출 소매업 순위</h2>
+					<div class="reportContentRow" id="retailPayRank">
+						<div class="reportContentCell">
+							<h3 class="reportTit02">1위</h3>
+							<div class="reportComment">
+								<p id="CS3Rank1"></p>
+							</div>
+						</div>
+						<div class="reportContentCell">
+							<h3 class="reportTit02">2위</h3>
 							<div class="reportComment">
 								<p id="CS3Rank2" class="reportComment"></p>
+							</div>
+						</div>
+						<div class="reportContentCell">
+							<h3 class="reportTit02">3위</h3>
+							<div class="reportComment">
+								<p id="CS3Rank3" class="reportComment"></p>
+							</div>
+						</div>
+						<div class="reportContentCell">
+							<h3 class="reportTit02">4위</h3>
+							<div class="reportComment">
+								<p id="CS3Rank4" class="reportComment"></p>
 							</div>
 						</div>
 					</div>
@@ -648,7 +691,7 @@ shopSalesVO listvo = storeList.get(storeList.size() - 1);
 					</div>
 				</div>
 				<div class="sin">
-					<p class="gi">매출액</p>
+					<p class="gi" id="middlePay">매출액</p>
 					<div>
 						<div class="reportItem">
 							<p class="summary">점포당 월평균 매출액은 <a style="color: #e02171;" id="monthPayCount">99만원</a> 입니다.</p>
@@ -792,7 +835,7 @@ shopSalesVO listvo = storeList.get(storeList.size() - 1);
 					</div>
 				</div>
 				<div class="sin">
-					<p class="gi">유동인구 수</p>
+					<p class="gi" id="middleMove">유동인구 수</p>
 					<div>
 						<div class="reportItem">
 							<p class="summary">유동인구 수는 일평균 <a style="color: #e02171;" id="allMoveCount">00,000명</a> 입니다.</p>
@@ -976,7 +1019,7 @@ shopSalesVO listvo = storeList.get(storeList.size() - 1);
 					</div>
 				</div>
 				<div class="sin">
-					<p class="gi">집객시설 수</p>
+					<p class="gi" id="middleLocal">집객시설 수</p>
 					<div>
 						<div class="reportItem">
 							<p class="summary">집객시설 수는 <a style="color: #e02171;" id="localCount"> 00개 </a>입니다.</p>
@@ -1071,7 +1114,7 @@ $("#closeBtn").click(function(){
 	$("#rBtn").css('display', "none")
 });
 
-$("#shortReport").click(function(){
+/* $("#shortReport").click(function(){
 	$(".scroll_y").scrollTop(0);
 });
 
@@ -1079,7 +1122,7 @@ $("#serviceReport").click(function() {
     $('.scroll_y').animate({
         scrollTop: $("#jumpoNum").offset().top
     }, 2000);
-});
+}); */
 
 /* 점포수 */
 let storeListJson = <%= storeListString %>;
@@ -1695,11 +1738,16 @@ if(guCode){
 		
     		$("#CS1Rank1").html(expectation[0].service_code + "<br>(" + strToLocationNumber(expectation[0].pred_shop_pay / 10000) + "만원)")
 			$("#CS1Rank2").html(expectation[1].service_code + "<br>(" + strToLocationNumber(expectation[1].pred_shop_pay / 10000) + "만원)")
-			$("#CS2Rank1").html(expectation[2].service_code + "<br>(" + strToLocationNumber(expectation[2].pred_shop_pay / 10000) + "만원)")
-			$("#CS2Rank2").html(expectation[3].service_code + "<br>(" + strToLocationNumber(expectation[3].pred_shop_pay / 10000) + "만원)")
-			$("#CS3Rank1").html(expectation[4].service_code + "<br>(" + strToLocationNumber(expectation[4].pred_shop_pay / 10000) + "만원)")
-			$("#CS3Rank2").html(expectation[5].service_code + "<br>(" + strToLocationNumber(expectation[5].pred_shop_pay / 10000) + "만원)")
-			
+			$("#CS1Rank3").html(expectation[2].service_code + "<br>(" + strToLocationNumber(expectation[2].pred_shop_pay / 10000) + "만원)")
+			$("#CS1Rank4").html(expectation[3].service_code + "<br>(" + strToLocationNumber(expectation[3].pred_shop_pay / 10000) + "만원)")
+            $("#CS2Rank1").html(expectation[4].service_code + "<br>(" + strToLocationNumber(expectation[4].pred_shop_pay / 10000) + "만원)")
+			$("#CS2Rank2").html(expectation[5].service_code + "<br>(" + strToLocationNumber(expectation[5].pred_shop_pay / 10000) + "만원)")
+			$("#CS2Rank3").html(expectation[6].service_code + "<br>(" + strToLocationNumber(expectation[6].pred_shop_pay / 10000) + "만원)")
+			$("#CS2Rank4").html(expectation[7].service_code + "<br>(" + strToLocationNumber(expectation[7].pred_shop_pay / 10000) + "만원)")
+			$("#CS3Rank1").html(expectation[8].service_code + "<br>(" + strToLocationNumber(expectation[8].pred_shop_pay / 10000) + "만원)")
+			$("#CS3Rank2").html(expectation[9].service_code + "<br>(" + strToLocationNumber(expectation[9].pred_shop_pay / 10000) + "만원)")
+			$("#CS3Rank3").html(expectation[10].service_code + "<br>(" + strToLocationNumber(expectation[10].pred_shop_pay / 10000) + "만원)")
+			$("#CS3Rank4").html(expectation[11].service_code + "<br>(" + strToLocationNumber(expectation[11].pred_shop_pay / 10000) + "만원)")
 		},
 		error : function(a){
 			System.out.println(a);

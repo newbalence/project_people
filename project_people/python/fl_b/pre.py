@@ -67,7 +67,7 @@ def predict(target_gu):
             subset = df[df['code_group'] == group].copy()
             if not subset.empty:
                 subset['code_group'] = group  # 명시적 유지
-                top2 = subset.nlargest(2, 'pred_shop_pay').copy()
+                top2 = subset.nlargest(4, 'pred_shop_pay').copy()
                 print(top2)
                 result.append(top2)
 
@@ -90,3 +90,4 @@ def predict(target_gu):
         else:
             data = None
         return data
+    

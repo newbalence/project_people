@@ -142,8 +142,8 @@ public class rankingDAO extends DBManager {
 		driverLoad();
 		DBConnect();
 		
-		String sql = "select Gu_code, Gu_code_name, t.score , sumsim ";
-		sql += "from (select Gu_code, Gu_code_name, sum(Month_sales_pay)as sumsim, rank() over(order by sum(Month_sales_pay) desc) ";
+		String sql = "select Gu_code, Gu_code_name, t.score , (sumsim / sumstore / 3) as sumsims ";
+		sql += "from (select Gu_code, Gu_code_name, sum(similar_store) as sumstore, sum(Month_sales_pay)as sumsim, rank() over(order by sum(Month_sales_pay) desc) ";
 		sql += "as score from df_seoul_test where year_code = 20244 group by Gu_code, Gu_code_name) t limit 10;";
 		
 		executeQuery(sql);
@@ -153,7 +153,7 @@ public class rankingDAO extends DBManager {
 			String guCode = getString("Gu_code");
 			String guCodeName = getString("Gu_code_name");
 			String score = getString("score");
-			String pay = String.valueOf(getLong("sumsim"));
+			String pay = String.valueOf(getLong("sumsims"));
 			
 			shopSalesVO vo = new shopSalesVO();
 			vo.setGuCode(guCode);
