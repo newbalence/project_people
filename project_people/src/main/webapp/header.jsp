@@ -55,6 +55,8 @@
 		    </div>
 		    <!-- <img src="./img/chat.svg">
 		    <a href="#" class="chatbot" ></a> -->
+		    <button type="button" id="chat" onclick="location.href='chatbot.jsp'" style="cursor:pointer; border:none;"><img src="./img/chat.svg"></button>
+		    <!-- <a onclick="location.href='chat.jsp'" style="cursor:pointer;"></a> -->
 		</div>
 		
 	</div>
@@ -70,6 +72,10 @@ $("#type").click(function(){
 	}else{
 		alert("오류발생")
 	}
+});
+
+$("#chat").click(fuction(){
+	
 });
 </script>
 </html>
