@@ -27,11 +27,8 @@
 				<li><a class="main" onclick="alert('추후 제공 예정')">응답소</a></li>
 				<li><a class="main" onclick="location.href='https://data.seoul.go.kr/'">정보공개</a></li>
 				<li id="type"><a class="main">분야별정보</a>
-				<div id="information" class="infort">
-					<div class="category">안녕</div>
-					<div class="category">클래오</div>
-					<div class="category">파트라</div>
-				</div>
+
+
 				</li>
 			</div>
 		</div>
