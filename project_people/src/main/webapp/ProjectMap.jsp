@@ -166,8 +166,8 @@ $(async function(){
 	}
 
 
-	let centerX = "<%= mainAreaCode == null ? 127.055896738 :  mainAreaCode.getxCode() %>";
-	let centerY = "<%= mainAreaCode == null ? 37.544641605 :  mainAreaCode.getyCode() %>";
+	let centerX = "<%= mainAreaCode == null ? 126.978601 :  mainAreaCode.getxCode() %>";
+	let centerY = "<%= mainAreaCode == null ? 37.566793 :  mainAreaCode.getyCode() %>";
 
 	var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 	    mapOption = { 

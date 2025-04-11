@@ -6,5 +6,5 @@
 	response.addCookie(cookie);
 	
 	session.invalidate();
-	response.sendRedirect("test.jsp");
+	response.sendRedirect("../ProjectMap.jsp");
 %>

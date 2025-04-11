@@ -14,7 +14,7 @@
 	<div class="wrap">
 		<div class="header">
 			<ul class="nav">
-				<li><img src="./img/title.png" alt="아이콘 사진" class="icon-img"><a onclick="location.href='./test.jsp'" title="새창알림" class="main">EZEN Project</a></li>
+				<li><img src="./img/title.png" alt="아이콘 사진" class="icon-img"><a onclick="location.href='./ProjectMap.jsp'" title="새창알림" class="main">EZEN Project</a></li>
 			</ul>
 			<!-- <div class="seoul-gnb-news">
 				<div class="news">
@@ -42,16 +42,16 @@
 		  <a id="name">EZEN <spnan id="shop">상권분석</spnan> 서비스 </a>
 		 </div>
 		<div id="second">
-			<li class="commercial"><a onclick="location.href='test.jsp'" class="inner">떠오르는 상권</a></li>
+			<li class="commercial"><a onclick="location.href='./ProjectMap.jsp'" class="inner">떠오르는 상권</a></li>
 			<!-- <li class="onner"><a class="inner">나는 사장</a></li>
 			<li class="onner_soon"><a class="inner">나도 곧 사장?!</a></li>
 			<li class="state"><a class="inner">지역·상권별 현황</a></li> -->
-			<li class="step"><a onclick="location.href='guide.jsp'" class="inner">이용안내</a></li>
+			<li class="step"><a onclick="location.href='./guide.jsp'" class="inner">이용안내</a></li>
 		</div>
 		<div id="thrd">
 			<div id="login">
 				<img style="padding: 0px 8px;" src="./img/log.svg">
-			    <a onclick="location.href='login.jsp'" style="cursor:pointer;">로그인</a>
+			    <a onclick="location.href='./login/login.jsp'" style="cursor:pointer;">로그인</a>
 		    </div>
 		    <!-- <img src="./img/chat.svg">
 		    <a href="#" class="chatbot" ></a> -->

@@ -1413,39 +1413,39 @@ if(parseInt(nowYearMove -lastYearMove) > 0){
 	//증가
 	$("#totalReport > div:nth-child(3) > strong:nth-child(2)").attr("class", "increaseStore").text("증가")
 	$("#totalReport > div:nth-child(3) > strong:nth-child(1)").attr("class", "increaseStore")
-	$("#allMoveYear").html('<img src="./img/i_increase.svg" style="width: 13px;">'+ Number(Math.abs(parseInt(nowYearMove -lastYearMove ))).toLocaleString() +'명 </strong>').attr('class', 'increase');
+	$("#allMoveYear").html('<img src="./img/i_increase.svg" style="width: 13px;">'+ Number(Math.abs(parseInt((nowYearMove -lastYearMove) / 90))).toLocaleString() +'명 </strong>').attr('class', 'increase');
 }else if(parseInt(nowYearMove -lastYearMove) == 0){
 	//동일
 	$("#totalReport > div:nth-child(3) > strong:nth-child(2)").attr("class", "sameStore").text("유지")
 	$("#totalReport > div:nth-child(3) > strong:nth-child(1)").attr("class", "sameStore")
-	$("#allMoveYear").text(Number(Math.abs(parseInt(nowYearMove -lastYearMove ))).toLocaleString() + "명 ").attr('class', 'same');
+	$("#allMoveYear").text(Number(Math.abs(parseInt((nowYearMove -lastYearMove) / 90))).toLocaleString() + "명 ").attr('class', 'same');
 }else{
 	//감소
 	$("#totalReport > div:nth-child(3) > strong:nth-child(2)").attr("class", "decreaseStore").text("감소")
 	$("#totalReport > div:nth-child(3) > strong:nth-child(1)").attr("class", "decreaseStore")
-	$("#allMoveYear").html('<img src="./img/i_decrease.svg" style="width: 13px;">'+ Number(Math.abs(parseInt(nowYearMove -lastYearMove ))).toLocaleString() +'명 </strong>').attr('class', 'decrease');
+	$("#allMoveYear").html('<img src="./img/i_decrease.svg" style="width: 13px;">'+ Number(Math.abs(parseInt((nowYearMove -lastYearMove) / 90))).toLocaleString() +'명 </strong>').attr('class', 'decrease');
 }
 
 if(parseInt(nowYearMove - lasthalfMove) > 0){
 	//증가
-	$("#allMoveQuarter").html('<img src="./img/i_increase.svg" style="width: 13px;">'+ Number(Math.abs(parseInt(nowYearMove - lasthalfMove))).toLocaleString() +'명 </strong>').attr('class', 'increase');
+	$("#allMoveQuarter").html('<img src="./img/i_increase.svg" style="width: 13px;">'+ Number(Math.abs(parseInt((nowYearMove - lasthalfMove) / 90))).toLocaleString() +'명 </strong>').attr('class', 'increase');
 }else if(parseInt(nowYearMove - lasthalfMove) == 0){
 	//동일
-	$("#allMoveQuarter").text( Number(Math.abs(parseInt(nowYearMove - lasthalfMove))).toLocaleString()  + "명 ").attr('class', 'same');
+	$("#allMoveQuarter").text( Number(Math.abs(parseInt((nowYearMove - lasthalfMove) / 90))).toLocaleString()  + "명 ").attr('class', 'same');
 }else{
 	//감소
-	$("#allMoveQuarter").html('<img src="./img/i_decrease.svg" style="width: 13px;">'+ Number(Math.abs(parseInt(nowYearMove - lasthalfMove))).toLocaleString() +'명 </strong>').attr('class', 'decrease');
+	$("#allMoveQuarter").html('<img src="./img/i_decrease.svg" style="width: 13px;">'+ Number(Math.abs(parseInt((nowYearMove - lasthalfMove) / 90))).toLocaleString() +'명 </strong>').attr('class', 'decrease');
 }
 
 
-$("#allMoveCount").text(Number(parseInt(nowYearMove - 0)).toLocaleString() + "명 ");
+$("#allMoveCount").text(Number(parseInt(nowYearMove / 90)).toLocaleString() + "명 ");
 
 
 
 //거주인구
-lastYearAllLive = allMoveJson[0]["allMovePeople"]
-lastHalfAllLive = allMoveJson[3]["allMovePeople"]
-nowYearAllLive = allMoveJson[4]["allMovePeople"]
+lastYearAllLive = allLiveJson[0]["allLivePeople"]
+lastHalfAllLive = allLiveJson[3]["allLivePeople"]
+nowYearAllLive = allLiveJson[4]["allLivePeople"]
 
 AllLiveLastYear = parseInt(nowYearAllLive - lastYearAllLive)
 AllLivenowYear = parseInt(nowYearAllLive - 0)

@@ -37,7 +37,7 @@
 <head>
 <meta charset="UTF-8">
 <title>로그인</title>
-<link rel="stylesheet" href="./css/login.css"></link>
+<link rel="stylesheet" href="../css/login.css"></link>
 <script src="./js/jquery-3.7.1.js"></script>
 </head>
 <body>

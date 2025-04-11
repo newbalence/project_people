@@ -61,7 +61,7 @@
 	}
 	
 	function drowStorePie(){
-		let storePieLabels = ["store", "Franchise_store"];
+		let storePieLabels = ["일반상점", "프렌차이즈"];
 		let storePieDatas = [];
 		for(let i = storeListJson.length - 1; i < storeListJson.length; i ++){
 			storePieDatas.push(storeListJson[i].store)
@@ -650,12 +650,12 @@
     }
 	
 	function drowGenderPayPie(){
-		let GenderPayPieLabels = ["Female", "Male"]
+		let GenderPayPieLabels = ["남성", "여성"]
         
         //Json.parse()
         let GenderPayPieDatas = [
-			genderPayJson.fSalesPay / 10000, 
-			genderPayJson.mSalesPay / 10000
+			genderPayJson.mSalesPay / 10000,
+			genderPayJson.fSalesPay / 10000 
 		]
 		
         const GenderPayPiedata = {
@@ -695,7 +695,7 @@
     }
 	
 	function drowServiceGenderPie(){
-			let ServiceGenderPieLabels = ["Female", "Male"]
+			let ServiceGenderPieLabels = ["여성", "남성"]
 			
 			let ServiceGenderPieLabel = ["외식업", "서비스업", "소매업"]
 	        
