@@ -14,18 +14,18 @@
 	<div class="wrap">
 		<div class="header">
 			<ul class="nav">
-				<li><img src="./img/bi_seoul.svg" alt="아이콘 사진" class="icon-img"><a onclick="location.href='https://www.seoul.go.kr/main/index.jsp'" title="새창알림" class="main">서울특별시</a></li>
+				<li><img src="./img/free-icon-thumb-up-12526118.png" alt="아이콘 사진" class="icon-img"><a onclick="location.href='https://www.seoul.go.kr/main/index.jsp'" title="새창알림" class="main">EZEN Project</a></li>
 			</ul>
-			<div class="seoul-gnb-news">
+			<!-- <div class="seoul-gnb-news">
 				<div class="news">
 					<a href="https://www.seoul.go.kr/realmnews/in/list.do" target="_blank" title="새창열림(서울소식)" class="seoul-gnb-icon-notice"><img style="border-radius: 10px; width: 35px; margin-right: 10px;" src="./img/announcement.png"></a>
 					<a href="https://news.seoul.go.kr/culture/archives/527415" target="_blank" title="새창열림" style="color: #fff; font-size: 15px;">서울스트링페스타 로드쇼 편 아니트워크 5K 5월4일 광화문광장 청화대일원</a>
 				</div>
-			</div>
+			</div> -->
 			<div class="hea">
-				<li><a class="main" onclick="location.href='https://www.seoul.go.kr/realmnews/in/list.do'">서울소식</a></li>
-				<li><a class="main" onclick="location.href='https://eungdapso.seoul.go.kr/main.do'">응답소</a></li>
-				<li><a class="main" onclick="location.href='https://opengov.seoul.go.kr/'">정보공개</a></li>
+				<li><a class="main" onclick="alert('추후 제공 예정')">소식</a></li>
+				<li><a class="main" onclick="alert('추후 제공 예정')">응답소</a></li>
+				<li><a class="main" onclick="location.href='https://data.seoul.go.kr/'">정보공개</a></li>
 				<li id="type"><a class="main">분야별정보</a>
 				<div id="information" class="infort">
 					<div class="category">안녕</div>
@@ -39,13 +39,13 @@
 	<div id="hd" class="hd">
 		<div id="icon">
 		  <img src="./img/shop.svg">
-		  <a href="https://golmok.seoul.go.kr/main.do" id="name">서울시 <spnan id="shop">상권분석</spnan> 서비스 </a>
+		  <a id="name">EZEN <spnan id="shop">상권분석</spnan> 서비스 </a>
 		 </div>
 		<div id="second">
 			<li class="commercial"><a onclick="location.href='test.jsp'" class="inner">떠오르는 상권</a></li>
-			<li class="onner"><a class="inner">나는 사장</a></li>
+			<!-- <li class="onner"><a class="inner">나는 사장</a></li>
 			<li class="onner_soon"><a class="inner">나도 곧 사장?!</a></li>
-			<li class="state"><a class="inner">지역·상권별 현황</a></li>
+			<li class="state"><a class="inner">지역·상권별 현황</a></li> -->
 			<li class="step"><a onclick="location.href='guide.jsp'" class="inner">이용안내</a></li>
 		</div>
 		<div id="thrd">
@@ -53,8 +53,8 @@
 				<img style="padding: 0px 8px;" src="./img/log.svg">
 			    <a onclick="location.href='login.jsp'" style="cursor:pointer;">로그인</a>
 		    </div>
-		    <img src="./img/chat.svg">
-		    <a href="#" class="chatbot" ></a>
+		    <!-- <img src="./img/chat.svg">
+		    <a href="#" class="chatbot" ></a> -->
 		</div>
 		
 	</div>

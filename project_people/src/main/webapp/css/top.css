@@ -1,17 +1,30 @@
 @charset "UTF-8";
 #sideMenu {
     position: absolute;
-    left: 20px;
-    top: 0px;
+    margin-left: 20px;
     z-index: 60;
-    width: 330px;
-    margin-top:	138px;
-    
+    width: 375px;
 }
 .me{
-	width: 365px;
-	position: absolute;
-	margin-top: -66px;
+    height: 30px;
+	width: 275px;
+    position: absolute;
+    padding: 0 20px 24px;
+	border-radius: 5px;
+    background: #fff;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
+    display:block;
+}
+.noneSize h3{
+	color: #0676dd;
+    font-size: 20px;
+    font-weight: 700;
+    padding: 10px 15px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+.you{
+	display:none;
 }
 .wrap_box h3{
 	color: #0676dd;
@@ -30,6 +43,12 @@
 }
 .tab_common{
 	display: flex;
+}
+.leftDisplay{
+	display:block;
+}
+.leftDisplayNone{
+	display:none;
 }
 .searchSigunList{
 	display: flex;
@@ -85,15 +104,11 @@ select{
     border-radius: 5px;
 }  */
 .bigToggle {
-	position: absolute;
-    top: 120px;
-    right: -40px;
-    z-index: 10;
+	float: right;
     width: 50px;
     height: 50px;
     border-radius: 5px;
     background: #fff;
-    border: 2px solid black;
     border: none;
 }
 .wrap_box{
@@ -101,16 +116,29 @@ select{
 	border-radius: 5px;
     background: #fff;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
-    margin-top: 10px;
+    width: 275px;
 }
 .wrap_box2{
+	width:315px;
 	padding: 10px 0px 0px 0px;
-    height: 120px;
+    height: 75px;
 	border-radius: 5px;
     background: #fff;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
     margin-top: 10px;
     margin-bottom: 10px;
+}
+.noneSize{
+	width:100%;
+    margin-top: 50px;
+    display:block;
+}
+.noneSizeDisplay{
+	display:none;
+}
+
+.tabcnt{
+	width:315px;
 }
 .village2{
 	display: flex;
@@ -128,6 +156,7 @@ select{
 	background-color: #f9f9f9;
 	border: none;
 	font-weight: 800;
+	user-select: none;
 }
 .fewCondition{
 	margin-top: 30px;
@@ -139,7 +168,6 @@ select{
     background: #fff;
     font-size: 14px;
     font-weight: 500;
-    cursor: pointer;
 }
 .topP{
 	font-size: 12px;
@@ -152,27 +180,89 @@ select{
 }
 .standard{
 	font-size: 12px;
-	margin-left: 160px;
+    text-align: center;
+    align-content: center;
 	color: grey;
+}
+.relative2{
+	display: flex;
+    justify-content: space-evenly;
 }
 hr{
 	width: 90%;
+	margin:0;
 }
+#rankBox{
+	margin-left: 10px;
+}
+#rankTop10{
+	background-color: #fff;
+	border-radius: 5px;
+	height: 500px;
+	user-select: none;
+}
+#rank{
+	text-align: center;
+    height: 34px;
+    display: flex;
+    align-items: anchor-center;
+    cursor: pointer;
+}
+.store>button{
+	border-radius: 10px;
+}
+.sales>button{
+	border-radius: 10px;
+}
+.floating>button{
+	border-radius: 10px;
+}
+.living>button{
+	border-radius: 10px;
+}
+
+#shopRank.activation{
+	background-color: #007bff;
+    color: white;
+}
+
+#payRank.activation{
+	background-color: #007bff;
+    color: white;
+}
+
+#moveRank.activation{
+	background-color: #007bff;
+    color: white;
+}
+
+#liveRank.activation{
+	background-color: #007bff;
+    color: white;
+}
+
+.activation>img{
+	filter: brightness(0) invert(1);
+}
+
 .num{
 	font-size: 14px;
     margin-left: 10px;
     margin-right: 10px;
     vertical-align: middle;
+    width: 15%;
 }
 .subject{
 	font-size: 14px;
     vertical-align: middle;
+    width: 35%;
 }
 .value{
 	padding-right: 10px;
     font-weight: 600;
     text-align: right;
-    padding-left: 60px;
+    padding-left: 30px;
+    width: 100%;
 }
 .inde{
 	color: #e02171;

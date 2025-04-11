@@ -11,7 +11,7 @@ public class bestDAO extends DBManager {
 		DBConnect();
 		
 		String sql = "select service_code, service_code_name, similar_store ";
-		sql += "from df_seoul_store_sales_final ";
+		sql += "from df_seoul_test ";
 		sql += "where Gu_code = '" + code + "' and year_code ='20244' ";
 		sql += "order by store desc limit 1";
 		
@@ -42,7 +42,7 @@ public class bestDAO extends DBManager {
 		DBConnect();
 		
 		String sql = "select service_code, service_code_name, open_store ";
-		sql += "from df_seoul_store_sales_final ";
+		sql += "from df_seoul_test ";
 		sql += "where Gu_code = '" + code + "' and year_code ='20244' ";
 		sql += "order by open_store desc limit 1";
 		
@@ -73,7 +73,7 @@ public class bestDAO extends DBManager {
 		DBConnect();
 		
 		String sql = "select service_code, service_code_name, close_store ";
-		sql += "from df_seoul_store_sales_final ";
+		sql += "from df_seoul_test ";
 		sql += "where Gu_code = '" + code + "' and year_code ='20244' ";
 		sql += "order by close_store desc limit 1";
 		
@@ -104,7 +104,7 @@ public class bestDAO extends DBManager {
 		DBConnect();
 		
 		String sql = "select service_code, service_code_name, Franchise_store ";
-		sql += "from df_seoul_store_sales_final ";
+		sql += "from df_seoul_test ";
 		sql += "where Gu_code = '" + code + "' and year_code ='20244' ";
 		sql += "order by Franchise_store desc limit 1";
 		

@@ -18,7 +18,7 @@ public class storeReportDAO extends DBManager {
 		DBConnect();
 		
 		String sql = "select year_code, sum(similar_store) as similar_store, sum(store) as store, sum(Franchise_store) as Franchise_store ";
-		sql += "from df_seoul_store_sales_final ";
+		sql += "from df_seoul_test ";
 		sql += "where Gu_code = '" + code + "' and year_code > 20233 group by year_code, Gu_code";
 		
 		executeQuery(sql);
@@ -77,7 +77,7 @@ public class storeReportDAO extends DBManager {
 		DBConnect();
 		
 		String sql = "select year_code, sum(`open_store`) as `open_store` ";
-		sql += "from df_seoul_store_sales_final where Gu_code = '" + code + "' and year_code > 20233 group by year_code";
+		sql += "from df_seoul_test where Gu_code = '" + code + "' and year_code > 20233 group by year_code";
 		
 		executeQuery(sql);
 		
@@ -104,7 +104,7 @@ public class storeReportDAO extends DBManager {
 		DBConnect();
 		
 		String sql = "select year_code, sum(`close_store`)  as `close_store` ";
-		sql += "from df_seoul_store_sales_final where Gu_code = '" + code + "' and year_code > 20233 group by year_code";
+		sql += "from df_seoul_test where Gu_code = '" + code + "' and year_code > 20233 group by year_code";
 		
 		executeQuery(sql);
 		
@@ -131,7 +131,7 @@ public class storeReportDAO extends DBManager {
 		DBConnect();
 		
 		String sql = "select left(service_code, 3) as code, sum(similar_store) as store ";
-		sql += "from df_seoul_store_sales_final where Gu_code = '" + code + "' and year_code = '20244' group by code";
+		sql += "from df_seoul_test where Gu_code = '" + code + "' and year_code = '20244' group by code";
 		
 		executeQuery(sql);
 		
@@ -158,7 +158,7 @@ public class storeReportDAO extends DBManager {
 		DBConnect();
 		
 		String sql = "select year_code, left(service_code, 3) as code, sum(similar_store) as store ";
-		sql += "from df_seoul_store_sales_final where Gu_code = '" + code + "' and year_code > 20233 group by code, year_code";
+		sql += "from df_seoul_test where Gu_code = '" + code + "' and year_code > 20233 group by code, year_code";
 		
 		executeQuery(sql);
 		
@@ -185,8 +185,8 @@ public class storeReportDAO extends DBManager {
 		driverLoad();
 		DBConnect();
 		
-		String sql = "select sum(similar_store)gu, (select sum(similar_store) from df_seoul_store_sales_final where year_code = 20244) as si ";
-		sql += "from df_seoul_store_sales_final where Gu_code = '" + code + "' and year_code = '20244'";
+		String sql = "select sum(similar_store)gu, (select sum(similar_store) from df_seoul_test where year_code = 20244) as si ";
+		sql += "from df_seoul_test where Gu_code = '" + code + "' and year_code = '20244'";
 		
 		executeQuery(sql);
 		if(next()) {

@@ -13,12 +13,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
-<script src="./js/jquery-3.7.1.js"></script>
 <%
 String code = request.getParameter("selectSigun");
-if(code == null || code.isEmpty()){
-	code = "11110";
-}
 
 payReportDAO dao = new payReportDAO();
 storeReportDAO storeDao = new storeReportDAO();
@@ -30,7 +26,6 @@ ObjectMapper mapper = new ObjectMapper();
 
 //자치구 좌표 밀 이름 가져오기
 seoulAreaVO areaCode = areaDao.areaCode(code);
-
 
 
 //총 점포 수
@@ -162,10 +157,10 @@ shopSalesVO allStoreSiGu = storeDao.allStoreSiGu(code);
 shopSalesVO listvo = storeList.get(storeList.size() - 1);
 %>
 <link rel="stylesheet" href="./css/right.css"></link>
-<div class="rightB">
-	<button class="rightBtnRight" id="rBtn"><img src="./img/i_reduce.svg" style="transform: rotateY(180deg);"></button>
+<div class="rightB" id="rightAllBox">
+	<button class="rightBtn" id="rBtn"><img src="./img/i_reduce.svg"></button>
 </div>
-<div class="rightNone" id="rightview">
+<div class="right" id="rightview">
 	<div class="report">
 		<div class="repor">
 			<strong>분석리포트</strong>
@@ -176,19 +171,19 @@ shopSalesVO listvo = storeList.get(storeList.size() - 1);
 	<div class="tab">
 		<div class="tab_report">
 			<div>
-				<button class="active">간략보고서</button>
+				<button class="active" id="shortReport">간략보고서</button>
 			</div>
 			<div>
-				<button class="active">업종분석</button>
+				<button class="active" id="serviceReport">업종분석</button>
 			</div>
 			<div>
-				<button class="active">매출분석</button>
+				<button class="active" id="payReport">매출분석</button>
 			</div>
 			<div>
-				<button class="active">인구분석</button>
+				<button class="active" id="peopleReport">인구분석</button>
 			</div>
 			<div>
-				<button class="active">지역(배후지)분석</button>
+				<button class="active" id="LocalReport">지역(배후지)분석</button>
 			</div>
 		</div>
 		<div class="place">
@@ -211,9 +206,9 @@ shopSalesVO listvo = storeList.get(storeList.size() - 1);
 			<div class="container" style="position: relative; top: -4033px; left: 0px;" dir="ltr"></div>
 		</div>
 		<div class="choiceGu">
-				선택자치구는 
-				<strong id="selectArea"><%= areaCode.getGuArea() %></strong>
-				입니다. 
+				선택자치구 면적은 
+				<strong id="selectArea"><%= String.format("%,d", Long.parseLong(areaCode.getGuArea())) %></strong>
+				m<sup>2</sup>입니다. 
 		</div>
 		<div class="explain" id="explain">
 			<div class="warning" id="warning">
@@ -364,12 +359,62 @@ shopSalesVO listvo = storeList.get(storeList.size() - 1);
 			</div>
 			<div class="tabWrapLy">
 				<div class="reportDetail">
+					<h2 class="textTit01">예상 매출 1순위 업종</h2>
+					<div class="reportContentRow" id="ranking1">
+						<div class="reportContentCell">
+							<h3 class="reportTit02">외식업</h3>
+							<div class="reportComment">
+								<p id="CS1Rank1"></p>
+							</div>
+						</div>
+						<div class="reportContentCell">
+							<h3 class="reportTit02">서비스업</h3>
+							<div class="reportComment">
+								<p id="CS2Rank1" class="reportComment"></p>
+							</div>
+						</div>
+						<div class="reportContentCell">
+							<h3 class="reportTit02">소매업</h3>
+							<div class="reportComment">
+								<p id="CS3Rank1" class="reportComment"></p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="tabWrapLy">
+				<div class="reportDetail">
+					<h2 class="textTit01">예상 매출 2순위 업종</h2>
+					<div class="reportContentRow" id="ranking2">
+						<div class="reportContentCell">
+							<h3 class="reportTit02">외식업</h3>
+							<div class="reportComment">
+								<p id="CS1Rank2"></p>
+							</div>
+						</div>
+						<div class="reportContentCell">
+							<h3 class="reportTit02">서비스업</h3>
+							<div class="reportComment">
+								<p id="CS2Rank2" class="reportComment"></p>
+							</div>
+						</div>
+						<div class="reportContentCell">
+							<h3 class="reportTit02">소매업</h3>
+							<div class="reportComment">
+								<p id="CS3Rank2" class="reportComment"></p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="tabWrapLy">
+				<div class="reportDetail">
 					<h2 class="textTit01">Best 업종</h2>
 					<div class="reportContentRow">
 						<div class="reportContentCell">
 							<h3 class="reportTit02">점포수</h3>
 							<div class="reportComment">
-								<p><%= bestStore.getServiceCodeName() %><br>(<%=bestStore.getSimilarStore() %>개)</p>
+								<p><%= bestStore.getServiceCodeName() %><br>(<%=String.format("%,d", Long.parseLong(bestStore.getSimilarStore())) %>개)</p>
 							</div>
 						</div>
 						<div class="reportContentCell">
@@ -457,7 +502,7 @@ shopSalesVO listvo = storeList.get(storeList.size() - 1);
 			</div>
 			<div class="common">
 			<div class="jumpoNo">
-				<div class="totalJumpoNo">점포수</div>
+				<div class="totalJumpoNo" id="jumpoNum">점포수</div>
 				<div>
 					<div class="list_reportItem">
 						<p class="summary" >점포수는 <a style="color: #e02171;" id="storeCount">32개</a>입니다.</p>
@@ -492,8 +537,8 @@ shopSalesVO listvo = storeList.get(storeList.size() - 1);
 									</div>
 								</div>
 								<div class="chart">
-									<div class="si" id="mega"><%= allStoreSiGu.getSimilarStore() %></div>
-									<div class="gu" id="signgu"><%= allStoreSiGu.getStore() %></div>
+									<div class="si" id="mega"><%= String.format("%,d", Long.parseLong(allStoreSiGu.getSimilarStore())) %>명</div>
+									<div class="gu" id="signgu"><%= String.format("%,d", Long.parseLong(allStoreSiGu.getStore())) %>명</div>
 								</div>
 							</div>
 						</div>
@@ -1011,9 +1056,11 @@ $("#rBtn").click(function(){
 	if(report == "right"){
 		$("#rightview").attr('class', "rightNone")
 		$("#rBtn").attr('class', "rightBtnRight").html('<img src="./img/i_reduce.svg" style="transform: rotateY(180deg);">')
+		$("#rightAllBox").attr('class', "rightA")
 	}else if(report == "rightNone"){
 		$("#rightview").attr('class', "right")
 		$("#rBtn").attr('class', "rightBtn").html('<img src="./img/i_reduce.svg">')
+		$("#rightAllBox").attr('class', "rightB")
 	}else{
 		alert("오류발생")
 	}
@@ -1024,7 +1071,15 @@ $("#closeBtn").click(function(){
 	$("#rBtn").css('display', "none")
 });
 
+$("#shortReport").click(function(){
+	$(".scroll_y").scrollTop(0);
+});
 
+$("#serviceReport").click(function() {
+    $('.scroll_y').animate({
+        scrollTop: $("#jumpoNum").offset().top
+    }, 2000);
+});
 
 /* 점포수 */
 let storeListJson = <%= storeListString %>;
@@ -1061,6 +1116,8 @@ let mainLocalJson = <%= mainLocalString %>
 let allIncomeJson = <%= allIncomeString %>
 
 
+/* 구코드 */
+const guCode = "<%= code %>"
 
 </script>
 <script>
@@ -1070,9 +1127,9 @@ lastYearStore = storeListJson[0]["similarStore"]
 lastHalfStore = storeListJson[3]["similarStore"]
 nowYearStore = storeListJson[4]["similarStore"]
 
-$("#storeYear").text(parseInt(nowYearStore -lastYearStore ) + "개 ");
-$("#storeNow").text(parseInt(nowYearStore - 0) + "개 ");
-$("#storeHalf").text(parseInt(nowYearStore - lastHalfStore) + "개 ");
+$("#storeYear").text(Math.abs(parseInt(nowYearStore - lastHalfStore)) + "개 ");
+$("#storeNow").text(Number(parseInt(nowYearStore - 0)).toLocaleString() + "개 ");
+$("#storeHalf").text(Math.abs(parseInt(nowYearStore - lastHalfStore)) + "개 ");
 
 //종합의견 업종전체 전분기대비 증개 or 감소
 if(parseInt(nowYearStore - lastHalfStore) > 0){
@@ -1105,7 +1162,7 @@ if(parseInt(nowYearStore -lastYearStore) > 0){
 }
 
 //점포수 올해 개수
-$("#storeCount").text(parseInt(nowYearStore - 0) + "개 ");
+$("#storeCount").text(Number(parseInt(nowYearStore - 0)).toLocaleString() + "개 ");
 
 
 
@@ -1184,9 +1241,9 @@ $("#openCount").text(openStorenowYear + "개 ");
 
 
 //폐업 현황
-lastYearCloseStore = storeOpenListJson[0]["openStore"]
-lastHalfCloseStore = storeOpenListJson[3]["openStore"]
-nowYearCloseStore = storeOpenListJson[4]["openStore"]
+lastYearCloseStore = storeCloseListJson[0]["closeStore"]
+lastHalfCloseStore = storeCloseListJson[3]["closeStore"]
+nowYearCloseStore = storeCloseListJson[4]["closeStore"]
 
 closeStoreLastYear = parseInt(nowYearCloseStore - lastYearCloseStore)
 closeStorenowYear = parseInt(nowYearCloseStore - 0)
@@ -1225,13 +1282,13 @@ lastYearPay = storeMeanPayJson[0]["monthSalesPay"]
 lastHalfPay = storeMeanPayJson[3]["monthSalesPay"]
 nowYearPay = storeMeanPayJson[4]["monthSalesPay"]
 
-$("#storeNowPay").text(parseInt(nowYearPay / 10000) + "만원 ");
-$("#storeHalfPay").text(parseInt((nowYearPay - lastHalfPay) / 10000) + "만원 ");
-$("#storeYearPay").text(parseInt((nowYearPay -lastYearPay ) / 10000) + "만원 ");
+$("#storeNowPay").text(Number(parseInt(nowYearPay / 10000)).toLocaleString() + "만원 ");
+$("#storeHalfPay").text(Number(Math.abs(parseInt((nowYearPay - lastHalfPay) / 10000))).toLocaleString() + "만원 ");
+$("#storeYearPay").text(Number(Math.abs(parseInt((nowYearPay -lastYearPay ) / 10000))).toLocaleString() + "만원 ");
 
 if(parseInt((nowYearPay - lastHalfPay) / 10000) > 0){
 	//증가
-	$("#monthPayQuarter").html('<img src="./img/i_increase.svg" style="width: 13px;">'+Math.abs(parseInt((nowYearPay - lastHalfPay) / 10000))+'만원 </strong>').attr('class', 'increase');
+	$("#monthPayQuarter").html('<img src="./img/i_increase.svg" style="width: 13px;">'+Number(Math.abs(parseInt((nowYearPay - lastHalfPay) / 10000))).toLocaleString()+'만원 </strong>').attr('class', 'increase');
 }else if(parseInt((nowYearPay - lastHalfPay) / 10000) == 0){
 	//동일
 	$("#monthPayQuarter").text(Math.abs(parseInt((nowYearPay - lastHalfPay) / 10000)) + "만원 ").attr('class', 'same');
@@ -1258,7 +1315,7 @@ if(parseInt((nowYearPay -lastYearPay ) / 10000) > 0){
 	$("#monthPayYear").html('<img src="./img/i_decrease.svg" style="width: 13px;">'+Math.abs(parseInt((nowYearPay -lastYearPay ) / 10000))+'만원 </strong>').attr('class', 'decrease');
 }
 
-$("#monthPayCount").text(parseInt(nowYearPay / 10000) + "만원 ");
+$("#monthPayCount").text(Number(parseInt(nowYearPay / 10000)).toLocaleString() + "만원 ");
 
 
 
@@ -1295,7 +1352,7 @@ if(monthNumLastYear > 0){
 }
 
 //월평균 매출건수 올해 개수
-$("#monthNumCount").text(monthNumnowYear + "개 ");
+$("#monthNumCount").text(Number(monthNumnowYear).toLocaleString() + "개 ");
 
 
 
@@ -1304,41 +1361,41 @@ lastYearMove = allMoveJson[0]["allMovePeople"]
 lasthalfMove = allMoveJson[3]["allMovePeople"]
 nowYearMove = allMoveJson[4]["allMovePeople"]
 
-$("#storeNowMove").text(parseInt(nowYearMove - 0) + "명");
-$("#storehalfMove").text(parseInt(nowYearMove - lasthalfMove) + "명 ");
-$("#storeYearMove").text(parseInt(nowYearMove -lastYearMove ) + "명 ");
+$("#storeNowMove").text(Number(parseInt(nowYearMove - 0)).toLocaleString() + "명");
+$("#storehalfMove").text(Number(Math.abs(parseInt(nowYearMove - lasthalfMove))).toLocaleString() + "명 ");
+$("#storeYearMove").text(Number(Math.abs(parseInt(nowYearMove -lastYearMove ))).toLocaleString() + "명 ");
 
 //종합의견 유동인구 전년 동분기 증개 or 감소
 if(parseInt(nowYearMove -lastYearMove) > 0){
 	//증가
 	$("#totalReport > div:nth-child(3) > strong:nth-child(2)").attr("class", "increaseStore").text("증가")
 	$("#totalReport > div:nth-child(3) > strong:nth-child(1)").attr("class", "increaseStore")
-	$("#allMoveYear").html('<img src="./img/i_increase.svg" style="width: 13px;">'+Math.abs(parseInt(nowYearMove -lastYearMove ))+'명 </strong>').attr('class', 'increase');
+	$("#allMoveYear").html('<img src="./img/i_increase.svg" style="width: 13px;">'+ Number(Math.abs(parseInt(nowYearMove -lastYearMove ))).toLocaleString() +'명 </strong>').attr('class', 'increase');
 }else if(parseInt(nowYearMove -lastYearMove) == 0){
 	//동일
 	$("#totalReport > div:nth-child(3) > strong:nth-child(2)").attr("class", "sameStore").text("유지")
 	$("#totalReport > div:nth-child(3) > strong:nth-child(1)").attr("class", "sameStore")
-	$("#allMoveYear").text(Math.abs(parseInt(nowYearMove -lastYearMove )) + "명 ").attr('class', 'same');
+	$("#allMoveYear").text(Number(Math.abs(parseInt(nowYearMove -lastYearMove ))).toLocaleString() + "명 ").attr('class', 'same');
 }else{
 	//감소
 	$("#totalReport > div:nth-child(3) > strong:nth-child(2)").attr("class", "decreaseStore").text("감소")
 	$("#totalReport > div:nth-child(3) > strong:nth-child(1)").attr("class", "decreaseStore")
-	$("#allMoveYear").html('<img src="./img/i_decrease.svg" style="width: 13px;">'+Math.abs(parseInt(nowYearMove -lastYearMove ))+'명 </strong>').attr('class', 'decrease');
+	$("#allMoveYear").html('<img src="./img/i_decrease.svg" style="width: 13px;">'+ Number(Math.abs(parseInt(nowYearMove -lastYearMove ))).toLocaleString() +'명 </strong>').attr('class', 'decrease');
 }
 
 if(parseInt(nowYearMove - lasthalfMove) > 0){
 	//증가
-	$("#allMoveQuarter").html('<img src="./img/i_increase.svg" style="width: 13px;">'+Math.abs(parseInt(nowYearMove - lasthalfMove))+'명 </strong>').attr('class', 'increase');
+	$("#allMoveQuarter").html('<img src="./img/i_increase.svg" style="width: 13px;">'+ Number(Math.abs(parseInt(nowYearMove - lasthalfMove))).toLocaleString() +'명 </strong>').attr('class', 'increase');
 }else if(parseInt(nowYearMove - lasthalfMove) == 0){
 	//동일
-	$("#allMoveQuarter").text(Math.abs(parseInt(nowYearMove - lasthalfMove)) + "명 ").attr('class', 'same');
+	$("#allMoveQuarter").text( Number(Math.abs(parseInt(nowYearMove - lasthalfMove))).toLocaleString()  + "명 ").attr('class', 'same');
 }else{
 	//감소
-	$("#allMoveQuarter").html('<img src="./img/i_decrease.svg" style="width: 13px;">'+Math.abs(parseInt(nowYearMove - lasthalfMove))+'명 </strong>').attr('class', 'decrease');
+	$("#allMoveQuarter").html('<img src="./img/i_decrease.svg" style="width: 13px;">'+ Number(Math.abs(parseInt(nowYearMove - lasthalfMove))).toLocaleString() +'명 </strong>').attr('class', 'decrease');
 }
 
 
-$("#allMoveCount").text(parseInt(nowYearMove - 0) + "명 ");
+$("#allMoveCount").text(Number(parseInt(nowYearMove - 0)).toLocaleString() + "명 ");
 
 
 
@@ -1353,29 +1410,29 @@ AllLiveLastQuarter = parseInt(nowYearAllLive - lastHalfAllLive)
 
 if(AllLiveLastQuarter > 0){
 	//증가
-	$("#allLiveQuarter").html('<img src="./img/i_increase.svg" style="width: 13px;">'+Math.abs(AllLiveLastQuarter)+'명 </strong>').attr('class', 'increase');
+	$("#allLiveQuarter").html('<img src="./img/i_increase.svg" style="width: 13px;">'+ Number(Math.abs(AllLiveLastQuarter)).toLocaleString() +'명 </strong>').attr('class', 'increase');
 }else if(AllLiveLastQuarter == 0){
 	//동일
-	$("#allLiveQuarter").text(Math.abs(AllLiveLastQuarter) + "명 ").attr('class', 'same');
+	$("#allLiveQuarter").text(Number(Math.abs(AllLiveLastQuarter)).toLocaleString() + "명 ").attr('class', 'same');
 }else{
 	//감소
-	$("#allLiveQuarter").html('<img src="./img/i_decrease.svg" style="width: 13px;">'+Math.abs(AllLiveLastQuarter)+'명 </strong>').attr('class', 'decrease');
+	$("#allLiveQuarter").html('<img src="./img/i_decrease.svg" style="width: 13px;">'+ Number(Math.abs(AllLiveLastQuarter)).toLocaleString() +'명 </strong>').attr('class', 'decrease');
 }
 
 //거주인구 전년대비 증개 or 감소
 if(AllLiveLastYear > 0){
 	//증가
-	$("#allLiveYear").html('<img src="./img/i_increase.svg" style="width: 13px;">'+Math.abs(AllLiveLastYear)+'명 </strong>').attr('class', 'increase');
+	$("#allLiveYear").html('<img src="./img/i_increase.svg" style="width: 13px;">'+ Number(Math.abs(AllLiveLastYear)).toLocaleString() +'명 </strong>').attr('class', 'increase');
 }else if(AllLiveLastYear == 0){
 	//동일
-	$("#allLiveYear").text(Math.abs(AllLiveLastYear) + "명 ").attr('class', 'same');
+	$("#allLiveYear").text(Number(Math.abs(AllLiveLastYear)).toLocaleString() + "명 ").attr('class', 'same');
 }else{
 	//감소
-	$("#allLiveYear").html('<img src="./img/i_decrease.svg" style="width: 13px;">'+Math.abs(AllLiveLastYear)+'명 </strong>').attr('class', 'decrease');
+	$("#allLiveYear").html('<img src="./img/i_decrease.svg" style="width: 13px;">'+ Number(Math.abs(AllLiveLastYear)).toLocaleString() +'명 </strong>').attr('class', 'decrease');
 }
 
 //자치구 올해 거주인구
-$("#allLiveCount").text(AllLivenowYear + "명 ");
+$("#allLiveCount").text(Number(AllLivenowYear).toLocaleString() + "명 ");
 
 
 
@@ -1390,29 +1447,29 @@ AllCompanyLastQuarter = parseInt(nowYearAllCompany - lastHalfAllCompany)
 
 if(AllCompanyLastQuarter > 0){
 	//증가
-	$("#allCompanyQuarter").html('<img src="./img/i_increase.svg" style="width: 13px;">'+Math.abs(AllCompanyLastQuarter)+'명 </strong>').attr('class', 'increase');
+	$("#allCompanyQuarter").html('<img src="./img/i_increase.svg" style="width: 13px;">'+ Number(Math.abs(AllCompanyLastQuarter)).toLocaleString() +'명 </strong>').attr('class', 'increase');
 }else if(AllCompanyLastQuarter == 0){
 	//동일
-	$("#allCompanyQuarter").text(Math.abs(AllCompanyLastQuarter) + "명 ").attr('class', 'same');
+	$("#allCompanyQuarter").text(Number(Math.abs(AllCompanyLastQuarter)).toLocaleString() + "명 ").attr('class', 'same');
 }else{
 	//감소
-	$("#allCompanyQuarter").html('<img src="./img/i_decrease.svg" style="width: 13px;">'+Math.abs(AllCompanyLastQuarter)+'명 </strong>').attr('class', 'decrease');
+	$("#allCompanyQuarter").html('<img src="./img/i_decrease.svg" style="width: 13px;">'+ Number(Math.abs(AllCompanyLastQuarter)).toLocaleString() +'명 </strong>').attr('class', 'decrease');
 }
 
 //거주인구 전년대비 증개 or 감소
 if(AllCompanyLastYear > 0){
 	//증가
-	$("#allCompanyYear").html('<img src="./img/i_increase.svg" style="width: 13px;">'+Math.abs(AllCompanyLastYear)+'명 </strong>').attr('class', 'increase');
+	$("#allCompanyYear").html('<img src="./img/i_increase.svg" style="width: 13px;">'+ Number(Math.abs(AllCompanyLastYear)).toLocaleString() +'명 </strong>').attr('class', 'increase');
 }else if(AllLiveLastYear == 0){
 	//동일
-	$("#allCompanyYear").text(Math.abs(AllCompanyLastYear) + "명 ").attr('class', 'same');
+	$("#allCompanyYear").text(Number(Math.abs(AllCompanyLastYear)).toLocaleString() + "명 ").attr('class', 'same');
 }else{
 	//감소
-	$("#allCompanyYear").html('<img src="./img/i_decrease.svg" style="width: 13px;">'+Math.abs(AllCompanyLastYear)+'명 </strong>').attr('class', 'decrease');
+	$("#allCompanyYear").html('<img src="./img/i_decrease.svg" style="width: 13px;">'+ Number(Math.abs(AllCompanyLastYear)).toLocaleString() +'명 </strong>').attr('class', 'decrease');
 }
 
 //자치구 올해 직장인 수
-$("#allCompanyCount").text(AllCompanynowYear + "명 ");
+$("#allCompanyCount").text(Number(AllCompanynowYear).toLocaleString() + "명 ");
 
 
 
@@ -1427,29 +1484,29 @@ AllFamilyLastQuarter = parseInt(nowYearAllFamily - lastHalfAllFamily)
 
 if(AllFamilyLastQuarter > 0){
 	//증가
-	$("#allFamilyQuarter").html('<img src="./img/i_increase.svg" style="width: 13px;">'+Math.abs(AllFamilyLastQuarter)+'가구 </strong>').attr('class', 'increase');
+	$("#allFamilyQuarter").html('<img src="./img/i_increase.svg" style="width: 13px;">'+ Number(Math.abs(AllFamilyLastQuarter)).toLocaleString() +'가구 </strong>').attr('class', 'increase');
 }else if(AllFamilyLastQuarter == 0){
 	//동일
-	$("#allFamilyQuarter").text(Math.abs(AllFamilyLastQuarter) + "가구 ").attr('class', 'same');
+	$("#allFamilyQuarter").text(Number(Math.abs(AllFamilyLastQuarter)).toLocaleString() + "가구 ").attr('class', 'same');
 }else{
 	//감소
-	$("#allFamilyQuarter").html('<img src="./img/i_decrease.svg" style="width: 13px;">'+Math.abs(AllFamilyLastQuarter)+'가구 </strong>').attr('class', 'decrease');
+	$("#allFamilyQuarter").html('<img src="./img/i_decrease.svg" style="width: 13px;">'+ Number(Math.abs(AllFamilyLastQuarter)).toLocaleString() +'가구 </strong>').attr('class', 'decrease');
 }
 
 //거주인구 전년대비 증개 or 감소
 if(AllFamilyLastYear > 0){
 	//증가
-	$("#allFamilyYear").html('<img src="./img/i_increase.svg" style="width: 13px;">'+Math.abs(AllFamilyLastYear)+'가구 </strong>').attr('class', 'increase');
+	$("#allFamilyYear").html('<img src="./img/i_increase.svg" style="width: 13px;">'+ Number(Math.abs(AllFamilyLastYear)).toLocaleString() +'가구 </strong>').attr('class', 'increase');
 }else if(AllFamilyLastYear == 0){
 	//동일
-	$("#allFamilyYear").text(Math.abs(AllFamilyLastYear) + "가구 ").attr('class', 'same');
+	$("#allFamilyYear").text(Number(Math.abs(AllFamilyLastYear)).toLocaleString() + "가구 ").attr('class', 'same');
 }else{
 	//감소
-	$("#allFamilyYear").html('<img src="./img/i_decrease.svg" style="width: 13px;">'+Math.abs(AllFamilyLastYear)+'가구 </strong>').attr('class', 'decrease');
+	$("#allFamilyYear").html('<img src="./img/i_decrease.svg" style="width: 13px;">'+ Number(Math.abs(AllFamilyLastYear)).toLocaleString() +'가구 </strong>').attr('class', 'decrease');
 }
 
 //자치구 올해 직장인 수
-$("#allFamilyCount").text(AllFamilynowYear + "가구 ");
+$("#allFamilyCount").text(Number(AllFamilynowYear).toLocaleString() + "가구 ");
 
 
 
@@ -1486,7 +1543,7 @@ if(AllLocalLastYear > 0){
 }
 
 //자치구 집객 시설 수
-$("#localCount").text(AllLocalnowYear + "개 ");
+$("#localCount").text(Number(AllLocalnowYear).toLocaleString() + "개 ");
 
 
 
@@ -1523,7 +1580,7 @@ if(AllIncomelLastYear > 0){
 }
 
 //자치구 올해 소득분위
-$("#allIncomeCount").text(AllIncomenowYear + "분위 ");
+$("#allIncomeCount").text(Number(AllIncomenowYear).toLocaleString() + "분위 ");
 
 
 
@@ -1570,6 +1627,10 @@ if(jachiScore >= 2){
 <script src="./js/best.js"></script>
 <script>
 
+function strToLocationNumber(data){
+	return Number(parseInt(data)).toLocaleString()
+}
+
 //레포트 값 꺼내기
 //매출
 age_pay_value = getAgeBestPay(agePayJson).age
@@ -1610,10 +1671,10 @@ $("#service").text(service_pay_value)
 document.getElementById("age_move").innerText = age_move_value
 document.getElementById("gender_move").innerText = gender_move_value
 $("#genderAgeMoveCount").text(gender_move_value + ", " + age_move_value)
-document.getElementById("day_move").innerText = week_pay_value
-$("#weekMoveCount").text(week_pay_value)
-document.getElementById("time_move").innerText = time_pay_value
-$("#timeMoveCount").text(time_pay_value)
+document.getElementById("day_move").innerText = week_move_value
+$("#weekMoveCount").text(week_move_value)
+document.getElementById("time_move").innerText = time_move_value
+$("#timeMoveCount").text(time_move_value)
 
 $("#genderAgeLiveCount").text(gender_live_value + ", " + age_live_value)
 
@@ -1621,7 +1682,30 @@ $("#genderAgeCompanyCount").text(gender_company_value + ", " + age_company_value
 
 $("#mainLocalCount").text(all_local_value)
 
-$("#selectSigun").change(function(e){
-	$("#selectGu").submit();
-})
+
+if(guCode){
+	$.ajax({
+		url : "http://192.168.0.60:5000/model",
+		type : "get",
+		data : {
+			code : guCode
+		},
+		success : function(data){
+			let expectation = JSON.parse(data).result
+		
+    		$("#CS1Rank1").html(expectation[0].service_code + "<br>(" + strToLocationNumber(expectation[0].pred_shop_pay / 10000) + "만원)")
+			$("#CS1Rank2").html(expectation[1].service_code + "<br>(" + strToLocationNumber(expectation[1].pred_shop_pay / 10000) + "만원)")
+			$("#CS2Rank1").html(expectation[2].service_code + "<br>(" + strToLocationNumber(expectation[2].pred_shop_pay / 10000) + "만원)")
+			$("#CS2Rank2").html(expectation[3].service_code + "<br>(" + strToLocationNumber(expectation[3].pred_shop_pay / 10000) + "만원)")
+			$("#CS3Rank1").html(expectation[4].service_code + "<br>(" + strToLocationNumber(expectation[4].pred_shop_pay / 10000) + "만원)")
+			$("#CS3Rank2").html(expectation[5].service_code + "<br>(" + strToLocationNumber(expectation[5].pred_shop_pay / 10000) + "만원)")
+			
+		},
+		error : function(a){
+			System.out.println(a);
+		}
+		
+	})	
+}
+
 </script>

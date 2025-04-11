@@ -120,7 +120,7 @@ ul{
 	
 }
 #second {
-	text-align: center;
+	text-align: left;
     width: 100%;
     padding: 0px;
     display: inline-block;
@@ -128,12 +128,11 @@ ul{
     align-content: center;
 }
 #icon {
-	width:30%;
+	width:40%;
 	margin-left: 70px;
 	align-content: center;
 }
 #thrd {
-	margin-right: 10%;
     height: 100%;
     display: flex;
     width: 25%;

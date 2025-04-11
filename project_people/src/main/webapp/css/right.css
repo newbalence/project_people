@@ -1,36 +1,53 @@
 @charset "UTF-8";
 
-.rightB{
-	height:85vh;
+.rightA{
     position: absolute;
     z-index: 65;
+    right: 0;
+    align-content: center;
+    top: 50%;
+    transform: translate(0, -50%);
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.rightB{
+	position: absolute;
+    z-index: 65;
+    align-content: center;
+    top: 50%;
+    transform: translate(0, -50%);
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 .rightBtnRight{
-	display: block;
-    position: absolute;
-    align-self: anchor-center;
-    width: 60px;
+   	width: 62px;
     height: 100px;
     background-color: #fff;
     border: 0px;
     border-radius: 5px;
-    right: -850px;
+    float: right;
 }
 .rightBtn{
 	display: block;
-    position: absolute;
-    align-self: anchor-center;
     width: 60px;
     height: 100px;
     background-color: #fff;
     border: 0px;
     border-radius: 5px;
-    right: 100px;
 }
 .rightNone{
 	display:none;
+	z-index: -1;
 }
 .right{
+	-webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 	width: 50%;
 	right: 0;
     min-width: 850px;
@@ -56,11 +73,17 @@
 	margin-top: 4px;
 }
 .tab_report{
+	display: flex;
+	height: 50px;
 	border-bottom: 2px solid grey;
 }
 div > strong{
 	font-size: 24px;
     color: #0676dd;
+}
+.repor > strong{
+	font-size: 24px;
+    color: #fff;
 }
 .Btn{
 	float: right;
@@ -70,15 +93,10 @@ div > strong{
 }
 .tab{
 	height: 100px;
-    padding: 0 20px;
     background: #fff;
     font-size: 0;
     width: 100%;
     align-items: center;
-}
-.tab_report{
-	display: flex;
-	height: 50px;
 }
 .active{
 	font-size: 19px;
@@ -110,7 +128,7 @@ div > strong{
 	margin-left: 10px;
 }
 .explain{
-	height: 330px;
+	height: 250px;
     justify-items: center;
     background: #fff;
     width: 100%;
@@ -127,12 +145,12 @@ div > strong{
 .warning{
     border-radius: 5px;
     background: #f9f9f9;
-    width: 755px;
+    width: 910px;
 }
 .choiceGu{
     background: #fff;
     text-align: left;
-    padding-left: 40px;
+    padding-left: 15px;
 }
 #selectArea{
 	
@@ -169,7 +187,7 @@ div > strong{
 .totalReport{
 	place-self: center;
     text-align: left;
-	width: 710px;
+	width: 865px;
 	padding: 20px;
     border: 1px solid #ddd;
     border-radius: 5px;
@@ -184,7 +202,7 @@ div > strong{
     background: #ffffff;
     border: 1px solid #ddd;
     box-sizing: border-box;
-    width: 250px;
+    width: 300px;
     display: inline-block;
     margin-top: 0px;
 }
@@ -262,7 +280,7 @@ div > strong{
 	margin-top: 15px;
 }
 .reportContentCell{
-	width: 187px;
+	width: 220px;
     padding: 20px;
     border-radius: 5px;
     background: #ffffff;
@@ -304,7 +322,7 @@ div > strong{
 }
 .contRast{
 	justify-self: center;
-    width: 770px;
+    width: 910px;
 	margin-bottom: 8px;
     border: 1px solid #ddd;
     border-radius: 5px;
@@ -313,7 +331,7 @@ div > strong{
 }
 .datail{
 	justify-self: center;
-    width: 770px;
+    width: 910px;
 	margin-bottom: 8px;
     border: 1px solid #ddd;
     border-radius: 10px;
@@ -509,7 +527,7 @@ graph {
     border-radius: 10px;
     text-align: left;
     display: block;
-    width: 770px;
+    width: 910px;
     place-self: center;
 }
 .half{
