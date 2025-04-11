@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
+		    
 <!DOCTYPE html>
 <html>
 <head>
@@ -53,8 +55,8 @@
 				<img style="padding: 0px 8px;" src="./img/log.svg">
 			    <a onclick="location.href='login.jsp'" style="cursor:pointer;">로그인</a>
 		    </div>
-		    <img src="./img/chat.svg">
-		    <a href="#" class="chatbot" ></a>
+		    <button type="button" id="chat" onclick="location.href='chatbot.jsp'" style="cursor:pointer; border:none;"><img src="./img/chat.svg"></button>
+		    <!-- <a onclick="location.href='chat.jsp'" style="cursor:pointer;"></a> -->
 		</div>
 		
 	</div>
@@ -70,6 +72,10 @@ $("#type").click(function(){
 	}else{
 		alert("오류발생")
 	}
+});
+
+$("#chat").click(fuction(){
+	
 });
 </script>
 </html>
