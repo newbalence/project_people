@@ -117,7 +117,7 @@ String guLiveTenString = mapper2.writeValueAsString(guLiveTen);
 <!-- 					<div class="ranking_datalist"> -->
 						<div class="relative2">
 							<p class="chose">전체</p>
-							<p class="standard">2024년 4분기 기준 월평균</p>
+							<p class="standard">2024년 4분기 기준 분기평균</p>
 						</div>
 						<hr style="width:99.5%;">
 						<div id="rankBox">

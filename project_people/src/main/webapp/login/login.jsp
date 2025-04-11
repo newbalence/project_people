@@ -43,7 +43,7 @@
 <body>
 	<div class="container">
 	  <form onsubmit="return formCheck()" method="post" action="loginok.jsp">
-	  	<div class="back" onclick="location.href='test.jsp'">&larr;</div>
+	  	<div class="back" onclick="location.href='../ProjectMap.jsp'">&larr;</div>
 	  	<div class="tab">
 	  		<div class="tab dctive" id="personalTab">서울시 상권분석</div>
 	  	</div>
